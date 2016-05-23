@@ -230,21 +230,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><code>\w</code> - 匹配字母或数字或下划线或汉字（3.x版本可以匹配汉字，但2.x版本不可以）<br><code>\s</code> - 匹配任意的空白符<br><code>^</code> - 匹配字符串的开始<br><code>$</code> - 匹配字符串的结束</p>
-<p><code>\S</code>其实就是<code>\s</code>的反义，任意不是空白符的字符。同理，还有：</p>
-<p><code>\W</code> - 匹配任意不是字母，数字，下划线，汉字的字符<br><code>\D</code> - 匹配任意非数字的字符<br><code>\B</code> - 匹配不是单词开头或结束的位置</p>
-<p><code>[a]</code>的反义是<code>[^a]</code>，表示除a以外的任意字符。<code>[^abcd]</code>就是除abcd以外的任意字符。</p>
-<p><code>*</code>、<code>+</code>、<code>{}</code>用来表示字符的重复。其他重复的方式还有：</p>
-<p><code>?</code> - 重复零次或一次<br><code>{n,}</code> - 重复n次或更多次<br><code>{n,m}</code> - 重复n到m次</p>
-<p>正则表达式不只是用来从一大段文字中抓取信息，很多时候也被用来判断输入的文本是否符合规范，或进行分类。来点例子看看：<br><code>^\w{4,12}$</code><br>这个表示一段4到12位的字符，包括字母或数字或下划线或汉字，可以用来作为用户注册时检测用户名的规则。（但汉字在python2.x里面可能会有问题）</p>
-<p><code>\d{15,18}</code><br>表示15到18位的数字，可以用来检测身份证号码</p>
-<p><code>^1\d*x?</code><br>以1开头的一串数字，数字结尾有字母x，也可以没有。有的话就带上x。</p>
-<p>另外再说一下之前提到的转义字符<code>\</code>。如果我们确实要匹配<code>.</code>或者<code>*</code>字符本身，而不是要它们所代表的元字符，那就需要用<code>\.</code>或<code>\*</code>。<code>\</code>本身也需要用<code>\\</code>。<br>比如<code>&quot;\d+\.\d+&quot;</code>可以匹配出123.456这样的结果。</p>
-<p><code>\bs\S*?e\b</code>从下面一段文本中，匹配出所有s开头，e结尾的单词。</p>
+        <p><code>\w</code> - &#x5339;&#x914D;&#x5B57;&#x6BCD;&#x6216;&#x6570;&#x5B57;&#x6216;&#x4E0B;&#x5212;&#x7EBF;&#x6216;&#x6C49;&#x5B57;&#xFF08;3.x&#x7248;&#x672C;&#x53EF;&#x4EE5;&#x5339;&#x914D;&#x6C49;&#x5B57;&#xFF0C;&#x4F46;2.x&#x7248;&#x672C;&#x4E0D;&#x53EF;&#x4EE5;&#xFF09;<br><code>\s</code> - &#x5339;&#x914D;&#x4EFB;&#x610F;&#x7684;&#x7A7A;&#x767D;&#x7B26;<br><code>^</code> - &#x5339;&#x914D;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x5F00;&#x59CB;<br><code>$</code> - &#x5339;&#x914D;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x7ED3;&#x675F;</p>
+<p><code>\S</code>&#x5176;&#x5B9E;&#x5C31;&#x662F;<code>\s</code>&#x7684;&#x53CD;&#x4E49;&#xFF0C;&#x4EFB;&#x610F;&#x4E0D;&#x662F;&#x7A7A;&#x767D;&#x7B26;&#x7684;&#x5B57;&#x7B26;&#x3002;&#x540C;&#x7406;&#xFF0C;&#x8FD8;&#x6709;&#xFF1A;</p>
+<p><code>\W</code> - &#x5339;&#x914D;&#x4EFB;&#x610F;&#x4E0D;&#x662F;&#x5B57;&#x6BCD;&#xFF0C;&#x6570;&#x5B57;&#xFF0C;&#x4E0B;&#x5212;&#x7EBF;&#xFF0C;&#x6C49;&#x5B57;&#x7684;&#x5B57;&#x7B26;<br><code>\D</code> - &#x5339;&#x914D;&#x4EFB;&#x610F;&#x975E;&#x6570;&#x5B57;&#x7684;&#x5B57;&#x7B26;<br><code>\B</code> - &#x5339;&#x914D;&#x4E0D;&#x662F;&#x5355;&#x8BCD;&#x5F00;&#x5934;&#x6216;&#x7ED3;&#x675F;&#x7684;&#x4F4D;&#x7F6E;</p>
+<p><code>[a]</code>&#x7684;&#x53CD;&#x4E49;&#x662F;<code>[^a]</code>&#xFF0C;&#x8868;&#x793A;&#x9664;a&#x4EE5;&#x5916;&#x7684;&#x4EFB;&#x610F;&#x5B57;&#x7B26;&#x3002;<code>[^abcd]</code>&#x5C31;&#x662F;&#x9664;abcd&#x4EE5;&#x5916;&#x7684;&#x4EFB;&#x610F;&#x5B57;&#x7B26;&#x3002;</p>
+<p><code>*</code>&#x3001;<code>+</code>&#x3001;<code>{}</code>&#x7528;&#x6765;&#x8868;&#x793A;&#x5B57;&#x7B26;&#x7684;&#x91CD;&#x590D;&#x3002;&#x5176;&#x4ED6;&#x91CD;&#x590D;&#x7684;&#x65B9;&#x5F0F;&#x8FD8;&#x6709;&#xFF1A;</p>
+<p><code>?</code> - &#x91CD;&#x590D;&#x96F6;&#x6B21;&#x6216;&#x4E00;&#x6B21;<br><code>{n,}</code> - &#x91CD;&#x590D;n&#x6B21;&#x6216;&#x66F4;&#x591A;&#x6B21;<br><code>{n,m}</code> - &#x91CD;&#x590D;n&#x5230;m&#x6B21;</p>
+<p>&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x4E0D;&#x53EA;&#x662F;&#x7528;&#x6765;&#x4ECE;&#x4E00;&#x5927;&#x6BB5;&#x6587;&#x5B57;&#x4E2D;&#x6293;&#x53D6;&#x4FE1;&#x606F;&#xFF0C;&#x5F88;&#x591A;&#x65F6;&#x5019;&#x4E5F;&#x88AB;&#x7528;&#x6765;&#x5224;&#x65AD;&#x8F93;&#x5165;&#x7684;&#x6587;&#x672C;&#x662F;&#x5426;&#x7B26;&#x5408;&#x89C4;&#x8303;&#xFF0C;&#x6216;&#x8FDB;&#x884C;&#x5206;&#x7C7B;&#x3002;&#x6765;&#x70B9;&#x4F8B;&#x5B50;&#x770B;&#x770B;&#xFF1A;<br><code>^\w{4,12}$</code><br>&#x8FD9;&#x4E2A;&#x8868;&#x793A;&#x4E00;&#x6BB5;4&#x5230;12&#x4F4D;&#x7684;&#x5B57;&#x7B26;&#xFF0C;&#x5305;&#x62EC;&#x5B57;&#x6BCD;&#x6216;&#x6570;&#x5B57;&#x6216;&#x4E0B;&#x5212;&#x7EBF;&#x6216;&#x6C49;&#x5B57;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x4F5C;&#x4E3A;&#x7528;&#x6237;&#x6CE8;&#x518C;&#x65F6;&#x68C0;&#x6D4B;&#x7528;&#x6237;&#x540D;&#x7684;&#x89C4;&#x5219;&#x3002;&#xFF08;&#x4F46;&#x6C49;&#x5B57;&#x5728;python2.x&#x91CC;&#x9762;&#x53EF;&#x80FD;&#x4F1A;&#x6709;&#x95EE;&#x9898;&#xFF09;</p>
+<p><code>\d{15,18}</code><br>&#x8868;&#x793A;15&#x5230;18&#x4F4D;&#x7684;&#x6570;&#x5B57;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x68C0;&#x6D4B;&#x8EAB;&#x4EFD;&#x8BC1;&#x53F7;&#x7801;</p>
+<p><code>^1\d*x?</code><br>&#x4EE5;1&#x5F00;&#x5934;&#x7684;&#x4E00;&#x4E32;&#x6570;&#x5B57;&#xFF0C;&#x6570;&#x5B57;&#x7ED3;&#x5C3E;&#x6709;&#x5B57;&#x6BCD;x&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x6CA1;&#x6709;&#x3002;&#x6709;&#x7684;&#x8BDD;&#x5C31;&#x5E26;&#x4E0A;x&#x3002;</p>
+<p>&#x53E6;&#x5916;&#x518D;&#x8BF4;&#x4E00;&#x4E0B;&#x4E4B;&#x524D;&#x63D0;&#x5230;&#x7684;&#x8F6C;&#x4E49;&#x5B57;&#x7B26;<code>\</code>&#x3002;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x786E;&#x5B9E;&#x8981;&#x5339;&#x914D;<code>.</code>&#x6216;&#x8005;<code>*</code>&#x5B57;&#x7B26;&#x672C;&#x8EAB;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x8981;&#x5B83;&#x4EEC;&#x6240;&#x4EE3;&#x8868;&#x7684;&#x5143;&#x5B57;&#x7B26;&#xFF0C;&#x90A3;&#x5C31;&#x9700;&#x8981;&#x7528;<code>\.</code>&#x6216;<code>\*</code>&#x3002;<code>\</code>&#x672C;&#x8EAB;&#x4E5F;&#x9700;&#x8981;&#x7528;<code>\\</code>&#x3002;<br>&#x6BD4;&#x5982;<code>&quot;\d+\.\d+&quot;</code>&#x53EF;&#x4EE5;&#x5339;&#x914D;&#x51FA;123.456&#x8FD9;&#x6837;&#x7684;&#x7ED3;&#x679C;&#x3002;</p>
+<p><code>\bs\S*?e\b</code>&#x4ECE;&#x4E0B;&#x9762;&#x4E00;&#x6BB5;&#x6587;&#x672C;&#x4E2D;&#xFF0C;&#x5339;&#x914D;&#x51FA;&#x6240;&#x6709;s&#x5F00;&#x5934;&#xFF0C;e&#x7ED3;&#x5C3E;&#x7684;&#x5355;&#x8BCD;&#x3002;</p>
 <p><code>site sea sue sweet see case sse ssee loses</code></p>
-<p><code>r</code>，是raw的意思，它表示对字符串不进行转义。为什么要加这个？你可以试试print <code>&quot;\bhi&quot;</code>和<code>r&quot;\bhi&quot;</code>的区别。</p>
+<p><code>r</code>&#xFF0C;&#x662F;raw&#x7684;&#x610F;&#x601D;&#xFF0C;&#x5B83;&#x8868;&#x793A;&#x5BF9;&#x5B57;&#x7B26;&#x4E32;&#x4E0D;&#x8FDB;&#x884C;&#x8F6C;&#x4E49;&#x3002;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x52A0;&#x8FD9;&#x4E2A;&#xFF1F;&#x4F60;&#x53EF;&#x4EE5;&#x8BD5;&#x8BD5;print <code>&quot;\bhi&quot;</code>&#x548C;<code>r&quot;\bhi&quot;</code>&#x7684;&#x533A;&#x522B;&#x3002;</p>
 <blockquote>
-<p>>&gt;&gt; print “\bhi”<br>hi<br>>&gt;&gt; print r”\bhi”<br>\bhi</p>
+<p>&gt;&gt;&gt; print &#x201C;\bhi&#x201D;<br>hi<br>&gt;&gt;&gt; print r&#x201D;\bhi&#x201D;<br>\bhi</p>
 </blockquote>
 
       
@@ -359,8 +359,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>学一门乐器,就像交一个很知己的朋友,他不会说话,但是永远能表达你心里所想.</p>
-<p><img src="http://www.z4a.net/images/2016/04/21/2.pic_hd.md.jpg" alt="我的吉他"></p>
+        <p>&#x5B66;&#x4E00;&#x95E8;&#x4E50;&#x5668;,&#x5C31;&#x50CF;&#x4EA4;&#x4E00;&#x4E2A;&#x5F88;&#x77E5;&#x5DF1;&#x7684;&#x670B;&#x53CB;,&#x4ED6;&#x4E0D;&#x4F1A;&#x8BF4;&#x8BDD;,&#x4F46;&#x662F;&#x6C38;&#x8FDC;&#x80FD;&#x8868;&#x8FBE;&#x4F60;&#x5FC3;&#x91CC;&#x6240;&#x60F3;.</p>
+<p><img src="http://www.z4a.net/images/2016/04/21/2.pic_hd.md.jpg" alt="&#x6211;&#x7684;&#x5409;&#x4ED6;"></p>
 
       
     </div>
@@ -417,13 +417,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>从今天开始,这个blog主要记录一些生活感悟随笔,iOS开发相关,以及我喜爱的吉他心得.</p>
-<p>我是个选择性健忘的人,对于已经掌握的东西会遗忘得很快(可能也是反映出掌握得不够深吧哈哈),但是对于还没掌握的东西会一直耿耿于怀.今晚一个师弟来找我玩吉他,突然发现最近一直在忙着找实习,看各种blog和源码,算法,之前自己编的曲子竟然完全想不起来怎么弹了,但唯独一首还没练完的曲子还记忆犹新.真是个奇怪的人.</p>
-<p>所以,经常为了自己没有一个blog记录下来很后悔.虽然有经常写印象笔记的习惯,但是总感觉差那么一点点,于是,花了一天的时间去建了这个blog.知识和经验是宝贵的,于我自己于他人都一样.将这里作为一个新的起点.</p>
-<p>关于<code>生活</code>,可能随时有很多感悟,可能是去中心湖坐一坐之后,也可能是一本书看完之后.可以用语言去表达出来,这是一种能力.</p>
-<p>关于<code>iOS开发</code>,刚刚脱离小白的层面,对理论了解还算可以,接下来就是要付诸实践了,接下来这一年,我最感兴趣的应该就是<code>iOS逆向工程</code>和<code>Rect Native</code> 了.</p>
-<p>关于<code>吉他</code>,从来都有一种特殊的感情,而这个blog于吉他的作用呢,我希望能把自己的编曲录成音频或者视频放到这里,让更多人看到.当然还有一个很重要的成分就是乐理,也会总结记录在这里.</p>
-<p>以上.</p>
+        <p>&#x4ECE;&#x4ECA;&#x5929;&#x5F00;&#x59CB;,&#x8FD9;&#x4E2A;blog&#x4E3B;&#x8981;&#x8BB0;&#x5F55;&#x4E00;&#x4E9B;&#x751F;&#x6D3B;&#x611F;&#x609F;&#x968F;&#x7B14;,iOS&#x5F00;&#x53D1;&#x76F8;&#x5173;,&#x4EE5;&#x53CA;&#x6211;&#x559C;&#x7231;&#x7684;&#x5409;&#x4ED6;&#x5FC3;&#x5F97;.</p>
+<p>&#x6211;&#x662F;&#x4E2A;&#x9009;&#x62E9;&#x6027;&#x5065;&#x5FD8;&#x7684;&#x4EBA;,&#x5BF9;&#x4E8E;&#x5DF2;&#x7ECF;&#x638C;&#x63E1;&#x7684;&#x4E1C;&#x897F;&#x4F1A;&#x9057;&#x5FD8;&#x5F97;&#x5F88;&#x5FEB;(&#x53EF;&#x80FD;&#x4E5F;&#x662F;&#x53CD;&#x6620;&#x51FA;&#x638C;&#x63E1;&#x5F97;&#x4E0D;&#x591F;&#x6DF1;&#x5427;&#x54C8;&#x54C8;),&#x4F46;&#x662F;&#x5BF9;&#x4E8E;&#x8FD8;&#x6CA1;&#x638C;&#x63E1;&#x7684;&#x4E1C;&#x897F;&#x4F1A;&#x4E00;&#x76F4;&#x803F;&#x803F;&#x4E8E;&#x6000;.&#x4ECA;&#x665A;&#x4E00;&#x4E2A;&#x5E08;&#x5F1F;&#x6765;&#x627E;&#x6211;&#x73A9;&#x5409;&#x4ED6;,&#x7A81;&#x7136;&#x53D1;&#x73B0;&#x6700;&#x8FD1;&#x4E00;&#x76F4;&#x5728;&#x5FD9;&#x7740;&#x627E;&#x5B9E;&#x4E60;,&#x770B;&#x5404;&#x79CD;blog&#x548C;&#x6E90;&#x7801;,&#x7B97;&#x6CD5;,&#x4E4B;&#x524D;&#x81EA;&#x5DF1;&#x7F16;&#x7684;&#x66F2;&#x5B50;&#x7ADF;&#x7136;&#x5B8C;&#x5168;&#x60F3;&#x4E0D;&#x8D77;&#x6765;&#x600E;&#x4E48;&#x5F39;&#x4E86;,&#x4F46;&#x552F;&#x72EC;&#x4E00;&#x9996;&#x8FD8;&#x6CA1;&#x7EC3;&#x5B8C;&#x7684;&#x66F2;&#x5B50;&#x8FD8;&#x8BB0;&#x5FC6;&#x72B9;&#x65B0;.&#x771F;&#x662F;&#x4E2A;&#x5947;&#x602A;&#x7684;&#x4EBA;.</p>
+<p>&#x6240;&#x4EE5;,&#x7ECF;&#x5E38;&#x4E3A;&#x4E86;&#x81EA;&#x5DF1;&#x6CA1;&#x6709;&#x4E00;&#x4E2A;blog&#x8BB0;&#x5F55;&#x4E0B;&#x6765;&#x5F88;&#x540E;&#x6094;.&#x867D;&#x7136;&#x6709;&#x7ECF;&#x5E38;&#x5199;&#x5370;&#x8C61;&#x7B14;&#x8BB0;&#x7684;&#x4E60;&#x60EF;,&#x4F46;&#x662F;&#x603B;&#x611F;&#x89C9;&#x5DEE;&#x90A3;&#x4E48;&#x4E00;&#x70B9;&#x70B9;,&#x4E8E;&#x662F;,&#x82B1;&#x4E86;&#x4E00;&#x5929;&#x7684;&#x65F6;&#x95F4;&#x53BB;&#x5EFA;&#x4E86;&#x8FD9;&#x4E2A;blog.&#x77E5;&#x8BC6;&#x548C;&#x7ECF;&#x9A8C;&#x662F;&#x5B9D;&#x8D35;&#x7684;,&#x4E8E;&#x6211;&#x81EA;&#x5DF1;&#x4E8E;&#x4ED6;&#x4EBA;&#x90FD;&#x4E00;&#x6837;.&#x5C06;&#x8FD9;&#x91CC;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x8D77;&#x70B9;.</p>
+<p>&#x5173;&#x4E8E;<code>&#x751F;&#x6D3B;</code>,&#x53EF;&#x80FD;&#x968F;&#x65F6;&#x6709;&#x5F88;&#x591A;&#x611F;&#x609F;,&#x53EF;&#x80FD;&#x662F;&#x53BB;&#x4E2D;&#x5FC3;&#x6E56;&#x5750;&#x4E00;&#x5750;&#x4E4B;&#x540E;,&#x4E5F;&#x53EF;&#x80FD;&#x662F;&#x4E00;&#x672C;&#x4E66;&#x770B;&#x5B8C;&#x4E4B;&#x540E;.&#x53EF;&#x4EE5;&#x7528;&#x8BED;&#x8A00;&#x53BB;&#x8868;&#x8FBE;&#x51FA;&#x6765;,&#x8FD9;&#x662F;&#x4E00;&#x79CD;&#x80FD;&#x529B;.</p>
+<p>&#x5173;&#x4E8E;<code>iOS&#x5F00;&#x53D1;</code>,&#x521A;&#x521A;&#x8131;&#x79BB;&#x5C0F;&#x767D;&#x7684;&#x5C42;&#x9762;,&#x5BF9;&#x7406;&#x8BBA;&#x4E86;&#x89E3;&#x8FD8;&#x7B97;&#x53EF;&#x4EE5;,&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x662F;&#x8981;&#x4ED8;&#x8BF8;&#x5B9E;&#x8DF5;&#x4E86;,&#x63A5;&#x4E0B;&#x6765;&#x8FD9;&#x4E00;&#x5E74;,&#x6211;&#x6700;&#x611F;&#x5174;&#x8DA3;&#x7684;&#x5E94;&#x8BE5;&#x5C31;&#x662F;<code>iOS&#x9006;&#x5411;&#x5DE5;&#x7A0B;</code>&#x548C;<code>Rect Native</code> &#x4E86;.</p>
+<p>&#x5173;&#x4E8E;<code>&#x5409;&#x4ED6;</code>,&#x4ECE;&#x6765;&#x90FD;&#x6709;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x7684;&#x611F;&#x60C5;,&#x800C;&#x8FD9;&#x4E2A;blog&#x4E8E;&#x5409;&#x4ED6;&#x7684;&#x4F5C;&#x7528;&#x5462;,&#x6211;&#x5E0C;&#x671B;&#x80FD;&#x628A;&#x81EA;&#x5DF1;&#x7684;&#x7F16;&#x66F2;&#x5F55;&#x6210;&#x97F3;&#x9891;&#x6216;&#x8005;&#x89C6;&#x9891;&#x653E;&#x5230;&#x8FD9;&#x91CC;,&#x8BA9;&#x66F4;&#x591A;&#x4EBA;&#x770B;&#x5230;.&#x5F53;&#x7136;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x5F88;&#x91CD;&#x8981;&#x7684;&#x6210;&#x5206;&#x5C31;&#x662F;&#x4E50;&#x7406;,&#x4E5F;&#x4F1A;&#x603B;&#x7ED3;&#x8BB0;&#x5F55;&#x5728;&#x8FD9;&#x91CC;.</p>
+<p>&#x4EE5;&#x4E0A;.</p>
 
       
     </div>
@@ -481,7 +481,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
