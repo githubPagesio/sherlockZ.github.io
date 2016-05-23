@@ -122,7 +122,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/吉他/" style="font-size: 15px;">吉他</a> <a href="/tags/意义/" style="font-size: 10px;">意义</a> <a href="/tags/随笔/" style="font-size: 20px;">随笔</a>
+						<a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Linux服务器/" style="font-size: 10px;">Linux服务器</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/吉他/" style="font-size: 15px;">吉他</a> <a href="/tags/意义/" style="font-size: 10px;">意义</a> <a href="/tags/随笔/" style="font-size: 20px;">随笔</a>
 					</div>
 				</section>
 				
@@ -203,6 +203,75 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-service" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/23/service/" class="article-date">
+  	<time datetime="2016-05-23T07:40:19.000Z" itemprop="datePublished">2016-05-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/23/service/">mySQL.apache2.tomcat自动启动设置方法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&#x6BCF;&#x6B21;&#x91CD;&#x542F;&#x670D;&#x52A1;&#x5668;&#x90FD;&#x8981;&#x91CD;&#x65B0;&#x542F;&#x52A8;&#x4E09;&#x4E2A;&#x670D;&#x52A1;:<code>mySQL</code> <code>apache2</code> <code>tomcat</code></p>
+<p><code>mySQL</code>he <code>apache2</code>&#x8FD9;&#x4E24;&#x4E2A;&#x670D;&#x52A1;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x7528;</p>
+<blockquote>
+<p>sysv-rc-conf</p>
+</blockquote>
+<p>&#x5982;&#x4E0B;&#x56FE;&#x4E2D;&#x627E;&#x5230;<code>mySQL</code> <code>apache2</code>&#x628A;&#x540E;&#x9762;&#x7684;[]&#x5168;&#x90E8;&#x6253;&#x4E0A;X(&#x901A;&#x8FC7;&#x7A7A;&#x683C;&#x952E;)<br><img src="/2016/05/23/service/src1.png" alt="src"><br><img src="/2016/05/23/service/src2.png" alt="src"></p>
+<p><code>tomcat</code>&#x670D;&#x52A1;&#x5E76;&#x6CA1;&#x6709;&#x51FA;&#x73B0;&#x5728;&#x670D;&#x52A1;&#x5217;&#x8868;&#x91CC;&#x9762;,&#x800C;&#x4E00;&#x822C;&#x7684;&#x65B9;&#x6CD5;&#x90FD;&#x662F;&#x8FDB;&#x5165;tomcat&#x7684;bin&#x6587;&#x4EF6;&#x5939;&#x91CC;&#x9762;&#x5F00;&#x542F;startup.sh,&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x628A;&#x5B83;&#x6DFB;&#x52A0;&#x5230;&#x542F;&#x52A8;&#x5217;&#x8868;&#x91CC;&#x9762;,&#x65B9;&#x6CD5;&#x4E5F;&#x5F88;&#x7B80;&#x5355;:</p>
+<blockquote>
+<p>vim /etc/rc.local</p>
+</blockquote>
+<p>&#x5728;&#x6700;&#x540E;&#x7684;<code>exit 0</code>&#x4E0A;&#x9762;&#x6DFB;&#x52A0;startup.sh&#x7684;&#x5730;&#x5740;<br><img src="/2016/05/23/service/startup" alt="startup"></p>
+<p>&#x5B8C;&#x6210;~~</p>
+<p>&#x73B0;&#x5728;&#x6765;&#x8BD5;&#x8BD5;&#x91CD;&#x542F;&#x670D;&#x52A1;&#x5668;,&#x770B;&#x770B;&#x662F;&#x4E0D;&#x662F;&#x771F;&#x7684;&#x53EF;&#x4EE5;&#x5F00;&#x673A;&#x542F;&#x52A8;&#x8FD9;&#x4E09;&#x4E2A;&#x670D;&#x52A1;&#x4E86;.<br>&#x76F4;&#x63A5;&#x8F93;&#x5165;&#x670D;&#x52A1;&#x5668;IP&#x770B;&#x770B;&#x4F1A;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x9ED8;&#x8BA4;&#x9875;&#x9762;(apache2&#x670D;&#x52A1;):<br><img src="/2016/05/23/service/apache" alt="apache"><br>&#x6D4B;&#x8BD5;8080&#x7AEF;&#x53E3;(tomcat&#x670D;&#x52A1;):<br><img src="/2016/05/23/service/tomcat" alt="tomcat"><br>&#x6D4B;&#x8BD5;mySQL(&#x6211;&#x7528;&#x4E86;&#x4E00;&#x4E2A;&#x767B;&#x5F55;&#x7684;&#x4F8B;&#x5B50;&#x6765;&#x6D4B;&#x8BD5;,&#x65B9;&#x6CD5;&#x4E0D;&#x4E00;,&#x5982;&#x679C;&#x80FD;&#x767B;&#x5F55;&#x6210;&#x529F;,&#x8BF4;&#x660E;&#x5DF2;&#x7ECF;&#x5F00;&#x542F;mySQL&#x670D;&#x52A1;&#x4E86;):<br><img src="/2016/05/23/service/mysql" alt="mysql"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux服务器/">Linux服务器</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-python-re-symbol" class="article article-type-post" itemscope itemprop="blogPost">
   
