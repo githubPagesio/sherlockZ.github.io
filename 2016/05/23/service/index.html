@@ -16,11 +16,11 @@ mySQLhe apache2&amp;#x8FD9;&amp;#x4E24;&amp;#x4E2A;&amp;#x">
 mySQLhe apache2&amp;#x8FD9;&amp;#x4E24;&amp;#x4E2A;&amp;#x">
 <meta property="og:image" content="http://sherlockz.github.io/2016/05/23/service/src1.png">
 <meta property="og:image" content="http://sherlockz.github.io/2016/05/23/service/src2.png">
-<meta property="og:image" content="http://sherlockz.github.io/2016/05/23/service/startup">
-<meta property="og:image" content="http://sherlockz.github.io/2016/05/23/service/apache">
-<meta property="og:image" content="http://sherlockz.github.io/2016/05/23/service/tomcat">
-<meta property="og:image" content="http://sherlockz.github.io/2016/05/23/service/mysql">
-<meta property="og:updated_time" content="2016-05-23T07:56:50.000Z">
+<meta property="og:image" content="http://sherlockz.github.io/2016/05/23/service/startup.png">
+<meta property="og:image" content="http://sherlockz.github.io/2016/05/23/service/apache.png">
+<meta property="og:image" content="http://sherlockz.github.io/2016/05/23/service/tomcat.png">
+<meta property="og:image" content="http://sherlockz.github.io/2016/05/23/service/mysql.png">
+<meta property="og:updated_time" content="2016-05-23T07:59:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mySQL.apache2.tomcat自动启动设置方法">
 <meta name="twitter:description" content="&amp;#x6BCF;&amp;#x6B21;&amp;#x91CD;&amp;#x542F;&amp;#x670D;&amp;#x52A1;&amp;#x5668;&amp;#x90FD;&amp;#x8981;&amp;#x91CD;&amp;#x65B0;&amp;#x542F;&amp;#x52A8;&amp;#x4E09;&amp;#x4E2A;&amp;#x670D;&amp;#x52A1;:mySQL apache2 tomcat
@@ -260,9 +260,9 @@ mySQLhe apache2&amp;#x8FD9;&amp;#x4E24;&amp;#x4E2A;&amp;#x">
 <blockquote>
 <p>vim /etc/rc.local</p>
 </blockquote>
-<p>&#x5728;&#x6700;&#x540E;&#x7684;<code>exit 0</code>&#x4E0A;&#x9762;&#x6DFB;&#x52A0;startup.sh&#x7684;&#x5730;&#x5740;<br><img src="/2016/05/23/service/startup" alt="startup"></p>
+<p>&#x5728;&#x6700;&#x540E;&#x7684;<code>exit 0</code>&#x4E0A;&#x9762;&#x6DFB;&#x52A0;startup.sh&#x7684;&#x5730;&#x5740;<br><img src="/2016/05/23/service/startup.png" alt="startup"></p>
 <p>&#x5B8C;&#x6210;~~</p>
-<p>&#x73B0;&#x5728;&#x6765;&#x8BD5;&#x8BD5;&#x91CD;&#x542F;&#x670D;&#x52A1;&#x5668;,&#x770B;&#x770B;&#x662F;&#x4E0D;&#x662F;&#x771F;&#x7684;&#x53EF;&#x4EE5;&#x5F00;&#x673A;&#x542F;&#x52A8;&#x8FD9;&#x4E09;&#x4E2A;&#x670D;&#x52A1;&#x4E86;.<br>&#x76F4;&#x63A5;&#x8F93;&#x5165;&#x670D;&#x52A1;&#x5668;IP&#x770B;&#x770B;&#x4F1A;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x9ED8;&#x8BA4;&#x9875;&#x9762;(apache2&#x670D;&#x52A1;):<br><img src="/2016/05/23/service/apache" alt="apache"><br>&#x6D4B;&#x8BD5;8080&#x7AEF;&#x53E3;(tomcat&#x670D;&#x52A1;):<br><img src="/2016/05/23/service/tomcat" alt="tomcat"><br>&#x6D4B;&#x8BD5;mySQL(&#x6211;&#x7528;&#x4E86;&#x4E00;&#x4E2A;&#x767B;&#x5F55;&#x7684;&#x4F8B;&#x5B50;&#x6765;&#x6D4B;&#x8BD5;,&#x65B9;&#x6CD5;&#x4E0D;&#x4E00;,&#x5982;&#x679C;&#x80FD;&#x767B;&#x5F55;&#x6210;&#x529F;,&#x8BF4;&#x660E;&#x5DF2;&#x7ECF;&#x5F00;&#x542F;mySQL&#x670D;&#x52A1;&#x4E86;):<br><img src="/2016/05/23/service/mysql" alt="mysql"></p>
+<p>&#x73B0;&#x5728;&#x6765;&#x8BD5;&#x8BD5;&#x91CD;&#x542F;&#x670D;&#x52A1;&#x5668;,&#x770B;&#x770B;&#x662F;&#x4E0D;&#x662F;&#x771F;&#x7684;&#x53EF;&#x4EE5;&#x5F00;&#x673A;&#x542F;&#x52A8;&#x8FD9;&#x4E09;&#x4E2A;&#x670D;&#x52A1;&#x4E86;.<br>&#x76F4;&#x63A5;&#x8F93;&#x5165;&#x670D;&#x52A1;&#x5668;IP&#x770B;&#x770B;&#x4F1A;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x9ED8;&#x8BA4;&#x9875;&#x9762;(apache2&#x670D;&#x52A1;):<br><img src="/2016/05/23/service/apache.png" alt="apache"><br>&#x6D4B;&#x8BD5;8080&#x7AEF;&#x53E3;(tomcat&#x670D;&#x52A1;):<br><img src="/2016/05/23/service/tomcat.png" alt="tomcat"><br>&#x6D4B;&#x8BD5;mySQL(&#x6211;&#x7528;&#x4E86;&#x4E00;&#x4E2A;&#x767B;&#x5F55;&#x7684;&#x4F8B;&#x5B50;&#x6765;&#x6D4B;&#x8BD5;,&#x65B9;&#x6CD5;&#x4E0D;&#x4E00;,&#x5982;&#x679C;&#x80FD;&#x767B;&#x5F55;&#x6210;&#x529F;,&#x8BF4;&#x660E;&#x5DF2;&#x7ECF;&#x5F00;&#x542F;mySQL&#x670D;&#x52A1;&#x4E86;):<br><img src="/2016/05/23/service/mysql.png" alt="mysql"></p>
 
       
     </div>
