@@ -1,4 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
+  <url>
+    <loc>http://sherlockz.github.io/2016/06/03/duoshuotest/</loc>
+    
+    <lastmod>2016-06-03T06:04:45.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sherlockz.github.io/2016/06/01/Installing-Pygame/</loc>
+    
+    <lastmod>2016-06-03T05:46:45.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sherlockz.github.io/2016/05/26/python-base/</loc>
+    
+    <lastmod>2016-05-27T08:04:45.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sherlockz.github.io/2016/05/27/markdown-TOC/</loc>
+    
+    <lastmod>2016-05-27T07:38:45.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sherlockz.github.io/2016/05/19/python-re-symbol/</loc>
+    
+    <lastmod>2016-05-26T01:30:59.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sherlockz.github.io/2016/05/25/cmd/</loc>
+    
+    <lastmod>2016-05-25T16:43:19.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sherlockz.github.io/2016/05/23/service/</loc>
+    
+    <lastmod>2016-05-23T08:59:38.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sherlockz.github.io/2016/04/21/my-new-post/</loc>
+    
+    <lastmod>2016-04-21T17:05:51.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sherlockz.github.io/2016/04/21/Guitar/</loc>
+    
+    <lastmod>2016-04-21T17:05:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sherlockz.github.io/2016/04/22/Good-Night/</loc>
+    
+    <lastmod>2016-04-21T17:02:57.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sherlockz.github.io/2016/04/21/hello-world/</loc>
+    
+    <lastmod>2016-04-20T18:50:54.000Z</lastmod>
+    
+  </url>
+  
 </urlset>
