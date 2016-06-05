@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>sherlock&#39;s Blog</title>
+  <subtitle>我最害怕的是无知</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://sherlockz.github.io/"/>
+  <updated>2016-06-03T05:46:45.000Z</updated>
+  <id>http://sherlockz.github.io/</id>
+  
+  <author>
+    <name>Sherlock&#39;s Blog</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mac OS X 10.11 安装 Pygame</title>
+    <link href="http://sherlockz.github.io/2016/06/01/Installing-Pygame/"/>
+    <id>http://sherlockz.github.io/2016/06/01/Installing-Pygame/</id>
+    <published>2016-06-01T03:34:06.000Z</published>
+    <updated>2016-06-03T05:46:45.000Z</updated>
+    
+    <content type="html">&lt;p&gt;&amp;#x5B66;&amp;#x5B8C;python&amp;#x4E4B;&amp;#x540E;&amp;#x5C31;&amp;#x60F3;&amp;#x73A9;&amp;#x4E9B;&amp;#x8FDB;&amp;#x9636;&amp;#x7684;, &amp;#x6BD4;&amp;#x5982;pygame.&lt;br&gt;&amp;#x4F46;&amp;#x662F;&amp;#x5728;Mac OS X&amp;#x4E0B;&amp;#x5B89;&amp;#x88C5;pygame&amp;#x9047;&amp;#x5230;&amp;#x4E86;&amp;#x4E0D;&amp;#x5C11;&amp;#x5751;, &amp;#x4F46;&amp;#x6700;&amp;#x7EC8;&amp;#x8FD8;&amp;#x662F;&amp;#x987A;&amp;#x5229;&amp;#x89E3;&amp;#x51B3;&amp;#x4E86;, &amp;#x4E5F;&amp;#x518D;&amp;#x4E00;&amp;#x6B21;&amp;#x6DF1;&amp;#x523B;&amp;#x4F53;&amp;#x4F1A;&amp;#x5230;google&amp;#x548C;&amp;#x767E;&amp;#x5EA6;&amp;#x7684;&amp;#x5DEE;&amp;#x8DDD;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Installing Pygame for OS X&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Note: For most of these instructions you will need to use the command line. Don&amp;#x2019;t be intimidated - programmers work on the command line all the time. Once you get used to it, you&amp;#x2019;ll find it&amp;#x2019;s the quickest and easiest way to do lots of useful things on the computer.&lt;/p&gt;
+&lt;p&gt;You access the command line by running the Terminal application - click on the Spotlight icon and type &amp;#x201C;terminal&amp;#x201D; to find it.&lt;/p&gt;
+&lt;p&gt;Step 1: Install XCode command line tools&lt;br&gt;XCode is the tool from Apple for creating Mac and iOS applications. It can be installed from the App Store (it&amp;#x2019;s free). When it&amp;#x2019;s finished, type the following at the command line:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ xcode-select --install
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Step 2: Install Homebrew (&lt;a href=&quot;http://brew.sh&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://brew.sh&lt;/a&gt;)&lt;br&gt;Homebrew is a tool to easily install all kinds of software from the command line. It saves you having to go to a bunch of different sites and download lots of individual installers. Copy and paste this on the command line:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;and follow the directions. You&amp;#x2019;ll also need to install Homebrew Cask (&lt;a href=&quot;http://caskroom.io&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://caskroom.io&lt;/a&gt;):&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ brew install caskroom/cask/brew-cask
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Step 3: Install the rest of the software&lt;br&gt;Now we can start installing all the requirements for Pygame. Just type the following commands one at a time and let the computer do its thing:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ brew cask install xquartz
+
+$ brew install python3
+
+$ brew install python
+
+$ brew linkapps python3
+
+$ brew linkapps python
+
+
+$ brew install git
+
+$ brew install sdl sdl_image sdl_ttf portmidi libogg libvorbis
+
+$ brew install sdl_mixer --with-libvorbis
+
+$ brew tap homebrew/headonly
+
+$ brew install smpeg
+
+$ brew install mercurial
+
+$ pip3 install hg+http://bitbucket.org/pygame/pygame
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Step 4: See if it works!&lt;br&gt;Now we can see if it works. Run Python from the command line:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ python3
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;and try loading Pygame:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; import pygame
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;If you don&amp;#x2019;t see an error message, you&amp;#x2019;re all set! Now head over to our YouTube Channel and start coding!&lt;/p&gt;
+&lt;p&gt;Important&lt;br&gt;You will not be able to use Pygame from IDLE. You will need to run your programs from the command line like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ python3 mygame.py
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Some code editors will also let you run Python programs from inside the program, but we&amp;#x2019;ll talk about that in a separate post.&lt;/p&gt;
+&lt;p&gt;&amp;#x4E0A;&amp;#x9762;&amp;#x82F1;&amp;#x6587;&amp;#x90E8;&amp;#x5206;&amp;#x51FA;&amp;#x81EA;:&lt;a href=&quot;http://kidscancode.org/blog/2015/09/pygame_install/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;KidsCanCode&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#x6709;&amp;#x51E0;&amp;#x4E2A;&amp;#x5751;:&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&amp;#x4E00;&amp;#x5F00;&amp;#x59CB;,&amp;#x90FD;&amp;#x662F;&amp;#x76F4;&amp;#x63A5;&amp;#x5230;&lt;a href=&quot;http://www.pygame.org/download.shtml&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;pygame.org&lt;/a&gt;&amp;#x4E0B;&amp;#x8F7D;,&amp;#x719F;&amp;#x77E5;&amp;#x2026;&amp;#x4E0A;&amp;#x9762;&amp;#x53EA;&amp;#x6709;32&amp;#x4F4D;&amp;#x7684;pygame,&amp;#x7ED3;&amp;#x679C;&amp;#x5BFC;&amp;#x81F4;import pygame&amp;#x9519;&amp;#x8BEF;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Traceback (most recent call last):
+File &amp;quot;&amp;lt;stdin&amp;gt;&amp;quot;, line 1, in &amp;lt;module&amp;gt;
+File &amp;quot;/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/pygame/__init__.py&amp;quot;, line 95, in &amp;lt;module&amp;gt;
+from pygame.base import *
+ImportError: dlopen(/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/pygame/base.so, 2): no suitable image found.  Did find:
+/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/pygame/base.so: no matching architecture in universal wrapper
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;stackoverflow&amp;#x4E0A;&amp;#x9762;&amp;#x6709;&amp;#x89E3;&amp;#x7B54;:&lt;a href=&quot;http://stackoverflow.com/questions/8275808/installing-pygame-for-mac-os-x-10-6-8&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Installing Pygame for Mac OS X 10.6.8&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&amp;#x5982;&amp;#x679C;&amp;#x4F60;&amp;#x4E4B;&amp;#x524D;&amp;#x5DF2;&amp;#x7ECF;&amp;#x5B89;&amp;#x88C5;&amp;#x8FC7;homebrew,&amp;#x5728;&amp;#x5B89;&amp;#x88C5;sdl_image&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x9047;&amp;#x5230;404,&amp;#x90A3;&amp;#x4E48;&amp;#x53EF;&amp;#x80FD;&amp;#x662F;&amp;#x4F60;&amp;#x5B89;&amp;#x88C5;homebrew&amp;#x7684;&amp;#x955C;&amp;#x50CF;&amp;#x5730;&amp;#x5740;&amp;#x6709;&amp;#x95EE;&amp;#x9898;, &amp;#x4F60;&amp;#x53EF;&amp;#x4EE5;&amp;#x8BD5;&amp;#x8BD5;, &amp;#x53EF;&amp;#x80FD;&amp;#x8FDE;git&amp;#x90FD;&amp;#x88C5;&amp;#x4E0D;&amp;#x4E86;&lt;br&gt;&amp;#x65B9;&amp;#x6CD5;:&amp;#x5378;&amp;#x8F7D;homebrew,&amp;#x65B9;&amp;#x6CD5;&amp;#x5982;&amp;#x4E0B;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ cd `brew --prefix`
+
+$ rm -rf Cellar
+
+$ brew prune
+
+$ rm `git ls-files`
+
+$ rm -r Library/Homebrew Library/Aliases Library/Formula Library/Contributions
+
+$ rm -rf .git
+
+$ rm -rf ~/Library/Caches/Homebrew
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x7136;&amp;#x540E;&amp;#x518D;&amp;#x6309;&amp;#x7167;&amp;#x4E0A;&amp;#x9762;&amp;#x7684;&amp;#x6B65;&amp;#x9AA4;&amp;#x91CD;&amp;#x5934;&amp;#x5F00;&amp;#x59CB;&amp;#x5427;~~~    &lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&amp;#x5B89;&amp;#x88C5;&amp;#x5B8C;sdl&amp;#x4E4B;&amp;#x540E;&amp;#x7F3A;link&amp;#x4E0D;&amp;#x4E0A;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Error: The \`brew link\` step did not complete successfully
+The formula built, but is not symlinked into /usr/local
+Could not symlink bin/sdl
+/usr/local/bin is not writable.
+
+You can try again using:
+brew link sdl
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x65B9;&amp;#x6CD5;:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Multiuser Homebrew&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;If you have multiple user accounts, and you want more than one of them to be able to use brew, you need to run through a few steps, otherwise you will constantly have to change ownership of the Homebrew file structure every time you switch users, and that&amp;#x2019;s not a great idea.&lt;/p&gt;
+&lt;p&gt;Detailed instructions can be found online, but the quick answer is this:&lt;/p&gt;
+&lt;p&gt;Create a group named brew:&lt;br&gt;Open System preferences&lt;br&gt;Click Accounts&lt;br&gt;Click the &amp;#x201C;+&amp;#x201D; (unlock first if necessary)&lt;br&gt;Under New account select Group&lt;br&gt;enter brew&lt;br&gt;Click Create Group&lt;br&gt;Select the brew group, and add the user accounts you want to use brew to it.&lt;br&gt;change the /usr/local folder group ownership:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo chgrp -R brew /usr/local
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;change the permissions to add write to /usr/local as group:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo chmod -R g+w /usr/local
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;change homebrew cache directory group: &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo chgrp -R brew /Library/Caches/Homebrew
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;change the homebrew cache directory permissions: &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo chmod -R g+w /Library/Caches/Homebrew
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;Single User Homebrew&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;If you&amp;#x2019;re not trying to use more than one user with Homebrew, then the solution provided by the other answers is probably sufficient:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo chown -R $(whoami) /usr/local
+
+sudo chown -R $(whoami) /Library/Caches/Homebrew
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x8FD8;&amp;#x9047;&amp;#x5230;&amp;#x4EC0;&amp;#x4E48;&amp;#x5751;&amp;#x7684;&amp;#x8BDD;,&amp;#x7ED9;&amp;#x6211;&amp;#x7559;&amp;#x8A00;,&amp;#x5927;&amp;#x5BB6;&amp;#x4E00;&amp;#x8D77;&amp;#x89E3;&amp;#x51B3;~&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;#x5B66;&amp;#x5B8C;python&amp;#x4E4B;&amp;#x540E;&amp;#x5C31;&amp;#x60F3;&amp;#x73A9;&amp;#x4E9B;&amp;#x8FDB;&amp;#x9636;&amp;#x7684;, &amp;#x6BD4;&amp;#x5982;pygame.&lt;br&gt;&amp;#x4F46;&amp;#x662
+    
+    </summary>
+    
+    
+      <category term="python" scheme="http://sherlockz.github.io/tags/python/"/>
+    
+      <category term="pygame" scheme="http://sherlockz.github.io/tags/pygame/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>markdown-TOC</title>
+    <link href="http://sherlockz.github.io/2016/05/27/markdown-TOC/"/>
+    <id>http://sherlockz.github.io/2016/05/27/markdown-TOC/</id>
+    <published>2016-05-27T05:07:36.000Z</published>
+    <updated>2016-05-27T07:38:45.000Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;&amp;#x4E00;&amp;#x7EA7;&quot;&gt;&lt;a href=&quot;#&amp;#x4E00;&amp;#x7EA7;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x4E00;&amp;#x7EA7;&quot;&gt;&lt;/a&gt;&amp;#x4E00;&amp;#x7EA7;&lt;/h1&gt;&lt;h2 id=&quot;&amp;#x4E8C;&amp;#x7EA7;&quot;&gt;&lt;a href=&quot;#&amp;#x4E8C;&amp;#x7EA7;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x4E8C;&amp;#x7EA7;&quot;&gt;&lt;/a&gt;&amp;#x4E8C;&amp;#x7EA7;&lt;/h2&gt;&lt;h3 id=&quot;&amp;#x4E09;&amp;#x7EA7;&quot;&gt;&lt;a href=&quot;#&amp;#x4E09;&amp;#x7EA7;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x4E09;&amp;#x7EA7;&quot;&gt;&lt;/a&gt;&amp;#x4E09;&amp;#x7EA7;&lt;/h3&gt;&lt;p&gt;&amp;#x4ECA;&amp;#x5929;&amp;#x5199;&amp;#x4E86;&amp;#x4E00;&amp;#x7BC7;&amp;#x6BD4;&amp;#x8F83;&amp;#x957F;&amp;#x7684;&amp;#x6587;&amp;#x7AE0;, &amp;#x60F3;&amp;#x7528;&amp;#x76EE;&amp;#x5F55;&amp;#x4F7F;&amp;#x7ED3;&amp;#x6784;&amp;#x6E05;&amp;#x6670;&amp;#x4E00;&amp;#x70B9;,&amp;#x4F46;&amp;#x662F;&amp;#x5374;&amp;#x53D1;&amp;#x73B0;markdown&amp;#x5BF9;TOC&amp;#x7684;&amp;#x652F;&amp;#x6301;&amp;#x5B9E;&amp;#x5728;&amp;#x662F;&amp;#x2026;&amp;#x2026;&lt;/p&gt;
+&lt;p&gt;&amp;#x6211;&amp;#x7528;&amp;#x7684;&amp;#x4F5C;&amp;#x4E1A;&amp;#x90E8;&amp;#x843D;&amp;#x7684;&lt;code&gt;Cmd Markdown&lt;/code&gt;&amp;#x7F16;&amp;#x8F91;&amp;#x5668;,&amp;#x5728;&amp;#x8FD9;&amp;#x4E2A;&amp;#x7F16;&amp;#x8F91;&amp;#x5668;&amp;#x91CC;&amp;#x9762;&amp;#x662F;&amp;#x652F;&amp;#x6301;&amp;#x4F7F;&amp;#x7528;TOC&amp;#x7684;,&amp;#x76F4;&amp;#x63A5;&amp;#x4F7F;&amp;#x7528;&amp;#x547D;&amp;#x4EE4;&lt;code&gt;[TOC]&lt;/code&gt;&amp;#x5C31;&amp;#x597D;&amp;#x4E86;.&lt;/p&gt;
+&lt;p&gt;&amp;#x7136;&amp;#x800C;&amp;#x53D1;&amp;#x73B0;&amp;#x2026;&amp;#x4F20;&amp;#x5230;hexo&amp;#x4E4B;&amp;#x540E;,&amp;#x5C31;&amp;#x7ED9;&amp;#x6211;&amp;#x663E;&amp;#x793A;[TOC]&amp;#x2026;(&amp;#x8FD9;TM&amp;#x5C31;&amp;#x5C34;&amp;#x5C2C;&amp;#x4E86;&amp;#x2026;)&lt;/p&gt;
+&lt;p&gt;&amp;#x968F;&amp;#x540E;&amp;#x5728;&amp;#x53BB;google,&amp;#x53D1;&amp;#x73B0;&amp;#x6709;&amp;#x4E9B;&amp;#x4EBA;&amp;#x7684;&amp;#x505A;&amp;#x6CD5;&amp;#x662F;&amp;#x63D2;&amp;#x5165;JS&amp;#x4EE3;&amp;#x7801;&amp;#x5B9E;&amp;#x73B0;TOC,&amp;#x4F46;&amp;#x662F;&amp;#x6CA1;&amp;#x5B66;&amp;#x8FC7;JS,&amp;#x7ED9;&amp;#x4EE3;&amp;#x7801;&amp;#x6211;&amp;#x90FD;&amp;#x4E0D;&amp;#x77E5;&amp;#x9053;&amp;#x653E;&amp;#x54EA;&amp;#x91CC;&amp;#x2026;&lt;/p&gt;
+&lt;p&gt;&amp;#x540E;&amp;#x9762;&amp;#x7EC8;&amp;#x4E8E;&amp;#x770B;&amp;#x5230;&amp;#x4E00;&amp;#x4E2A;Sublime Text&amp;#x7684;&amp;#x63D2;&amp;#x4EF6;:&lt;a href=&quot;https://packagecontrol.io/packages/MarkdownTOC&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;markdownTOC&lt;/a&gt;. &amp;#x5728;&amp;#x770B;&amp;#x4E86;&amp;#x4ED6;&amp;#x4EEC;&amp;#x795E;&amp;#x5668;&amp;#x7684;gif&amp;#x56FE;&amp;#x4E4B;&amp;#x540E;,&amp;#x679C;&amp;#x65AD;&amp;#x53BB;&amp;#x8BD5;&amp;#x4E86;&amp;#x8BD5;,&amp;#x4E8E;&amp;#x662F;&amp;#x4E00;&amp;#x6B65;&amp;#x4E00;&amp;#x6B65;&amp;#x53BB;&amp;#x5F04;&amp;#x2026;..&amp;#x770B;&amp;#x5230;&amp;#x540E;&amp;#x9762;&amp;#x4E00;&amp;#x53E5;,&amp;#x771F;&amp;#x662F;&amp;#x5FC3;&amp;#x90FD;&amp;#x788E;&amp;#x4E86;&amp;#x2026;.&lt;br&gt;&lt;img src=&quot;/2016/05/27/markdown-TOC/autolink.png&quot; alt=&quot;autolink&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Auto link&lt;/code&gt;&amp;#x53EA;&amp;#x5728;Github&amp;#x80FD;&amp;#x7528;.&amp;#x4E0D;&amp;#x670D;&amp;#x6C14;&amp;#x7684;&amp;#x6211;&amp;#x8FD8;&amp;#x662F;&amp;#x6CA1;&amp;#x653E;&amp;#x5F03;,&amp;#x7ED3;&amp;#x679C;&amp;#x771F;&amp;#x4E0D;&amp;#x884C;,&lt;code&gt;markdownTOC&lt;/code&gt;&amp;#x80FD;&amp;#x505A;&amp;#x5230;&amp;#x7684;&amp;#x5C31;&amp;#x53EA;&amp;#x662F;&amp;#x628A;&amp;#x6587;&amp;#x7AE0;&amp;#x7684;&amp;#x6807;&amp;#x9898;&amp;#x4EE5;&amp;#x6587;&amp;#x672C;&amp;#x7684;&amp;#x5F62;&amp;#x5F0F;&amp;#x5F52;&amp;#x7EB3;&amp;#x8D77;&amp;#x6765;.&lt;/p&gt;
+&lt;p&gt;&amp;#x6240;&amp;#x4EE5;,&amp;#x5F00;&amp;#x59CB;&amp;#x6539;&amp;#x53D8;&amp;#x601D;&amp;#x8DEF;, &amp;#x80FD;&amp;#x4E0D;&amp;#x80FD;&amp;#x8BA9;hexo&amp;#x5F04;&amp;#x4E00;&amp;#x4E2A;&amp;#x76EE;&amp;#x5F55;&amp;#x51FA;&amp;#x6765;, &amp;#x800C;&amp;#x4E0D;&amp;#x4EE5;&amp;#x6765;markdown. &amp;#x7ED3;&amp;#x679C;&amp;#x662F;&amp;#x53EF;&amp;#x884C;&amp;#x7684;.&lt;/p&gt;
+&lt;p&gt;&amp;#x5177;&amp;#x4F53;&amp;#x7684;&amp;#x505A;&amp;#x6CD5;&amp;#x6211;&amp;#x5C31;&amp;#x4E0D;&amp;#x505A;&amp;#x642C;&amp;#x8FD0;&amp;#x5DE5;,&amp;#x642C;&amp;#x6765;&amp;#x6211;&amp;#x81EA;&amp;#x5DF1;&amp;#x8FD9;&amp;#x91CC;&amp;#x4E86;. &amp;#x76F4;&amp;#x63A5;&amp;#x7ED9;&amp;#x8FDE;&amp;#x63A5;:&lt;a href=&quot;http://kuangqi.me/tricks/enable-table-of-contents-on-hexo/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&amp;#x4E3A;Hexo&amp;#x535A;&amp;#x5BA2;&amp;#x6DFB;&amp;#x52A0;&amp;#x76EE;&amp;#x5F55;&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;&amp;#x4E00;&amp;#x7EA7;&quot;&gt;&lt;a href=&quot;#&amp;#x4E00;&amp;#x7EA7;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x4E00;&amp;#x7EA7;&quot;&gt;&lt;/a&gt;&amp;#x4E00;&amp;#x7EA7;&lt;/h1&gt;&lt;h2 id=&quot;&amp;#x4E8C;&amp;
+    
+    </summary>
+    
+    
+      <category term="markdown" scheme="http://sherlockz.github.io/tags/markdown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python基础知识总结</title>
+    <link href="http://sherlockz.github.io/2016/05/26/python-base/"/>
+    <id>http://sherlockz.github.io/2016/05/26/python-base/</id>
+    <published>2016-05-26T12:25:43.000Z</published>
+    <updated>2016-05-27T08:04:45.000Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;img src=&quot;/2016/05/26/python-base/python_humor.png&quot; alt=&quot;python&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;WHY-Python&quot;&gt;&lt;a href=&quot;#WHY-Python&quot; class=&quot;headerlink&quot; title=&quot;WHY Python?&quot;&gt;&lt;/a&gt;WHY Python?&lt;/h1&gt;&lt;p&gt;&amp;#x9996;&amp;#x5148;,&amp;#x5B66;&amp;#x4E00;&amp;#x95E8;&amp;#x8BED;&amp;#x8A00;&amp;#x90FD;&amp;#x4F1A;&amp;#x95EE;:&amp;#x70B9;&amp;#x89E3;&amp;#x8981;&amp;#x5B66;&amp;#x8FD9;&amp;#x95E8;&amp;#x8BED;&amp;#x8A00;?&lt;br&gt;&amp;#x800C;&amp;#x5B66;Python&amp;#x7684;&amp;#x539F;&amp;#x56E0;&amp;#x5F88;&amp;#x7B80;&amp;#x5355;,&amp;#x539F;&amp;#x56E0;&amp;#x5C31;&amp;#x662F;&amp;#x2026;..&amp;#x597D;&amp;#x9B3C;&amp;#x7B80;&amp;#x5355;.(&amp;#x8FD9;&amp;#x53E5;&amp;#x8BDD;&amp;#x4E0D;&amp;#x662F;&amp;#x6211;&amp;#x8BF4;&amp;#x7684;)&lt;br&gt;&amp;#x5F88;&amp;#x559C;&amp;#x6B22;Python&amp;#x6781;&amp;#x7B80;&amp;#x7684;&amp;#x4EE3;&amp;#x7801;&amp;#x98CE;&amp;#x683C;,&amp;#x4EE5;&amp;#x53CA;&amp;#x4F17;&amp;#x591A;&amp;#x529F;&amp;#x80FD;&amp;#x5F3A;&amp;#x5927;&amp;#x7684;&amp;#x6A21;&amp;#x5757;&amp;#x2026;&amp;#x2026;&lt;br&gt;&amp;#x5B66;&amp;#x4E86;&amp;#x4E24;&amp;#x5929;Python&amp;#x6709;&amp;#x70B9;&amp;#x70B9;&amp;#x4F53;&amp;#x4F1A;,&amp;#x89C9;&amp;#x5F97;&amp;#x5E94;&amp;#x8BE5;&amp;#x603B;&amp;#x7ED3;&amp;#x4E00;&amp;#x4E0B;&amp;#x6709;&amp;#x54EA;&amp;#x4E9B;&amp;#x5E94;&amp;#x8BE5;&amp;#x6CE8;&amp;#x610F;&amp;#x7684;&amp;#x5730;&amp;#x65B9;.&lt;/p&gt;
+&lt;h1 id=&quot;&amp;#x57FA;&amp;#x672C;&amp;#x95EE;&amp;#x9898;&quot;&gt;&lt;a href=&quot;#&amp;#x57FA;&amp;#x672C;&amp;#x95EE;&amp;#x9898;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x57FA;&amp;#x672C;&amp;#x95EE;&amp;#x9898;&quot;&gt;&lt;/a&gt;&amp;#x57FA;&amp;#x672C;&amp;#x95EE;&amp;#x9898;&lt;/h1&gt;&lt;h2 id=&quot;&amp;#x5B66;&amp;#x4E60;&amp;#x9014;&amp;#x5F84;&quot;&gt;&lt;a href=&quot;#&amp;#x5B66;&amp;#x4E60;&amp;#x9014;&amp;#x5F84;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5B66;&amp;#x4E60;&amp;#x9014;&amp;#x5F84;&quot;&gt;&lt;/a&gt;&amp;#x5B66;&amp;#x4E60;&amp;#x9014;&amp;#x5F84;&lt;/h2&gt;&lt;p&gt;&amp;#x521D;&amp;#x5B66;&amp;#x8005;&amp;#x63A8;&amp;#x8350;&amp;#x4E00;&amp;#x4E2A;&amp;#x516C;&amp;#x4F17;&amp;#x53F7;:&lt;a href=&quot;http://crossincode.com/home/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Crossin&amp;#x7684;&amp;#x7F16;&amp;#x7A0B;&amp;#x6559;&amp;#x5BA4;&lt;/a&gt;(&amp;#x559C;&amp;#x6B22;&amp;#x4F5C;&amp;#x8005;&amp;#x7684;&amp;#x6559;&amp;#x5B66;&amp;#x65B9;&amp;#x5F0F;)&lt;/p&gt;
+&lt;h2 id=&quot;&amp;#x73AF;&amp;#x5883;&amp;#x914D;&amp;#x7F6E;&quot;&gt;&lt;a href=&quot;#&amp;#x73AF;&amp;#x5883;&amp;#x914D;&amp;#x7F6E;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x73AF;&amp;#x5883;&amp;#x914D;&amp;#x7F6E;&quot;&gt;&lt;/a&gt;&amp;#x73AF;&amp;#x5883;&amp;#x914D;&amp;#x7F6E;&lt;/h2&gt;&lt;p&gt;&amp;#x7528;Mac&amp;#x6216;&amp;#x8005;Linux&amp;#x7684;&amp;#x540C;&amp;#x5B66;&amp;#x662F;&amp;#x5E78;&amp;#x798F;&amp;#x7684;,&amp;#x76F4;&amp;#x63A5;&amp;#x5728;&amp;#x7EC8;&amp;#x7AEF;&amp;#x8F93;&amp;#x5165;&lt;code&gt;idle&lt;/code&gt;&amp;#x5C31;&amp;#x597D;&amp;#x4E86;,&amp;#x8FD9;&amp;#x4E24;&amp;#x4E2A;&amp;#x7CFB;&amp;#x7EDF;&amp;#x90FD;&amp;#x662F;&amp;#x9ED8;&amp;#x8BA4;&amp;#x81EA;&amp;#x5E26;Python&amp;#x7684;,&amp;#x5982;&amp;#x679C;&amp;#x60F3;&amp;#x76F4;&amp;#x63A5;&amp;#x5728;&amp;#x7EC8;&amp;#x7AEF;&amp;#x6253;&amp;#x5F00;Python Shell,&amp;#x76F4;&amp;#x63A5;&amp;#x8F93;&amp;#x5165;&lt;code&gt;python&lt;/code&gt;&amp;#x5C31;&amp;#x597D;&amp;#x4E86;.windows&amp;#x4E0B;&amp;#x5C31;&amp;#x6709;&amp;#x70B9;&amp;#x9EBB;&amp;#x70E6;,&amp;#x597D;&amp;#x5427;,&amp;#x4E8B;&amp;#x5B9E;&amp;#x4E0A;&amp;#x9EBB;&amp;#x70E6;&amp;#x5230;&amp;#x6211;&amp;#x4E0D;&amp;#x60F3;&amp;#x53BB;&amp;#x5C1D;&amp;#x8BD5;&amp;#x914D;&amp;#x7F6E;&amp;#x4E86;,&amp;#x8BE6;&amp;#x60C5;&amp;#x89C1;&lt;code&gt;Crossin&amp;#x7684;&amp;#x7F16;&amp;#x7A0B;&amp;#x6559;&amp;#x5BA4;&lt;/code&gt;&amp;#x7B2C;&amp;#x4E00;&amp;#x8BFE;.&lt;/p&gt;
+&lt;p&gt;&amp;#x914D;&amp;#x7F6E;&amp;#x597D;&amp;#x4E4B;&amp;#x540E;&amp;#x5C31;&amp;#x53EF;&amp;#x4EE5;&amp;#x6253;&amp;#x51FA;&amp;#x4F60;&amp;#x7684;&amp;#x7B2C;&amp;#x4E00;&amp;#x884C;&amp;#x4EE3;&amp;#x7801;&amp;#x5566;!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;gt;&amp;gt;&amp;gt;print &amp;#x2018;Hello World!&amp;#x2019;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;&amp;#x57FA;&amp;#x672C;&amp;#x8BED;&amp;#x6CD5;&quot;&gt;&lt;a href=&quot;#&amp;#x57FA;&amp;#x672C;&amp;#x8BED;&amp;#x6CD5;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x57FA;&amp;#x672C;&amp;#x8BED;&amp;#x6CD5;&quot;&gt;&lt;/a&gt;&amp;#x57FA;&amp;#x672C;&amp;#x8BED;&amp;#x6CD5;&lt;/h1&gt;&lt;h2 id=&quot;print&quot;&gt;&lt;a href=&quot;#print&quot; class=&quot;headerlink&quot; title=&quot;print&quot;&gt;&lt;/a&gt;print&lt;/h2&gt;&lt;p&gt;&amp;#x8FD9;&amp;#x4E2A;&amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x517C;&amp;#x5BB9;&amp;#x6027;&amp;#x53EF;&amp;#x4EE5;&amp;#x8BF4;&amp;#x6781;&amp;#x5F3A;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;gt;&amp;gt;&amp;gt; print &amp;#x201C;hello&amp;#x201D; #&amp;#x53CC;&amp;#x5F15;&amp;#x53F7;&amp;#x53EF;&amp;#x4EE5;&lt;br&gt;hello&lt;br&gt;&amp;gt;&amp;gt;&amp;gt; print &amp;#x2018;world&amp;#x2019; #&amp;#x5355;&amp;#x5F15;&amp;#x53F7;&amp;#x53EF;&amp;#x4EE5;&lt;br&gt;world&lt;br&gt;&amp;gt;&amp;gt;&amp;gt; print 1 #&amp;#x7EAF;&amp;#x6570;&amp;#x5B57;&amp;#x76F4;&amp;#x63A5;&amp;#x5199;&lt;br&gt;1&lt;br&gt;&amp;gt;&amp;gt;&amp;gt; print 3.14&lt;br&gt;3.14&lt;br&gt;&amp;gt;&amp;gt;&amp;gt; print 3e30&lt;br&gt;3e+30&lt;br&gt;&amp;gt;&amp;gt;&amp;gt; print 1 + 2 * 3 #&amp;#x652F;&amp;#x6301;&amp;#x8868;&amp;#x8FBE;&amp;#x5F0F;&amp;#x8BA1;&amp;#x7B97;&lt;br&gt;7&lt;br&gt;&amp;gt;&amp;gt;&amp;gt; print(2 &amp;gt; 5) #&amp;#x652F;&amp;#x6301;&amp;#x771F;&amp;#x5047;&amp;#x5224;&amp;#x65AD;&lt;br&gt;False&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;#x6709;&amp;#x4E00;&amp;#x70B9;&amp;#x503C;&amp;#x5F97;&amp;#x6CE8;&amp;#x610F;&amp;#x7684;&amp;#x662F;:&lt;strong&gt;2.0&amp;#x7248;&amp;#x672C;print&amp;#x548C;print()&amp;#x90FD;&amp;#x662F;&amp;#x53EF;&amp;#x4EE5;&amp;#x7684;,&amp;#x4F46;&amp;#x662F;3.0&amp;#x4E4B;&amp;#x540E;print&amp;#x540E;&amp;#x9762;&amp;#x7684;&amp;#x8868;&amp;#x8FBE;&amp;#x5F0F;&amp;#x5FC5;&amp;#x987B;&amp;#x52A0;&amp;#x62EC;&amp;#x53F7;.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;input-&amp;#x548C;raw-input&quot;&gt;&lt;a href=&quot;#input-&amp;#x548C;raw-input&quot; class=&quot;headerlink&quot; title=&quot;input()&amp;#x548C;raw_input()&quot;&gt;&lt;/a&gt;input()&amp;#x548C;raw_input()&lt;/h2&gt;&lt;p&gt;&lt;code&gt;input()&lt;/code&gt; &amp;#x63A5;&amp;#x6536;&amp;#x7684;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x503C;&amp;#x6216;&amp;#x53D8;&amp;#x91CF;&amp;#xFF0C;&amp;#x4E5F;&amp;#x5C31;&amp;#x662F;&amp;#x8BF4;&amp;#xFF0C;&amp;#x4F60;&amp;#x5982;&amp;#x679C;&amp;#x8F93; 123&amp;#xFF0C;&amp;#x7A0B;&amp;#x5E8F;&amp;#x63A5;&amp;#x6536;&amp;#x5230;&amp;#x7684;&amp;#x5C31;&amp;#x662F;&amp;#x6574;&amp;#x6570; 123&amp;#xFF0C;&amp;#x4F60;&amp;#x8F93; True&amp;#xFF0C;&amp;#x5C31;&amp;#x662F; bool &amp;#x503C; True&amp;#x3002;&amp;#x5982;&amp;#x679C;&amp;#x4F60;&amp;#x8F93;&amp;#x4E86; python&amp;#xFF0C;&amp;#x7A0B;&amp;#x5E8F;&amp;#x4F1A;&amp;#x8BA4;&amp;#x4E3A;&amp;#x8FD9;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x53EB;&amp;#x505A; python &amp;#x7684;&amp;#x53D8;&amp;#x91CF;&amp;#xFF0C;&amp;#x800C;&amp;#x5047;&amp;#x5982;&amp;#x4F60;&amp;#x6CA1;&amp;#x6709;&amp;#x5B9A;&amp;#x4E49;&amp;#x8FC7;&amp;#x8FD9;&amp;#x4E2A;&amp;#x53D8;&amp;#x91CF;&amp;#xFF0C;&amp;#x5C31;&amp;#x4F1A;&amp;#x62A5;&amp;#x9519;&amp;#x3002;&amp;#x6240;&amp;#x4EE5;&amp;#x5982;&amp;#x679C;&amp;#x60F3;&amp;#x901A;&amp;#x8FC7;input&amp;#x83B7;&amp;#x5F97;&amp;#x4E00;&amp;#x6BB5;&amp;#x6587;&amp;#x5B57;,&lt;strong&gt;&amp;#x8F93;&amp;#x5165;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x5FC5;&amp;#x987B;&amp;#x628A;&amp;#x6587;&amp;#x5B57;&amp;#x7528;&amp;#x53CC;&amp;#x5F15;&amp;#x53F7;&amp;#x6216;&amp;#x8005;&amp;#x5355;&amp;#x5F15;&amp;#x53F7;&amp;#x62EC;&amp;#x8D77;&amp;#x6765;.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;raw_input()&lt;/code&gt;&amp;#x63A5;&amp;#x6536;&amp;#x7684;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;,&amp;#x4E0D;&amp;#x7BA1;&amp;#x4F60;&amp;#x8F93;&amp;#x5165;&amp;#x4EC0;&amp;#x4E48;&amp;#x90FD;&amp;#x4F1A;&amp;#x5F53;&amp;#x505A;&amp;#x4E00;&amp;#x4E2A;&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;.&lt;/p&gt;
+&lt;p&gt;&amp;#x7136;&amp;#x540E;&amp;#x5728;3.0&amp;#x4E4B;&amp;#x540E;,&amp;#x5C06;&lt;code&gt;input()&lt;/code&gt;&amp;#x548C;&lt;code&gt;raw_input()&lt;/code&gt;&amp;#x5408;&amp;#x5E76;&amp;#x4E86;,&amp;#x4E3A;&amp;#x4E86;&amp;#x51CF;&amp;#x5C11;&amp;#x6DF7;&amp;#x4E71;&amp;#x5427;&amp;#x2026;&amp;#x4FDD;&amp;#x7559;input&amp;#x5173;&amp;#x952E;&amp;#x5B57;,&amp;#x4F46;&amp;#x662F;&amp;#x529F;&amp;#x80FD;&amp;#x786E;&amp;#x4FDD;&amp;#x7559;&amp;#x4E86;raw_input&amp;#x7684;&amp;#x529F;&amp;#x80FD;,&amp;#x5C31;&amp;#x662F;&amp;#x8BF4;,&amp;#x5728;3.0&amp;#x4E4B;&amp;#x540E;,&lt;strong&gt;&amp;#x4F60;&amp;#x7528;input(),&amp;#x83B7;&amp;#x5F97;&amp;#x7684;&amp;#x5C31;&amp;#x662F;&amp;#x4E00;&amp;#x6BB5;&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;,&amp;#x65E0;&amp;#x8BBA;&amp;#x4F60;&amp;#x8F93;&amp;#x5165;&amp;#x4EC0;&amp;#x4E48;.&lt;/strong&gt;&amp;#x90A3;&amp;#x4E48;&amp;#x95EE;&amp;#x9898;&amp;#x6765;&amp;#x4E86;,&amp;#x6211;&amp;#x60F3;&amp;#x8981;&amp;#x83B7;&amp;#x5F97;&amp;#x4E00;&amp;#x4E2A;&amp;#x503C;&amp;#x6216;&amp;#x8005;&amp;#x4E00;&amp;#x4E2A;&amp;#x53D8;&amp;#x91CF;&amp;#x80BF;&amp;#x4E48;&amp;#x529E;?&lt;code&gt;value = eval(input())&lt;/code&gt;&amp;#x5373;&amp;#x53EF;.&lt;/p&gt;
+&lt;h2 id=&quot;&amp;#x53D8;&amp;#x91CF;&quot;&gt;&lt;a href=&quot;#&amp;#x53D8;&amp;#x91CF;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x53D8;&amp;#x91CF;&quot;&gt;&lt;/a&gt;&amp;#x53D8;&amp;#x91CF;&lt;/h2&gt;&lt;p&gt;&amp;#x547D;&amp;#x540D;&amp;#x89C4;&amp;#x5219;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;#x7B2C;&amp;#x4E00;&amp;#x4E2A;&amp;#x5B57;&amp;#x7B26;&amp;#x5FC5;&amp;#x987B;&amp;#x662F;&amp;#x5B57;&amp;#x6BCD;&amp;#x6216;&amp;#x8005;&amp;#x4E0B;&amp;#x5212;&amp;#x7EBF;&amp;#x201C;_&amp;#x201D;&lt;/li&gt;
+&lt;li&gt;&amp;#x5269;&amp;#x4E0B;&amp;#x7684;&amp;#x90E8;&amp;#x5206;&amp;#x53EF;&amp;#x4EE5;&amp;#x662F;&amp;#x5B57;&amp;#x6BCD;&amp;#x3001;&amp;#x4E0B;&amp;#x5212;&amp;#x7EBF;&amp;#x201C;_&amp;#x201D;&amp;#x6216;&amp;#x6570;&amp;#x5B57;&amp;#xFF08;0-9&amp;#xFF09;&lt;/li&gt;
+&lt;li&gt;&amp;#x53D8;&amp;#x91CF;&amp;#x540D;&amp;#x79F0;&amp;#x662F;&amp;#x5BF9;&amp;#x5927;&amp;#x5C0F;&amp;#x5199;&amp;#x654F;&amp;#x611F;&amp;#x7684;&amp;#xFF0C;myname&amp;#x548C;myName&amp;#x4E0D;&amp;#x662F;&amp;#x540C;&amp;#x4E00;&amp;#x4E2A;&amp;#x53D8;&amp;#x91CF;&amp;#x3002;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Python&amp;#x662F;&amp;#x52A8;&amp;#x6001;&amp;#x53D8;&amp;#x91CF;&amp;#x7C7B;&amp;#x578B;&amp;#x7684;,&amp;#x5B9A;&amp;#x4E49;&amp;#x53D8;&amp;#x91CF;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x4E0D;&amp;#x9700;&amp;#x8981;&amp;#x6307;&amp;#x660E;&amp;#x8FD9;&amp;#x4E2A;&amp;#x53D8;&amp;#x91CF;&amp;#x662F;&amp;#x4EC0;&amp;#x4E48;&amp;#x7C7B;&amp;#x578B;,&amp;#x7F16;&amp;#x8BD1;&amp;#x5668;&amp;#x4F1A;&amp;#x6839;&amp;#x636E;&amp;#x8D4B;&amp;#x7ED9;&amp;#x53D8;&amp;#x91CF;&amp;#x7684;&amp;#x503C;&amp;#x53BB;&amp;#x5224;&amp;#x65AD;&amp;#x7C7B;&amp;#x578B;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;name = &amp;#x2018;Crossin&amp;#x2019; #&amp;#x5B57;&amp;#x7B26;&amp;#x578B;(&amp;#x9700;&amp;#x8981;&amp;#x7528;&amp;#x2019; &amp;#x2018;&amp;#x6216;&amp;#x8005;&amp;#x201D; &amp;#x201C;&amp;#x5F15;&amp;#x8D77;&amp;#x6765;)&lt;br&gt;   myVar = 123  #&amp;#x6574;&amp;#x578B;&lt;br&gt;   price = 5.99 #&amp;#x6D6E;&amp;#x70B9;&amp;#x578B;&lt;br&gt;   visible = True   #&amp;#x5E03;&amp;#x5C14;&amp;#x578B;&lt;br&gt;   a = 1 &amp;gt; 3    #&amp;#x901A;&amp;#x8FC7;&amp;#x903B;&amp;#x8F91;&amp;#x8868;&amp;#x8FBE;&amp;#x5F0F;&amp;#x8D4B;&amp;#x503C;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;bool-&amp;#x2018;False&amp;#x2019;&quot;&gt;&lt;a href=&quot;#bool-&amp;#x2018;False&amp;#x2019;&quot; class=&quot;headerlink&quot; title=&quot;bool(&amp;#x2018;False&amp;#x2019;)&quot;&gt;&lt;/a&gt;bool(&amp;#x2018;False&amp;#x2019;)&lt;/h2&gt;&lt;p&gt;&amp;#x5728;python&amp;#x4E2D;&amp;#xFF0C;&amp;#x4EE5;&amp;#x4E0B;&amp;#x6570;&amp;#x503C;&amp;#x4F1A;&amp;#x88AB;&amp;#x8BA4;&amp;#x4E3A;&amp;#x662F;False&amp;#xFF1A;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;#x4E3A;0&amp;#x7684;&amp;#x6570;&amp;#x5B57;, &amp;#x5305;&amp;#x62EC;0&amp;#xFF0C;0.0&lt;/li&gt;
+&lt;li&gt;&amp;#x7A7A;&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;, &amp;#x5305;&amp;#x62EC; &amp;#x2018;&amp;#x2019; , &amp;#x201C;&amp;#x201D;&lt;/li&gt;
+&lt;li&gt;&amp;#x8868;&amp;#x793A;&amp;#x7A7A;&amp;#x503C;&amp;#x7684;None&lt;/li&gt;
+&lt;li&gt;&amp;#x7A7A;&amp;#x96C6;&amp;#x5408;, &amp;#x5305;&amp;#x62EC;() , [] , {}&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;#x5176;&amp;#x4ED6;&amp;#x7684;&amp;#x503C;&amp;#x90FD;&amp;#x8BA4;&amp;#x4E3A;&amp;#x662F;True&amp;#x3002;&lt;br&gt;&amp;#x56E0;&amp;#x4E3A;&amp;#x2019;False&amp;#x2019;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x975E;&amp;#x7A7A;&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;,&amp;#x6240;&amp;#x4EE5;&amp;#x8F6C;&amp;#x6210;bool&amp;#x7C7B;&amp;#x578B;&amp;#x4E4B;&amp;#x540E;,&amp;#x5C31;&amp;#x662F;True,&amp;#x6240;&amp;#x4EE5;bool(&amp;#x2018;False&amp;#x2019;) = True,&amp;#x540C;&amp;#x7406;bool(&amp;#x2018; &amp;#x2018;) = True.&lt;/p&gt;
+&lt;h2 id=&quot;&amp;#x683C;&amp;#x5F0F;&amp;#x5316;&quot;&gt;&lt;a href=&quot;#&amp;#x683C;&amp;#x5F0F;&amp;#x5316;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x683C;&amp;#x5F0F;&amp;#x5316;&quot;&gt;&lt;/a&gt;&amp;#x683C;&amp;#x5F0F;&amp;#x5316;&lt;/h2&gt;&lt;p&gt;Python&amp;#x4E0D;&amp;#x9700;&amp;#x8981;&amp;#x7528;&amp;#x5206;&amp;#x53F7;&amp;#x6765;&amp;#x7ED3;&amp;#x675F;&amp;#x4E00;&amp;#x884C;&amp;#x4EE3;&amp;#x7801;,&amp;#x53D6;&amp;#x800C;&amp;#x4EE3;&amp;#x4E4B;&amp;#x7684;&amp;#x5C31;&amp;#x662F;&amp;#x4E25;&amp;#x683C;&amp;#x7684;&amp;#x7F29;&amp;#x8FDB;&amp;#x683C;&amp;#x5F0F;,&amp;#x521A;&amp;#x521A;&amp;#x5F00;&amp;#x59CB;&amp;#x5C31;&amp;#x662F;&amp;#x8FC7;&amp;#x56E0;&amp;#x4E3A;&amp;#x7F29;&amp;#x8FDB;&amp;#x683C;&amp;#x5F0F;&amp;#x4E0D;&amp;#x5BF9;,&amp;#x4E0D;&amp;#x65AD;&amp;#x51FA;&amp;#x73B0;&amp;#x9519;&amp;#x8BEF;,&amp;#x5177;&amp;#x4F53;&amp;#x4F60;&amp;#x5728;&amp;#x6572;&amp;#x4E00;&amp;#x4E2A;&amp;#x56DE;&amp;#x8F66;&amp;#x7684;&amp;#x65F6;&amp;#x5019;,&amp;#x4E0B;&amp;#x4E00;&amp;#x884C;&amp;#x8981;&amp;#x7F29;&amp;#x8FDB;&amp;#x51E0;&amp;#x683C;&amp;#x662F;&amp;#x53EF;&amp;#x4EE5;&amp;#x8BBE;&amp;#x7F6E;&amp;#x7684;:Preferences-&amp;gt;Indentation Width(&amp;#x8FD9;&amp;#x4E2A;&amp;#x662F;mac&amp;#x4E0B;&amp;#x7684;&amp;#x8BBE;&amp;#x7F6E;&amp;#x8DEF;&amp;#x5F84;,windows&amp;#x4E0B;&amp;#x7684;&amp;#x540D;&amp;#x5B57;&amp;#x4E5F;&amp;#x5E94;&amp;#x8BE5;&amp;#x5927;&amp;#x540C;&amp;#x5C0F;&amp;#x5F02;)&lt;/p&gt;
+&lt;h2 id=&quot;import&quot;&gt;&lt;a href=&quot;#import&quot; class=&quot;headerlink&quot; title=&quot;import&quot;&gt;&lt;/a&gt;import&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;import random
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;import&amp;#x8BED;&amp;#x53E5;&amp;#x544A;&amp;#x8BC9;python&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x8981;&amp;#x7528;random&amp;#x6A21;&amp;#x5757;&amp;#x4E2D;&amp;#x7684;&amp;#x5185;&amp;#x5BB9;&amp;#x3002;&amp;#x7136;&amp;#x540E;&amp;#x4FBF;&amp;#x53EF;&amp;#x4EE5;&amp;#x4F7F;&amp;#x7528;random&amp;#x4E2D;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;&amp;#xFF0C;&amp;#x6BD4;&amp;#x5982;&amp;#xFF1A;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;random.randint(1, 10)
+random.choice([1, 3, 5])
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x6CE8;&amp;#x610F;&amp;#xFF0C;&amp;#x51FD;&amp;#x6570;&amp;#x524D;&amp;#x9762;&amp;#x9700;&amp;#x8981;&amp;#x52A0;&amp;#x4E0A;&amp;#x201C;random.&amp;#x201D;&amp;#xFF0C;&amp;#x8FD9;&amp;#x6837;python&amp;#x624D;&amp;#x77E5;&amp;#x9053;&amp;#x4F60;&amp;#x662F;&amp;#x8981;&amp;#x8C03;&amp;#x7528;random&amp;#x4E2D;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;&amp;#x3002;&lt;/p&gt;
+&lt;p&gt;&amp;#x60F3;&amp;#x77E5;&amp;#x9053;random&amp;#x6709;&amp;#x54EA;&amp;#x4E9B;&amp;#x51FD;&amp;#x6570;&amp;#x548C;&amp;#x53D8;&amp;#x91CF;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x7528;dir()&amp;#x65B9;&amp;#x6CD5;&amp;#xFF1A;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;dir(random)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x5982;&amp;#x679C;&amp;#x4F60;&amp;#x53EA;&amp;#x662F;&amp;#x7528;&amp;#x5230;random&amp;#x4E2D;&amp;#x7684;&amp;#x67D0;&amp;#x4E00;&amp;#x4E2A;&amp;#x51FD;&amp;#x6570;&amp;#x6216;&amp;#x53D8;&amp;#x91CF;&amp;#xFF0C;&amp;#x4E5F;&amp;#x53EF;&amp;#x4EE5;&amp;#x901A;&amp;#x8FC7;from&amp;#x2026;import&amp;#x2026;&amp;#x6307;&amp;#x660E;&amp;#xFF1A;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;from math import pi
+print pi
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x4E3A;&amp;#x4E86;&amp;#x4FBF;&amp;#x4E8E;&amp;#x7406;&amp;#x89E3;&amp;#x548C;&amp;#x907F;&amp;#x514D;&amp;#x51B2;&amp;#x7A81;&amp;#xFF0C;&amp;#x4F60;&amp;#x8FD8;&amp;#x53EF;&amp;#x4EE5;&amp;#x7ED9;&amp;#x5F15;&amp;#x5165;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;&amp;#x6362;&amp;#x4E2A;&amp;#x540D;&amp;#x5B57;&amp;#xFF1A;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;from math import pi as math_pi
+print math_pi
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;&amp;#x8BFB;&amp;#x5199;&amp;#x6587;&amp;#x4EF6;&quot;&gt;&lt;a href=&quot;#&amp;#x8BFB;&amp;#x5199;&amp;#x6587;&amp;#x4EF6;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x8BFB;&amp;#x5199;&amp;#x6587;&amp;#x4EF6;&quot;&gt;&lt;/a&gt;&amp;#x8BFB;&amp;#x5199;&amp;#x6587;&amp;#x4EF6;&lt;/h2&gt;&lt;p&gt;&amp;#x8BFB;&amp;#x5199;&amp;#x6587;&amp;#x4EF6;&amp;#x6709;&amp;#x4E09;&amp;#x79CD;&amp;#x6A21;&amp;#x5F0F;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;r&lt;/code&gt;:&amp;#x53EA;&amp;#x8BFB;&amp;#x6A21;&amp;#x5F0F;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;w&lt;/code&gt;:&amp;#x8986;&amp;#x76D6;&amp;#x6A21;&amp;#x5F0F;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;a&lt;/code&gt;:&amp;#x6DFB;&amp;#x52A0;&amp;#x6A21;&amp;#x5F0F;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;#x51FD;&amp;#x6570;&amp;#x683C;&amp;#x5F0F;:&lt;br&gt;    file(&amp;#x2018;&amp;#x6587;&amp;#x4EF6;&amp;#x540D;&amp;#x2019;,&amp;#x2019;&amp;#x53C2;&amp;#x6570;&amp;#x2019;)&lt;br&gt;    open(&amp;#x2018;&amp;#x6587;&amp;#x4EF6;&amp;#x540D;&amp;#x2019;,&amp;#x2019;&amp;#x53C2;&amp;#x6570;&amp;#x2019;)&lt;/p&gt;
+&lt;p&gt;&amp;#x8BFB;&amp;#x6587;&amp;#x4EF6;&amp;#x547D;&amp;#x4EE4;&amp;#x5F88;&amp;#x7B80;&amp;#x5355;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;file(&amp;apos;&amp;#x6587;&amp;#x4EF6;&amp;#x540D;&amp;apos;) #&amp;#x9ED8;&amp;#x8BA4;&amp;#x53C2;&amp;#x6570;&amp;#x4E3A;r
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x5982;&amp;#x679C;&amp;#x6587;&amp;#x4EF6;&amp;#x548C;&amp;#x4EE3;&amp;#x7801;&amp;#x653E;&amp;#x5728;&amp;#x540C;&amp;#x4E00;&amp;#x4E2A;&amp;#x6587;&amp;#x4EF6;&amp;#x5939;,&amp;#x76F4;&amp;#x63A5;&amp;#x5199;&amp;#x540D;&amp;#x5B57;&amp;#x5C31;&amp;#x597D;&amp;#x4E86;,&amp;#x4E0D;&amp;#x662F;&amp;#x5C31;&amp;#x8981;&amp;#x5199;&amp;#x6587;&amp;#x4EF6;&amp;#x7684;&amp;#x7EDD;&amp;#x5BF9;&amp;#x8DEF;&amp;#x5F84;.&amp;#x8FD8;&amp;#x6709;&amp;#x5F88;&amp;#x795E;&amp;#x5947;&amp;#x7684;&amp;#x4E00;&amp;#x70B9;&amp;#x5C31;&amp;#x662F;,&amp;#x5982;&amp;#x679C;&amp;#x8DEF;&amp;#x5F84;&amp;#x6CA1;&amp;#x6709;&amp;#x627E;&amp;#x5230;&amp;#x6587;&amp;#x4EF6;,&amp;#x5C31;&amp;#x4F1A;&amp;#x81EA;&amp;#x52A8;&amp;#x521B;&amp;#x5EFA;&amp;#x8FD9;&amp;#x4E2A;&amp;#x6587;&amp;#x4EF6;.&lt;/p&gt;
+&lt;h2 id=&quot;and-or&quot;&gt;&lt;a href=&quot;#and-or&quot; class=&quot;headerlink&quot; title=&quot;and-or&quot;&gt;&lt;/a&gt;and-or&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;c = bool and a or b 
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x901A;&amp;#x5E38;&amp;#x60C5;&amp;#x51B5;&amp;#x4E0B;,&amp;#x53EA;&amp;#x8981;bool&amp;#x503C;&amp;#x4E3A;&amp;#x771F;&amp;#x5219;a,&amp;#x4E3A;&amp;#x5047;&amp;#x5219;b&lt;br&gt;&amp;#x4F46;&amp;#x5982;&amp;#x679C;&amp;#x5F53;a&amp;#x672C;&amp;#x8EAB;&amp;#x5C31;&amp;#x4E3A;&amp;#x5047;,&amp;#x6BD4;&amp;#x5982;0,&amp;#x2019;&amp;#x2019;.&amp;#x8FD9;&amp;#x65F6;,&amp;#x51E0;&amp;#x65F6;bool&amp;#x4E3A;&amp;#x771F;&amp;#x4E5F;&amp;#x4F1A;&amp;#x53D6;b,&amp;#x6240;&amp;#x4EE5;&amp;#x4E3A;&amp;#x4E86;&amp;#x907F;&amp;#x514D;&amp;#x8FD9;&amp;#x79CD;&amp;#x60C5;&amp;#x51B5;,&amp;#x5E94;&amp;#x5F53;&amp;#x5C06;a-&amp;gt;[a] , b-&amp;gt;[b],&amp;#x5C06;&amp;#x5143;&amp;#x7D20;&amp;#x53D8;&amp;#x6210;&amp;#x5217;&amp;#x8868;,&amp;#x5373;&amp;#x4F7F;&amp;#x662F;[&amp;#x2018;&amp;#x2019;]&amp;#x6216;&amp;#x8005;[0]&amp;#x8FD9;&amp;#x662F;&amp;#x4E3A;&amp;#x771F;&amp;#x7684;,&amp;#x4F46;&amp;#x662F;&amp;#x5BF9;&amp;#x5E94;&amp;#x7684;,&amp;#x8868;&amp;#x8FBE;&amp;#x5F0F;&amp;#x8FD4;&amp;#x56DE;&amp;#x7684;&amp;#x4E5F;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x5217;&amp;#x8868;,&amp;#x53BB;&amp;#x5217;&amp;#x8868;&amp;#x7B2C;&amp;#x4E00;&amp;#x4E2A;&amp;#x5143;&amp;#x7D20;&amp;#x5373;&amp;#x53EF;,&amp;#x56E0;&amp;#x6B64;&amp;#x8868;&amp;#x8FBE;&amp;#x5F0F;&amp;#x4E5F;&amp;#x8981;&amp;#x76F8;&amp;#x5E94;&amp;#x6539;&amp;#x53D8;&amp;#x4E00;&amp;#x4E0B;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;c = (bool and [a] or [b])[0]
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;&amp;#x968F;&amp;#x673A;&amp;#x6570;&quot;&gt;&lt;a href=&quot;#&amp;#x968F;&amp;#x673A;&amp;#x6570;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x968F;&amp;#x673A;&amp;#x6570;&quot;&gt;&lt;/a&gt;&amp;#x968F;&amp;#x673A;&amp;#x6570;&lt;/h2&gt;&lt;p&gt;&amp;#x9996;&amp;#x5148;,&amp;#x4F7F;&amp;#x7528;&amp;#x4E4B;&amp;#x524D;&amp;#x90FD;&amp;#x8981;import random&amp;#x6A21;&amp;#x5757;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import random
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x8C03;&amp;#x7528;&amp;#x65F6;&amp;#x662F;&amp;#x8C03;&amp;#x7528;&amp;#x7C7B;&amp;#x65B9;&amp;#x6CD5;&amp;#x7684;&amp;#x7684;&amp;#x5F62;&amp;#x5F0F;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;num = random.randint(1,100)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x5E38;&amp;#x7528;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;random.random() #&amp;#x751F;&amp;#x6210;&amp;#x4E00;&amp;#x4E2A;0&amp;#x5230;1&amp;#x4E4B;&amp;#x95F4;&amp;#x7684;&amp;#x968F;&amp;#x673A;&amp;#x6D6E;&amp;#x70B9;&amp;#x6570;&amp;#xFF0C;&amp;#x5305;&amp;#x62EC;0&amp;#x4F46;&amp;#x4E0D;&amp;#x5305;&amp;#x62EC;1&amp;#xFF0C;&amp;#x4E5F;&amp;#x5C31;&amp;#x662F;[0.0, 1.0)&amp;#x3002;
+
+random.uniform(a, b) #&amp;#x751F;&amp;#x6210;a&amp;#x3001;b&amp;#x4E4B;&amp;#x95F4;&amp;#x7684;&amp;#x968F;&amp;#x673A;&amp;#x6D6E;&amp;#x70B9;&amp;#x6570;&amp;#x3002;&amp;#x4E0D;&amp;#x8FC7;&amp;#x4E0E;randint&amp;#x4E0D;&amp;#x540C;&amp;#x7684;&amp;#x662F;&amp;#xFF0C;a&amp;#x3001;b&amp;#x65E0;&amp;#x9700;&amp;#x662F;&amp;#x6574;&amp;#x6570;&amp;#xFF0C;&amp;#x4E5F;&amp;#x4E0D;&amp;#x7528;&amp;#x8003;&amp;#x8651;&amp;#x5927;&amp;#x5C0F;&amp;#x3002;
+
+random.choice(seq) #&amp;#x4ECE;&amp;#x5E8F;&amp;#x5217;&amp;#x4E2D;&amp;#x968F;&amp;#x673A;&amp;#x9009;&amp;#x53D6;&amp;#x4E00;&amp;#x4E2A;&amp;#x5143;&amp;#x7D20;&amp;#x3002;seq&amp;#x9700;&amp;#x8981;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x5E8F;&amp;#x5217;&amp;#xFF0C;&amp;#x6BD4;&amp;#x5982;list&amp;#x3001;&amp;#x5143;&amp;#x7EC4;&amp;#x3001;&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#x3002;
+
+random.randrange(start, stop, step) #&amp;#x751F;&amp;#x6210;&amp;#x4E00;&amp;#x4E2A;&amp;#x4ECE;start&amp;#x5230;stop&amp;#xFF08;&amp;#x4E0D;&amp;#x5305;&amp;#x62EC;stop&amp;#xFF09;&amp;#xFF0C;&amp;#x95F4;&amp;#x9694;&amp;#x4E3A;step&amp;#x7684;&amp;#x4E00;&amp;#x4E2A;&amp;#x968F;&amp;#x673A;&amp;#x6570;&amp;#x3002;start&amp;#x3001;stop&amp;#x3001;step&amp;#x90FD;&amp;#x8981;&amp;#x4E3A;&amp;#x6574;&amp;#x6570;&amp;#xFF0C;&amp;#x4E14;start&amp;lt;stop&amp;#x3002;
+
+random.sample(population, k) #&amp;#x4ECE;population&amp;#x5E8F;&amp;#x5217;&amp;#x4E2D;&amp;#xFF0C;&amp;#x968F;&amp;#x673A;&amp;#x83B7;&amp;#x53D6;k&amp;#x4E2A;&amp;#x5143;&amp;#x7D20;&amp;#xFF0C;&amp;#x751F;&amp;#x6210;&amp;#x4E00;&amp;#x4E2A;&amp;#x65B0;&amp;#x5E8F;&amp;#x5217;&amp;#x3002;sample&amp;#x4E0D;&amp;#x6539;&amp;#x53D8;&amp;#x539F;&amp;#x6765;&amp;#x5E8F;&amp;#x5217;&amp;#x3002;
+
+random.shuffle(x) #&amp;#x628A;&amp;#x5E8F;&amp;#x5217;x&amp;#x4E2D;&amp;#x7684;&amp;#x5143;&amp;#x7D20;&amp;#x987A;&amp;#x5E8F;&amp;#x6253;&amp;#x4E71;&amp;#x3002;shuffle&amp;#x76F4;&amp;#x63A5;&amp;#x6539;&amp;#x53D8;&amp;#x539F;&amp;#x6709;&amp;#x7684;&amp;#x5E8F;&amp;#x5217;&amp;#x3002;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;&amp;#x5217;&amp;#x8868;&amp;#x89E3;&amp;#x6790;&quot;&gt;&lt;a href=&quot;#&amp;#x5217;&amp;#x8868;&amp;#x89E3;&amp;#x6790;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5217;&amp;#x8868;&amp;#x89E3;&amp;#x6790;&quot;&gt;&lt;/a&gt;&amp;#x5217;&amp;#x8868;&amp;#x89E3;&amp;#x6790;&lt;/h2&gt;&lt;p&gt;Python&amp;#x7684;&amp;#x5217;&amp;#x8868;(list)&amp;#x5C31;&amp;#x662F;&amp;#x6570;&amp;#x7EC4;,&amp;#x652F;&amp;#x6301;&amp;#x8868;&amp;#x8FBE;&amp;#x5F0F;&amp;#x8D4B;&amp;#x503C;&lt;br&gt;&amp;#x6BD4;&amp;#x5982;&amp;#x4ECE;&amp;#x53E6;&amp;#x4E00;&amp;#x4E2A;list&amp;#x4E2D;&amp;#x53BB;&amp;#x90E8;&amp;#x5206;&amp;#x5143;&amp;#x7D20;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ist_1 = [1, 2, 3, 5, 8, 13, 22]
+list_2 = [i for i in list_1 if i % 2 == 0] #&amp;#x4ECE;list_1&amp;#x4E2D;&amp;#x53D6;&amp;#x51FA;&amp;#x6A21;2&amp;#x7684;&amp;#x6570;
+print list_2
+
+&amp;#x8F93;&amp;#x51FA;
+[2, 8, 22]
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;&amp;#x6B63;&amp;#x5219;&amp;#x8868;&amp;#x8FBE;&amp;#x5F0F;&quot;&gt;&lt;a href=&quot;#&amp;#x6B63;&amp;#x5219;&amp;#x8868;&amp;#x8FBE;&amp;#x5F0F;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x6B63;&amp;#x5219;&amp;#x8868;&amp;#x8FBE;&amp;#x5F0F;&quot;&gt;&lt;/a&gt;&amp;#x6B63;&amp;#x5219;&amp;#x8868;&amp;#x8FBE;&amp;#x5F0F;&lt;/h1&gt;&lt;h2 id=&quot;&amp;#x5E38;&amp;#x7528;&amp;#x7279;&amp;#x6B8A;&amp;#x7B26;&amp;#x53F7;&quot;&gt;&lt;a href=&quot;#&amp;#x5E38;&amp;#x7528;&amp;#x7279;&amp;#x6B8A;&amp;#x7B26;&amp;#x53F7;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x5E38;&amp;#x7528;&amp;#x7279;&amp;#x6B8A;&amp;#x7B26;&amp;#x53F7;&quot;&gt;&lt;/a&gt;&amp;#x5E38;&amp;#x7528;&amp;#x7279;&amp;#x6B8A;&amp;#x7B26;&amp;#x53F7;&lt;/h2&gt;&lt;p&gt;&amp;#x53EF;&amp;#x4EE5;&amp;#x770B;&amp;#x6211;&amp;#x4E4B;&amp;#x524D;&amp;#x5199;&amp;#x7684;&amp;#x4E00;&amp;#x7BC7;&amp;#x535A;&amp;#x6587;:&lt;a href=&quot;http://sherlockz.github.io/2016/05/19/python-re-symbol/&quot;&gt;python&amp;#x6B63;&amp;#x5219;&amp;#x8868;&amp;#x8FBE;&amp;#x5F0F;&amp;#x7684;&amp;#x90E8;&amp;#x5206;&amp;#x7279;&amp;#x6B8A;&amp;#x7B26;&amp;#x53F7;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;&amp;#x503C;&amp;#x5F97;&amp;#x6CE8;&amp;#x610F;&amp;#x7684;&amp;#x5730;&amp;#x65B9;&quot;&gt;&lt;a href=&quot;#&amp;#x503C;&amp;#x5F97;&amp;#x6CE8;&amp;#x610F;&amp;#x7684;&amp;#x5730;&amp;#x65B9;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x503C;&amp;#x5F97;&amp;#x6CE8;&amp;#x610F;&amp;#x7684;&amp;#x5730;&amp;#x65B9;&quot;&gt;&lt;/a&gt;&amp;#x503C;&amp;#x5F97;&amp;#x6CE8;&amp;#x610F;&amp;#x7684;&amp;#x5730;&amp;#x65B9;&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Hi&amp;#x548C;hi&lt;/code&gt;: &amp;#x9ED8;&amp;#x8BA4;&amp;#x60C5;&amp;#x51B5;&amp;#x4E0B;,&amp;#x6B63;&amp;#x5219;&amp;#x8868;&amp;#x8FBE;&amp;#x5F0F;&amp;#x662F;&amp;#x4E25;&amp;#x683C;&amp;#x533A;&amp;#x5206;&amp;#x5927;&amp;#x5C0F;&amp;#x5199;&amp;#x7684;.&lt;br&gt;&lt;code&gt;[0-9]&lt;/code&gt;: [0123456789]&amp;#x53EF;&amp;#x4EE5;&amp;#x5199;&amp;#x6210;[0-9]&amp;#x8FD9;&amp;#x79CD;&amp;#x5F62;&amp;#x5F0F;,&amp;#x540C;&amp;#x7406;,&amp;#x7C7B;&amp;#x4F3C;&amp;#x7684;&amp;#x8FD8;&amp;#x6709;[a-zA-Z].&lt;br&gt;&lt;code&gt;()&lt;/code&gt;: ()&amp;#x5728;&amp;#x6B63;&amp;#x5219;&amp;#x8868;&amp;#x8FBE;&amp;#x5F0F;&amp;#x91CC;&amp;#x4E5F;&amp;#x6709;&amp;#x7740;&amp;#x7279;&amp;#x6B8A;&amp;#x7684;&amp;#x542B;&amp;#x4E49;, &amp;#x6240;&amp;#x4EE5;&amp;#x8981;&amp;#x5339;&amp;#x914D;&amp;#x5B57;&amp;#x7B26;&amp;#x201D;(&amp;#x201C;, &amp;#x9700;&amp;#x8981;&amp;#x7528;&amp;#x201D;\(&amp;#x201C;.&lt;/p&gt;
+&lt;h2 id=&quot;&amp;#x61D2;&amp;#x60F0;&amp;#x5339;&amp;#x914D;&amp;#x548C;&amp;#x8D2A;&amp;#x5A6A;&amp;#x5339;&amp;#x914D;&quot;&gt;&lt;a href=&quot;#&amp;#x61D2;&amp;#x60F0;&amp;#x5339;&amp;#x914D;&amp;#x548C;&amp;#x8D2A;&amp;#x5A6A;&amp;#x5339;&amp;#x914D;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x61D2;&amp;#x60F0;&amp;#x5339;&amp;#x914D;&amp;#x548C;&amp;#x8D2A;&amp;#x5A6A;&amp;#x5339;&amp;#x914D;&quot;&gt;&lt;/a&gt;&amp;#x61D2;&amp;#x60F0;&amp;#x5339;&amp;#x914D;&amp;#x548C;&amp;#x8D2A;&amp;#x5A6A;&amp;#x5339;&amp;#x914D;&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;&amp;quot;.*&amp;quot; &amp;#x548C; &amp;quot;.*?&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x201C;&lt;em&gt;&amp;#x201D;&amp;#x5728;&amp;#x5339;&amp;#x914D;&amp;#x65F6;&amp;#xFF0C;&amp;#x4F1A;&amp;#x5339;&amp;#x914D;&amp;#x5C3D;&amp;#x53EF;&amp;#x80FD;&amp;#x957F;&amp;#x7684;&amp;#x7ED3;&amp;#x679C;&amp;#x3002;&amp;#x5982;&amp;#x679C;&amp;#x4F60;&amp;#x60F3;&amp;#x8BA9;&amp;#x4ED6;&amp;#x5339;&amp;#x914D;&amp;#x5230;&amp;#x6700;&amp;#x77ED;&amp;#x7684;&amp;#x5C31;&amp;#x505C;&amp;#x6B62;&amp;#xFF0C;&amp;#x9700;&amp;#x8981;&amp;#x7528;&amp;#x201C;.&lt;/em&gt;?&amp;#x201D;&amp;#x3002;&amp;#x5982;&amp;#x201C;I.*?e&amp;#x201D;&amp;#xFF0C;&amp;#x5C31;&amp;#x4F1A;&amp;#x5F97;&amp;#x5230;&amp;#x7B2C;&amp;#x4E8C;&amp;#x79CD;&amp;#x7ED3;&amp;#x679C;&amp;#x3002;&amp;#x8FD9;&amp;#x79CD;&amp;#x5339;&amp;#x914D;&amp;#x65B9;&amp;#x5F0F;&amp;#x88AB;&amp;#x79F0;&amp;#x4E3A;&amp;#x61D2;&amp;#x60F0;&amp;#x5339;&amp;#x914D;&amp;#xFF0C;&amp;#x800C;&amp;#x539F;&amp;#x672C;&amp;#x5C3D;&amp;#x53EF;&amp;#x80FD;&amp;#x957F;&amp;#x7684;&amp;#x65B9;&amp;#x5F0F;&amp;#x88AB;&amp;#x79F0;&amp;#x4E3A;&amp;#x8D2A;&amp;#x5A6A;&amp;#x5339;&amp;#x914D;&amp;#x3002;&lt;/p&gt;
+&lt;h1 id=&quot;&amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x53C2;&amp;#x6570;&amp;#x4F20;&amp;#x9012;&quot;&gt;&lt;a href=&quot;#&amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x53C2;&amp;#x6570;&amp;#x4F20;&amp;#x9012;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x53C2;&amp;#x6570;&amp;#x4F20;&amp;#x9012;&quot;&gt;&lt;/a&gt;&amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x53C2;&amp;#x6570;&amp;#x4F20;&amp;#x9012;&lt;/h1&gt;&lt;p&gt;&amp;#x57FA;&amp;#x672C;&amp;#x65B9;&amp;#x5F0F;:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;fun1(a,b)&lt;/code&gt; : &amp;#x8C03;&amp;#x7528;&amp;#x65F6;&amp;#x63D0;&amp;#x4F9B;&amp;#x53C2;&amp;#x6570;&amp;#x7684;&amp;#x4F4D;&amp;#x7F6E;&amp;#x8FDB;&amp;#x884C;&amp;#x5339;&amp;#x914D;&amp;#xFF0C;&amp;#x8981;&amp;#x6C42;&amp;#x5B9E;&amp;#x53C2;&amp;#x4E0E;&amp;#x884C;&amp;#x53C2;&amp;#x7684;&amp;#x6570;&amp;#x91CF;&amp;#x76F8;&amp;#x7B49;&amp;#xFF0C;&amp;#x9ED8;&amp;#x8BA4;&amp;#x6309;&amp;#x4F4D;&amp;#x7F6E;&amp;#x5339;&amp;#x914D;&amp;#x53C2;&amp;#x6570;&amp;#x3002;&amp;#x8C03;&amp;#x7528;&amp;#x65F6;&amp;#xFF0C;&amp;#x5C11;&amp;#x53C2;&amp;#x6570;&amp;#x6216;&amp;#x8005;&amp;#x591A;&amp;#x53C2;&amp;#x6570;&amp;#x90FD;&amp;#x4F1A;&amp;#x5F15;&amp;#x8D77;&amp;#x9519;&amp;#x8BEF;&amp;#x3002;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;def func(arg1, arg2):
+     print arg1, arg2
+
+func(3, 7)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Python &amp;#x8FD8;&amp;#x63D0;&amp;#x4F9B;&amp;#x4E86;&amp;#x5176;&amp;#x4ED6;&amp;#x4E00;&amp;#x4E9B;&amp;#x66F4;&amp;#x7075;&amp;#x6D3B;&amp;#x7684;&amp;#x53C2;&amp;#x6570;&amp;#x4F20;&amp;#x9012;&amp;#x65B9;&amp;#x5F0F;&amp;#xFF0C;&amp;#x5982;&amp;#xFF1A;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;func2(a=1, b=2, c=3)&lt;/code&gt; : &amp;#x6709;&amp;#x9ED8;&amp;#x8BA4;&amp;#x503C;,&amp;#x5F53;&amp;#x6CA1;&amp;#x6709;&amp;#x63D0;&amp;#x4F9B;&amp;#x8DB3;&amp;#x591F;&amp;#x7684;&amp;#x53C2;&amp;#x6570;&amp;#x65F6;, &amp;#x4F1A;&amp;#x7528;&amp;#x9ED8;&amp;#x8BA4;&amp;#x503C;&amp;#x4F5C;&amp;#x4E3A;&amp;#x53C2;&amp;#x6570;&amp;#x7684;&amp;#x503C;.&amp;#x63D0;&amp;#x4F9B;&amp;#x7684;&amp;#x53C2;&amp;#x6570;&amp;#x4F1A;&amp;#x6309;&amp;#x987A;&amp;#x5E8F;&amp;#x5148;&amp;#x5339;&amp;#x914D;&amp;#x524D;&amp;#x9762;&amp;#x4F4D;&amp;#x7F6E;&amp;#x7684;&amp;#x53C2;&amp;#x6570;, &amp;#x540E;&amp;#x9762;&amp;#x672A;&amp;#x5339;&amp;#x914D;&amp;#x5230;&amp;#x7684;&amp;#x53C2;&amp;#x6570;&amp;#x4F7F;&amp;#x7528;&amp;#x9ED8;&amp;#x8BA4;&amp;#x503C;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;def func(arg1=1, arg2=2, arg3=3):
+print arg1, arg2, arg3
+
+func(2, 3, 4)
+func(5, 6)
+func(7) 
+
+&amp;#x8F93;&amp;#x51FA;&amp;#x4E3A;
+2 3 4
+5 6 3
+7 2 3
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x5F53;&amp;#x7136;,&amp;#x4E5F;&amp;#x53EF;&amp;#x4EE5;&amp;#x76F4;&amp;#x63A5;&amp;#x7528;&amp;#x5F62;&amp;#x53C2;&amp;#x53BB;&amp;#x6307;&amp;#x5B9A;&amp;#x67D0;&amp;#x4E2A;&amp;#x53C2;&amp;#x6570;,&amp;#x4F46;&amp;#x662F;,&lt;code&gt;&amp;#x6CA1;&amp;#x6709;&amp;#x6307;&amp;#x5B9A;&amp;#x53C2;&amp;#x6570;&amp;#x540D;&amp;#x7684;&amp;#x53C2;&amp;#x6570;&lt;/code&gt;&amp;#x5FC5;&amp;#x987B;&amp;#x5728;&lt;code&gt;&amp;#x6240;&amp;#x6709;&lt;/code&gt; &lt;code&gt;&amp;#x6307;&amp;#x5B9A;&amp;#x53C2;&amp;#x6570;&amp;#x540D;&amp;#x7684;&amp;#x53C2;&amp;#x6570;&lt;/code&gt;&amp;#x524D;&amp;#x9762;, &amp;#x4E14;&lt;code&gt;&amp;#x53C2;&amp;#x6570;&amp;#x4E0D;&amp;#x80FD;&amp;#x91CD;&amp;#x590D;&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;func(arg2=8)
+func(arg3=9, arg1=10)
+func(11, arg3=12)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;func3(*args)&lt;/code&gt; : &amp;#x8FD9;&amp;#x79CD;&amp;#x65B9;&amp;#x5F0F;&amp;#x7684;&amp;#x5389;&amp;#x5BB3;&amp;#x4E4B;&amp;#x5904;&amp;#x5728;&amp;#x4E8E;, &amp;#x5B83;&amp;#x53EF;&amp;#x4EE5;&amp;#x63A5;&amp;#x53D7;&amp;#x4EFB;&amp;#x610F;&amp;#x6570;&amp;#x91CF;&amp;#x7684;&amp;#x53C2;&amp;#x6570;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;def calcSum(*args):
+sum = 0
+for i in args:
+    sum += i
+print sum
+
+
+calcSum(1,2,3)
+calcSum(123,456)
+calcSum()
+
+&amp;#x8F93;&amp;#x51FA;&amp;#xFF1A;
+6
+579
+0
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x5728;&amp;#x53D8;&amp;#x91CF;&amp;#x524D;&amp;#x52A0;&amp;#x4E0A;&amp;#x661F;&amp;#x53F7;&amp;#x524D;&amp;#x7F00;&amp;#xFF08;*&amp;#xFF09;&amp;#xFF0C;&amp;#x8C03;&amp;#x7528;&amp;#x65F6;&amp;#x7684;&lt;code&gt;&amp;#x53C2;&amp;#x6570;&amp;#x4F1A;&amp;#x5B58;&amp;#x50A8;&amp;#x5728;&amp;#x4E00;&amp;#x4E2A; tuple&amp;#xFF08;&amp;#x5143;&amp;#x7EC4;&amp;#xFF09;&amp;#x5BF9;&amp;#x8C61;&lt;/code&gt;&amp;#x4E2D;&amp;#xFF0C;&amp;#x8D4B;&amp;#x503C;&amp;#x7ED9;&amp;#x5F62;&amp;#x53C2;&amp;#x3002;&amp;#x5728;&amp;#x51FD;&amp;#x6570;&amp;#x5185;&amp;#x90E8;&amp;#xFF0C;&amp;#x9700;&amp;#x8981;&amp;#x5BF9;&amp;#x53C2;&amp;#x6570;&amp;#x8FDB;&amp;#x884C;&amp;#x5904;&amp;#x7406;&amp;#x65F6;&amp;#xFF0C;&amp;#x53EA;&amp;#x8981;&amp;#x5BF9;&amp;#x8FD9;&amp;#x4E2A; tuple &amp;#x7C7B;&amp;#x578B;&amp;#x7684;&amp;#x5F62;&amp;#x53C2;&amp;#xFF08;&amp;#x8FD9;&amp;#x91CC;&amp;#x662F; args&amp;#xFF09;&amp;#x8FDB;&amp;#x884C;&amp;#x64CD;&amp;#x4F5C;&amp;#x5C31;&amp;#x53EF;&amp;#x4EE5;&amp;#x4E86;&amp;#x3002;&amp;#x56E0;&amp;#x6B64;&amp;#xFF0C;&amp;#x51FD;&amp;#x6570;&amp;#x5728;&amp;#x5B9A;&amp;#x4E49;&amp;#x65F6;&amp;#x5E76;&amp;#x4E0D;&amp;#x9700;&amp;#x8981;&amp;#x6307;&amp;#x660E;&amp;#x53C2;&amp;#x6570;&amp;#x4E2A;&amp;#x6570;&amp;#xFF0C;&amp;#x5C31;&amp;#x53EF;&amp;#x4EE5;&amp;#x5904;&amp;#x7406;&amp;#x4EFB;&amp;#x610F;&amp;#x53C2;&amp;#x6570;&amp;#x4E2A;&amp;#x6570;&amp;#x7684;&amp;#x60C5;&amp;#x51B5;&amp;#x3002;&lt;/p&gt;
+&lt;p&gt;&amp;#x4E0D;&amp;#x8FC7;&amp;#x6709;&amp;#x4E00;&amp;#x70B9;&amp;#x9700;&amp;#x8981;&amp;#x6CE8;&amp;#x610F;&amp;#xFF0C;tuple &amp;#x662F;&amp;#x6709;&amp;#x5E8F;&amp;#x7684;&amp;#xFF0C;&amp;#x6240;&amp;#x4EE5; args &amp;#x4E2D;&amp;#x5143;&amp;#x7D20;&amp;#x7684;&amp;#x987A;&amp;#x5E8F;&amp;#x53D7;&amp;#x5230;&amp;#x8D4B;&amp;#x503C;&amp;#x65F6;&amp;#x7684;&amp;#x5F71;&amp;#x54CD;&amp;#x3002;&amp;#x5982;&amp;#xFF1A;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;def printAll(*args):
+    for i in args:
+        print i,
+    print
+
+printAll(1,2,3)
+printAll(3,2,1)
+
+&amp;#x8F93;&amp;#x51FA;&amp;#xFF1A;
+1 2 3
+3 2 1
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x867D;&amp;#x7136;3&amp;#x4E2A;&amp;#x53C2;&amp;#x6570;&amp;#x5728;&amp;#x603B;&amp;#x4F53;&amp;#x4E0A;&amp;#x662F;&amp;#x76F8;&amp;#x540C;&amp;#x7684;&amp;#xFF0C;&amp;#x4F46;&amp;#x7531;&amp;#x4E8E;&amp;#x8C03;&amp;#x7528;&amp;#x7684;&amp;#x987A;&amp;#x5E8F;&amp;#x4E0D;&amp;#x4E00;&amp;#x6837;&amp;#xFF0C;&amp;#x7ED3;&amp;#x679C;&amp;#x4E5F;&amp;#x662F;&amp;#x4E0D;&amp;#x540C;&amp;#x7684;&amp;#x3002;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;func4(**kargs)&lt;/code&gt; : &amp;#x65E2;&amp;#x53EF;&amp;#x4EE5;&amp;#x6309;&amp;#x53C2;&amp;#x6570;&amp;#x540D;&amp;#x4F20;&amp;#x9012;&amp;#x53C2;&amp;#x6570;, &amp;#x4E0D;&amp;#x53D7;&amp;#x4F4D;&amp;#x7F6E;&amp;#x7684;&amp;#x9650;&amp;#x5236;, &amp;#x53C8;&amp;#x53EF;&amp;#x4EE5;&amp;#x50CF; tuple &amp;#x4F20;&amp;#x9012;&amp;#x4E00;&amp;#x6837;&amp;#x4E0D;&amp;#x53D7;&amp;#x6570;&amp;#x91CF;&amp;#x9650;&amp;#x5236;.&amp;#x56E0;&amp;#x4E3A;func(**kargs) &amp;#x5219;&amp;#x662F;&amp;#x628A;&amp;#x53C2;&amp;#x6570;&amp;#x4EE5;&amp;#x952E;&amp;#x503C;&amp;#x5BF9;&lt;code&gt;&amp;#x5B57;&amp;#x5178;&lt;/code&gt;&amp;#x7684;&amp;#x5F62;&amp;#x5F0F;&amp;#x4F20;&amp;#x5165;&amp;#x3002;&amp;#x5B57;&amp;#x5178;&amp;#x662F;&amp;#x65E0;&amp;#x5E8F;&amp;#x7684;&amp;#xFF0C;&amp;#x6240;&amp;#x4EE5;&amp;#x5728;&amp;#x8F93;&amp;#x51FA;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#xFF0C;&amp;#x5E76;&amp;#x4E0D;&amp;#x4E00;&amp;#x5B9A;&amp;#x6309;&amp;#x7167;&amp;#x63D0;&amp;#x4F9B;&amp;#x53C2;&amp;#x6570;&amp;#x7684;&amp;#x987A;&amp;#x5E8F;&amp;#x3002;&amp;#x540C;&amp;#x6837;&amp;#x5728;&amp;#x8C03;&amp;#x7528;&amp;#x65F6;&amp;#xFF0C;&amp;#x53C2;&amp;#x6570;&amp;#x7684;&amp;#x987A;&amp;#x5E8F;&amp;#x65E0;&amp;#x6240;&amp;#x8C13;&amp;#xFF0C;&amp;#x53EA;&amp;#x8981;&amp;#x5BF9;&amp;#x5E94;&amp;#x5408;&amp;#x9002;&amp;#x7684;&amp;#x5F62;&amp;#x53C2;&amp;#x540D;&amp;#x5C31;&amp;#x53EF;&amp;#x4EE5;&amp;#x4E86;&amp;#x3002;&amp;#x4E8E;&amp;#x662F;&amp;#xFF0C;&amp;#x91C7;&amp;#x7528;&amp;#x8FD9;&amp;#x79CD;&amp;#x53C2;&amp;#x6570;&amp;#x4F20;&amp;#x9012;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x4E0D;&amp;#x53D7;&amp;#x53C2;&amp;#x6570;&amp;#x6570;&amp;#x91CF;&amp;#x3001;&amp;#x4F4D;&amp;#x7F6E;&amp;#x7684;&amp;#x9650;&amp;#x5236;&amp;#x3002;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;def printAll(**kargs):
+    for k in kargs:
+        print k, &amp;apos;:&amp;apos;, kargs[k]
+
+printAll(a=1, b=2, c=3)
+printAll(x=4, y=5)
+
+&amp;#x8F93;&amp;#x51FA;&amp;#xFF1A;
+a : 1
+c : 3
+b : 2
+y : 5
+x : 4
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x5F53;&amp;#x7136;,Python&amp;#x80FD;&amp;#x505A;&amp;#x5230;&amp;#x7684;&amp;#x4E0D;&amp;#x4EC5;&amp;#x5982;&amp;#x6B64;,&amp;#x4EE5;&amp;#x4E0A;&amp;#x51E0;&amp;#x79CD;&amp;#x65B9;&amp;#x5F0F;&amp;#x4E0D;&amp;#x6EE1;&amp;#x610F;,&amp;#x4F60;&amp;#x8FD8;&amp;#x53EF;&amp;#x4EE5;&amp;#x6DF7;&amp;#x7740;&amp;#x7528;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;def func(x, y=5, *a, **b):
+     print x, y, a, b
+
+func(1)
+func(1,2)
+func(1,2,3)
+func(1,2,3,4)
+func(x=1)
+func(x=1,y=1)
+func(x=1,y=1,a=1)
+func(x=1,y=1,a=1,b=1)
+func(1,y=1)
+func(1,2,3,4,a=1)
+func(1,2,3,4,k=1,t=2,o=3)
+
+&amp;#x8F93;&amp;#x51FA;&amp;#xFF1A;
+1 5 () {}
+1 2 () {}
+1 2 (3,) {}
+1 2 (3, 4) {}
+1 5 () {}
+1 1 () {}
+1 1 () {&amp;apos;a&amp;apos;: 1}
+1 1 () {&amp;apos;a&amp;apos;: 1, &amp;apos;b&amp;apos;: 1}
+1 1 () {}
+1 2 (3, 4) {&amp;apos;a&amp;apos;: 1}
+1 2 (3, 4) {&amp;apos;k&amp;apos;: 1, &amp;apos;t&amp;apos;: 2, &amp;apos;o&amp;apos;: 3}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x5728;&amp;#x6DF7;&amp;#x5408;&amp;#x4F7F;&amp;#x7528;&amp;#x65F6;&amp;#xFF0C;&amp;#x9996;&amp;#x5148;&amp;#x8981;&amp;#x6CE8;&amp;#x610F;&amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x5199;&amp;#x6CD5;&amp;#xFF0C;&amp;#x5FC5;&amp;#x987B;&amp;#x9075;&amp;#x5B88;&amp;#xFF1A;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;#x5E26;&amp;#x6709;&amp;#x9ED8;&amp;#x8BA4;&amp;#x503C;&amp;#x7684;&amp;#x5F62;&amp;#x53C2;(arg=)&amp;#x987B;&amp;#x5728;&amp;#x65E0;&amp;#x9ED8;&amp;#x8BA4;&amp;#x503C;&amp;#x7684;&amp;#x5F62;&amp;#x53C2;(arg)&amp;#x4E4B;&amp;#x540E;&amp;#xFF1B;&lt;/li&gt;
+&lt;li&gt;&amp;#x5143;&amp;#x7EC4;&amp;#x53C2;&amp;#x6570;(*args)&amp;#x987B;&amp;#x5728;&amp;#x5E26;&amp;#x6709;&amp;#x9ED8;&amp;#x8BA4;&amp;#x503C;&amp;#x7684;&amp;#x5F62;&amp;#x53C2;(arg=)&amp;#x4E4B;&amp;#x540E;&amp;#xFF1B;&lt;/li&gt;
+&lt;li&gt;&amp;#x5B57;&amp;#x5178;&amp;#x53C2;&amp;#x6570;(&lt;em&gt;*kargs)&amp;#x987B;&amp;#x5728;&amp;#x5143;&amp;#x7EC4;&amp;#x53C2;&amp;#x6570;(&lt;/em&gt;args)&amp;#x4E4B;&amp;#x540E;&amp;#x3002;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;#x53EF;&amp;#x4EE5;&amp;#x7701;&amp;#x7565;&amp;#x67D0;&amp;#x79CD;&amp;#x7C7B;&amp;#x578B;&amp;#x7684;&amp;#x53C2;&amp;#x6570;&amp;#xFF0C;&amp;#x4F46;&amp;#x4ECD;&amp;#x9700;&amp;#x4FDD;&amp;#x8BC1;&amp;#x6B64;&amp;#x987A;&amp;#x5E8F;&amp;#x89C4;&amp;#x5219;&amp;#x3002;&amp;#x8C03;&amp;#x7528;&amp;#x65F6;&amp;#x4E5F;&amp;#x9700;&amp;#x8981;&amp;#x9075;&amp;#x5B88;&amp;#xFF1A;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;#x6307;&amp;#x5B9A;&amp;#x53C2;&amp;#x6570;&amp;#x540D;&amp;#x79F0;&amp;#x7684;&amp;#x53C2;&amp;#x6570;&amp;#x8981;&amp;#x5728;&amp;#x65E0;&amp;#x6307;&amp;#x5B9A;&amp;#x53C2;&amp;#x6570;&amp;#x540D;&amp;#x79F0;&amp;#x7684;&amp;#x53C2;&amp;#x6570;&amp;#x4E4B;&amp;#x540E;&amp;#xFF1B;&lt;/li&gt;
+&lt;li&gt;&amp;#x4E0D;&amp;#x53EF;&amp;#x4EE5;&amp;#x91CD;&amp;#x590D;&amp;#x4F20;&amp;#x9012;&amp;#xFF0C;&amp;#x5373;&amp;#x6309;&amp;#x987A;&amp;#x5E8F;&amp;#x63D0;&amp;#x4F9B;&amp;#x67D0;&amp;#x53C2;&amp;#x6570;&amp;#x4E4B;&amp;#x540E;&amp;#xFF0C;&amp;#x53C8;&amp;#x6307;&amp;#x5B9A;&amp;#x540D;&amp;#x79F0;&amp;#x4F20;&amp;#x9012;&amp;#x3002;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;#x800C;&amp;#x5728;&amp;#x51FD;&amp;#x6570;&amp;#x88AB;&amp;#x8C03;&amp;#x7528;&amp;#x65F6;&amp;#xFF0C;&amp;#x53C2;&amp;#x6570;&amp;#x7684;&amp;#x4F20;&amp;#x9012;&amp;#x8FC7;&amp;#x7A0B;&amp;#x4E3A;&amp;#xFF1A;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&amp;#x6309;&amp;#x987A;&amp;#x5E8F;&amp;#x628A;&amp;#x65E0;&amp;#x6307;&amp;#x5B9A;&amp;#x53C2;&amp;#x6570;&amp;#x7684;&amp;#x5B9E;&amp;#x53C2;&amp;#x8D4B;&amp;#x503C;&amp;#x7ED9;&amp;#x5F62;&amp;#x53C2;&amp;#xFF1B;&lt;/li&gt;
+&lt;li&gt;&amp;#x628A;&amp;#x6307;&amp;#x5B9A;&amp;#x53C2;&amp;#x6570;&amp;#x540D;&amp;#x79F0;(arg=v)&amp;#x7684;&amp;#x5B9E;&amp;#x53C2;&amp;#x8D4B;&amp;#x503C;&amp;#x7ED9;&amp;#x5BF9;&amp;#x5E94;&amp;#x7684;&amp;#x5F62;&amp;#x53C2;&amp;#xFF1B;&lt;/li&gt;
+&lt;li&gt;&amp;#x5C06;&amp;#x591A;&amp;#x4F59;&amp;#x7684;&amp;#x65E0;&amp;#x6307;&amp;#x5B9A;&amp;#x53C2;&amp;#x6570;&amp;#x7684;&amp;#x5B9E;&amp;#x53C2;&amp;#x6253;&amp;#x5305;&amp;#x6210;&amp;#x4E00;&amp;#x4E2A; tuple &amp;#x4F20;&amp;#x9012;&amp;#x7ED9;&amp;#x5143;&amp;#x7EC4;&amp;#x53C2;&amp;#x6570;(*args)&amp;#xFF1B;&lt;/li&gt;
+&lt;li&gt;&amp;#x5C06;&amp;#x591A;&amp;#x4F59;&amp;#x7684;&amp;#x6307;&amp;#x5B9A;&amp;#x53C2;&amp;#x6570;&amp;#x540D;&amp;#x7684;&amp;#x5B9E;&amp;#x53C2;&amp;#x6253;&amp;#x5305;&amp;#x6210;&amp;#x4E00;&amp;#x4E2A; dict &amp;#x4F20;&amp;#x9012;&amp;#x7ED9;&amp;#x5B57;&amp;#x5178;&amp;#x53C2;&amp;#x6570;(**kargs)&amp;#x3002;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&quot;lambda&quot;&gt;&lt;a href=&quot;#lambda&quot; class=&quot;headerlink&quot; title=&quot;lambda&quot;&gt;&lt;/a&gt;lambda&lt;/h1&gt;&lt;p&gt;lambda&amp;#x662F;&amp;#x4E00;&amp;#x79CD;&amp;#x533F;&amp;#x540D;&amp;#x51FD;&amp;#x6570;,&amp;#x800C;&amp;#x4E14;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x6781;&amp;#x5EA6;&amp;#x7B80;&amp;#x5355;&amp;#x7684;&amp;#x5355;&amp;#x884C;&amp;#x51FD;&amp;#x6570;.&lt;/p&gt;
+&lt;p&gt;&amp;#x8BED;&amp;#x6CD5;&amp;#x683C;&amp;#x5F0F;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;lambda &amp;#x53C2;&amp;#x6570;&amp;#x5217;&amp;#x8868;: &amp;#x8868;&amp;#x8FBE;&amp;#x5F0F;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x4F8B;&amp;#x5B50;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;def sum(a, b, c):
+     return a + b + c
+
+-&amp;gt;sum = lambda a, b, c: a + b + c     
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;map-&amp;#x548C;reduce&quot;&gt;&lt;a href=&quot;#map-&amp;#x548C;reduce&quot; class=&quot;headerlink&quot; title=&quot;map()&amp;#x548C;reduce()&quot;&gt;&lt;/a&gt;map()&amp;#x548C;reduce()&lt;/h1&gt;&lt;p&gt;&amp;#x9996;&amp;#x5148;&amp;#x6765;&amp;#x8BF4;&amp;#x4E24;&amp;#x4E2A;&amp;#x4F8B;&amp;#x5B50;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1. &amp;#x5047;&amp;#x8BBE;&amp;#x6709;&amp;#x4E00;&amp;#x4E2A;&amp;#x6570;&amp;#x5217;&amp;#xFF0C;&amp;#x5982;&amp;#x4F55;&amp;#x628A;&amp;#x5176;&amp;#x4E2D;&amp;#x6BCF;&amp;#x4E00;&amp;#x4E2A;&amp;#x5143;&amp;#x7D20;&amp;#x90FD;&amp;#x7FFB;&amp;#x500D;&amp;#xFF1F;
+2. &amp;#x5047;&amp;#x8BBE;&amp;#x6709;&amp;#x4E24;&amp;#x4E2A;&amp;#x6570;&amp;#x5217;&amp;#xFF0C;&amp;#x5982;&amp;#x4F55;&amp;#x6C42;&amp;#x548C;&amp;#xFF1F;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x7B2C;&amp;#x4E00;&amp;#x4E2A;&amp;#x95EE;&amp;#x9898;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;lst_1 = (1,2,3,4,5,6)
+lst_2 = map(lambda x: x * 2, lst_1)
+print lst_2
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x7B2C;&amp;#x4E8C;&amp;#x4E2A;&amp;#x95EE;&amp;#x9898;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;print reduce((lambda x, y: x + y), xrange(1, 101))
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x6559;&amp;#x7A0B;&amp;#x91CC;&amp;#x662F;&amp;#x8FD9;&amp;#x4E48;&amp;#x89E3;&amp;#x91CA;&amp;#x7684;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;quot;map &amp;#x53EF;&amp;#x4EE5;&amp;#x770B;&amp;#x4F5C;&amp;#x662F;&amp;#x628A;&amp;#x4E00;&amp;#x4E2A;&amp;#x5E8F;&amp;#x5217;&amp;#x6839;&amp;#x636E;&amp;#x67D0;&amp;#x79CD;&amp;#x89C4;&amp;#x5219;&amp;#xFF0C;&amp;#x6620;&amp;#x5C04;&amp;#x5230;&amp;#x53E6;&amp;#x4E00;&amp;#x4E2A;&amp;#x5E8F;&amp;#x5217;&amp;#x3002;reduce &amp;#x505A;&amp;#x7684;&amp;#x4E8B;&amp;#x60C5;&amp;#x5C31;&amp;#x662F;&amp;#x628A;&amp;#x4E00;&amp;#x4E2A;&amp;#x5E8F;&amp;#x5217;&amp;#x6839;&amp;#x636E;&amp;#x67D0;&amp;#x79CD;&amp;#x89C4;&amp;#x5219;&amp;#xFF0C;&amp;#x5F52;&amp;#x7EB3;&amp;#x4E3A;&amp;#x4E00;&amp;#x4E2A;&amp;#x8F93;&amp;#x51FA;&amp;#x3002;&amp;quot;    
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;#x5148;&amp;#x770B;&amp;#x770B;&amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x8C03;&amp;#x7528;&amp;#x683C;&amp;#x5F0F;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;map: map(&amp;#x51FD;&amp;#x6570;,&amp;#x5E8F;&amp;#x5217;) #&amp;#x7B2C;&amp;#x4E00;&amp;#x4E2A;&amp;#x53C2;&amp;#x6570;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x51FD;&amp;#x6570;, &amp;#x4E4B;&amp;#x540E;&amp;#x7684;&amp;#x53C2;&amp;#x6570;&amp;#x662F;&amp;#x5E8F;&amp;#x5217;, &amp;#x53EF;&amp;#x4EE5;&amp;#x662F; list&amp;#x3001;tuple.
+
+reduce: reduce(&amp;#x51FD;&amp;#x6570;,&amp;#x5E8F;&amp;#x5217;) #&amp;#x7B2C;&amp;#x4E00;&amp;#x4E2A;&amp;#x53C2;&amp;#x6570;&amp;#x4E5F;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x51FD;&amp;#x6570;, &amp;#x4E4B;&amp;#x540E;&amp;#x7684;&amp;#x53C2;&amp;#x6570;&amp;#x662F;&amp;#x5E8F;&amp;#x5217;, &amp;#x53EF;&amp;#x4EE5;&amp;#x662F; list&amp;#x3001;tuple.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;&amp;#x5B83;&amp;#x4EEC;&amp;#x7684;&amp;#x7684;&amp;#x533A;&amp;#x522B;&amp;#x5C31;&amp;#x5728;&amp;#x4E0E;&amp;#x51FD;&amp;#x6570;&amp;#x53C2;&amp;#x6570;&amp;#x7684;&amp;#x529F;&amp;#x80FD;&amp;#x4E0D;&amp;#x540C;,map&amp;#x7684;&amp;#x53C2;&amp;#x6570;&amp;#x51FD;&amp;#x6570;&amp;#x5FC5;&amp;#x987B;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&lt;code&gt;&amp;#x4E00;&amp;#x5143;&amp;#x64CD;&amp;#x4F5C;&amp;#x51FD;&amp;#x6570;&lt;/code&gt;,reduce&amp;#x7684;&amp;#x53C2;&amp;#x6570;&amp;#x51FD;&amp;#x6570;&amp;#x5FC5;&amp;#x987B;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&lt;code&gt;&amp;#x4E8C;&amp;#x5143;&amp;#x64CD;&amp;#x4F5C;&amp;#x51FD;&amp;#x6570;&lt;/code&gt;&lt;/strong&gt;&amp;#x6240;&amp;#x4EE5;&amp;#x901A;&amp;#x5E38;map&amp;#x8FD4;&amp;#x56DE;&amp;#x7684;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x5E8F;&amp;#x5217;,&amp;#x4E8C;reduce&amp;#x8FD4;&amp;#x56DE;&amp;#x7684;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x8FD0;&amp;#x7B97;&amp;#x7ED3;&amp;#x679C;.&lt;/p&gt;
+&lt;p&gt;&amp;#x6240;&amp;#x4EE5;,&amp;#x5982;&amp;#x679C;&amp;#x4F60;&amp;#x8981;&amp;#x5904;&amp;#x7406;&amp;#x4E00;&amp;#x4E2A;&amp;#x5E8F;&amp;#x5217;&amp;#x4EE5;&amp;#x83B7;&amp;#x5F97;&amp;#x65B0;&amp;#x7684;&amp;#x5E8F;&amp;#x5217;,&amp;#x5C31;&amp;#x7528;map; &amp;#x5982;&amp;#x679C;&amp;#x60F3;&amp;#x6839;&amp;#x636E;&amp;#x4E00;&amp;#x4E2A;&amp;#x6570;&amp;#x5217;&amp;#x8BA1;&amp;#x7B97;&amp;#x51FA;&amp;#x67D0;&amp;#x4E2A;&amp;#x7ED3;&amp;#x679C;,&amp;#x90A3;&amp;#x5C31;&amp;#x7528;reduce&amp;#x5427;~~~&lt;/p&gt;
+&lt;p&gt;ps: Python3.0&amp;#x4E4B;&amp;#x540E;, reduce&amp;#x5DF2;&amp;#x7ECF;&amp;#x88AB;&amp;#x79FB;&amp;#x51FA;&amp;#x5185;&amp;#x7F6E;&amp;#x51FD;&amp;#x6570;, &amp;#x4F7F;&amp;#x7528; reduce &amp;#x9700;&amp;#x8981;&amp;#x5148;&amp;#x901A;&amp;#x8FC7; from functools import reduce &amp;#x5F15;&amp;#x5165;. &lt;/p&gt;
+&lt;h1 id=&quot;range-&amp;#x548C;xrange&quot;&gt;&lt;a href=&quot;#range-&amp;#x548C;xrange&quot; class=&quot;headerlink&quot; title=&quot;range()&amp;#x548C;xrange()&quot;&gt;&lt;/a&gt;range()&amp;#x548C;xrange()&lt;/h1&gt;&lt;p&gt;&amp;#x4E0A;&amp;#x9762;&amp;#x7684;&amp;#x603B;&amp;#x7ED3;reduce&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#x63D0;&amp;#x5230;&amp;#x4E86;xrange()&amp;#x8FD9;&amp;#x4E2A;&amp;#x51FD;&amp;#x6570;,&amp;#x5F00;&amp;#x59CB;&amp;#x6211;&amp;#x4E5F;&amp;#x53EA;&amp;#x662F;&amp;#x5947;&amp;#x602A;,&amp;#x5E76;&amp;#x6CA1;&amp;#x6709;&amp;#x53BB;&amp;#x7EA0;&amp;#x7ED3;&amp;#x5B83;&amp;#x548C;range()&amp;#x6709;&amp;#x4EC0;&amp;#x4E48;&amp;#x4E0D;&amp;#x540C;,&amp;#x4F46;&amp;#x662F;&amp;#x67D0;&amp;#x4E00;&amp;#x6B21;&amp;#x6211;&amp;#x8BD5;&amp;#x7740;&amp;#x6253;&amp;#x5370;xrange(1,11),&amp;#x53D1;&amp;#x73B0;&amp;#x8F93;&amp;#x51FA;&amp;#x4E5F;&amp;#x662F;xrange(1,11):&lt;br&gt;&lt;img src=&quot;/2016/05/26/python-base/xrange.png&quot; alt=&quot;xrange&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#x800C;&amp;#x6253;&amp;#x5370;range(1,11),&amp;#x8F93;&amp;#x51FA;&amp;#x7684;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x5217;&amp;#x8868;:&lt;br&gt;&lt;img src=&quot;/2016/05/26/python-base/range.png&quot; alt=&quot;range&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#x5176;&amp;#x5B9E;&lt;code&gt;range()&lt;/code&gt;&amp;#x548C;&lt;code&gt;xrange()&lt;/code&gt;&amp;#x7684;&amp;#x5B9A;&amp;#x4E49;&amp;#x662F;&amp;#x4E00;&amp;#x6837;&amp;#x7684;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;range(start=0,stop,step)
+xrange(start=0,stop,step)
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;start&amp;#x8868;&amp;#x793A;&amp;#x5217;&amp;#x8868;&amp;#x5F00;&amp;#x59CB;&amp;#x7684;&amp;#x503C;&amp;#xFF0C;&amp;#x9ED8;&amp;#x8BA4;&amp;#x4E3A;&amp;#x201C;0&amp;#x201D;&amp;#x3002;&lt;/li&gt;
+&lt;li&gt;stop &amp;#x8868;&amp;#x793A;&amp;#x5217;&amp;#x8868;&amp;#x7ED3;&amp;#x675F;&amp;#x7684;&amp;#x503C;&amp;#xFF0C;&amp;#x8BE5;&amp;#x53C2;&amp;#x6570;&amp;#x4E0D;&amp;#x53EF;&amp;#x7F3A;&amp;#x5C11;&lt;/li&gt;
+&lt;li&gt;&amp;#x53C2;&amp;#x6570;step&amp;#x8868;&amp;#x793A;&amp;#x6B65;&amp;#x957F;&amp;#xFF0C;&amp;#x9ED8;&amp;#x8BA4;&amp;#x503C;&amp;#x4E3A;&amp;#x201C;1&amp;#x201D;&amp;#x3002;&lt;br&gt;&lt;img src=&quot;/2016/05/26/python-base/contrast.png&quot; alt=&quot;contrast&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;#x4E0D;&amp;#x540C;&amp;#x7684;&amp;#x662F;:range()&amp;#x8FD4;&amp;#x56DE;&amp;#x4E00;&amp;#x4E2A;&amp;#x9012;&amp;#x589E;&amp;#x6216;&amp;#x9012;&amp;#x51CF;&amp;#x7684;&amp;#x6570;&amp;#x5B57;&amp;#x5217;&amp;#x8868;, xrange &amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x7C7B;, &amp;#x8FD4;&amp;#x56DE;&amp;#x7684;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;xrange&amp;#x5BF9;&amp;#x8C61;. &amp;#x6240;&amp;#x4EE5;&amp;#x6253;&amp;#x5370;&amp;#x51FA;&amp;#x6765;&amp;#x624D;&amp;#x4F1A;&amp;#x662F;&amp;#x50CF;xrange(1,11)&amp;#x8FD9;&amp;#x6837;&amp;#x7684;&amp;#x7ED3;&amp;#x679C;. &lt;/p&gt;
+&lt;p&gt;xrange()&amp;#x7684;&amp;#x4F18;&amp;#x70B9;&amp;#x5728;&amp;#x4E8E;:&amp;#x4F7F;&amp;#x7528;xrange()&amp;#x8FDB;&amp;#x884C;&amp;#x904D;&amp;#x5386;, &amp;#x6BCF;&amp;#x6B21;&amp;#x904D;&amp;#x5386;&amp;#x53EA;&amp;#x8FD4;&amp;#x56DE;&amp;#x4E00;&amp;#x4E2A;&amp;#x503C;. range()&amp;#x8FD4;&amp;#x56DE;&amp;#x7684;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x5217;&amp;#x8868;, &amp;#x4E00;&amp;#x6B21;&amp;#x6027;&amp;#x8BA1;&amp;#x7B97;&amp;#x5E76;&amp;#x8FD4;&amp;#x56DE;&amp;#x6240;&amp;#x6709;&amp;#x7684;&amp;#x503C;. &amp;#x56E0;&amp;#x6B64;, xrange()&amp;#x7684;&amp;#x6267;&amp;#x884C;&amp;#x6548;&amp;#x7387;&amp;#x8981;&amp;#x9AD8;&amp;#x4E8E;range().&lt;/p&gt;
+&lt;h1 id=&quot;&amp;#x591A;&amp;#x7EBF;&amp;#x7A0B;&quot;&gt;&lt;a href=&quot;#&amp;#x591A;&amp;#x7EBF;&amp;#x7A0B;&quot; class=&quot;headerlink&quot; title=&quot;&amp;#x591A;&amp;#x7EBF;&amp;#x7A0B;&quot;&gt;&lt;/a&gt;&amp;#x591A;&amp;#x7EBF;&amp;#x7A0B;&lt;/h1&gt;&lt;p&gt;Python&amp;#x5230;&amp;#x5904;&amp;#x90FD;&amp;#x4F53;&amp;#x73B0;&amp;#x7740;&lt;code&gt;&amp;#x7B80;&amp;#x5355;&lt;/code&gt;&amp;#x8FD9;&amp;#x4E24;&amp;#x4E2A;&amp;#x5B57;.&lt;br&gt;&amp;#x5F00;&amp;#x8F9F;&amp;#x591A;&amp;#x7EBF;&amp;#x7A0B;&amp;#x53EA;&amp;#x9700;&amp;#x4E00;&amp;#x884C;&amp;#x4EE3;&amp;#x7801;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;start_new_thread(function, args[, kwargs])
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;function &amp;#x662F;&amp;#x5F00;&amp;#x53D1;&amp;#x8005;&amp;#x5B9A;&amp;#x4E49;&amp;#x7684;&amp;#x7EBF;&amp;#x7A0B;&amp;#x51FD;&amp;#x6570;&amp;#xFF0C;&lt;/li&gt;
+&lt;li&gt;args &amp;#x662F;&amp;#x4F20;&amp;#x9012;&amp;#x7ED9;&amp;#x7EBF;&amp;#x7A0B;&amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x53C2;&amp;#x6570;&amp;#xFF0C;&amp;#x5FC5;&amp;#x987B;&amp;#x662F;tuple&amp;#x7C7B;&amp;#x578B;&amp;#xFF0C;&lt;/li&gt;
+&lt;li&gt;kwargs &amp;#x662F;&amp;#x53EF;&amp;#x9009;&amp;#x53C2;&amp;#x6570;&amp;#x3002;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;#x4E0D;&amp;#x7528;&amp;#x624B;&amp;#x52A8;&amp;#x7BA1;&amp;#x7406;&amp;#x7EBF;&amp;#x7A0B;, &amp;#x901A;&amp;#x5E38;&amp;#x60C5;&amp;#x51B5;, &amp;#x7EBF;&amp;#x7A0B;&amp;#x5728; function &amp;#x6267;&amp;#x884C;&amp;#x5B8C;&amp;#x6BD5;&amp;#x540E;&amp;#x7ED3;&amp;#x675F;.&lt;/p&gt;
+&lt;p&gt;&amp;#x7136;&amp;#x800C;Python&amp;#x7684;&amp;#x591A;&amp;#x7EBF;&amp;#x7A0B;&amp;#x5E76;&amp;#x4E0D;&amp;#x5B8C;&amp;#x5584;,&amp;#x8FD9;&amp;#x91CC;&amp;#x63A8;&amp;#x8350;&amp;#x4E24;&amp;#x7BC7;&amp;#x6587;&amp;#x7AE0;,&amp;#x6709;&amp;#x5174;&amp;#x8DA3;&amp;#x53EF;&amp;#x4EE5;&amp;#x53BB;&amp;#x7814;&amp;#x8BFB;&amp;#x4E00;&amp;#x4E0B;:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://my.oschina.net/leejun2005/blog/179265#OSC_h3_1&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&amp;#x7406;&amp;#x89E3; Python &amp;#x4E2D;&amp;#x7684;&amp;#x591A;&amp;#x7EBF;&amp;#x7A0B;&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.tuicool.com/articles/7zIra2r&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Python &amp;#x7684; GIL &amp;#x662F;&amp;#x4EC0;&amp;#x4E48;&amp;#x9B3C;&amp;#xFF0C;&amp;#x591A;&amp;#x7EBF;&amp;#x7A0B;&amp;#x6027;&amp;#x80FD;&amp;#x7A76;&amp;#x7ADF;&amp;#x5982;&amp;#x4F55;&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/2016/05/26/python-base/python_humor.png&quot; alt=&quot;python&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;WHY-Python&quot;&gt;&lt;a href=&quot;#WHY-Python&quot; class=&quot;headerlink&quot; title=
+    
+    </summary>
+    
+    
+      <category term="python" scheme="http://sherlockz.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>终端的常用命令</title>
+    <link href="http://sherlockz.github.io/2016/05/25/cmd/"/>
+    <id>http://sherlockz.github.io/2016/05/25/cmd/</id>
+    <published>2016-05-25T14:13:33.000Z</published>
+    <updated>2016-05-25T16:43:19.000Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;img src=&quot;/2016/05/25/cmd/cmdimg.jpg&quot; alt=&quot;cmd&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/2016/05/25/cmd/cmdimg.jpg&quot; alt=&quot;cmd&quot;&gt;&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+      <category term="Terminal" scheme="http://sherlockz.github.io/tags/Terminal/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mySQL.apache2.tomcat自动启动设置方法</title>
+    <link href="http://sherlockz.github.io/2016/05/23/service/"/>
+    <id>http://sherlockz.github.io/2016/05/23/service/</id>
+    <published>2016-05-23T07:40:19.000Z</published>
+    <updated>2016-05-23T08:59:38.000Z</updated>
+    
+    <content type="html">&lt;p&gt;&amp;#x6BCF;&amp;#x6B21;&amp;#x91CD;&amp;#x542F;&amp;#x670D;&amp;#x52A1;&amp;#x5668;&amp;#x90FD;&amp;#x8981;&amp;#x91CD;&amp;#x65B0;&amp;#x542F;&amp;#x52A8;&amp;#x4E09;&amp;#x4E2A;&amp;#x670D;&amp;#x52A1;:&lt;code&gt;mySQL&lt;/code&gt; &lt;code&gt;apache2&lt;/code&gt; &lt;code&gt;tomcat&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;mySQL&lt;/code&gt;he &lt;code&gt;apache2&lt;/code&gt;&amp;#x8FD9;&amp;#x4E24;&amp;#x4E2A;&amp;#x670D;&amp;#x52A1;&amp;#x53EF;&amp;#x4EE5;&amp;#x76F4;&amp;#x63A5;&amp;#x7528;sysv-rc-donf&lt;br&gt;&amp;#x5148;&amp;#x5B89;&amp;#x88C5;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;sudo apt-get install sysv-rc-conf&lt;/p&gt;
+&lt;p&gt;sysv-rc-conf&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;#x5982;&amp;#x4E0B;&amp;#x56FE;&amp;#x4E2D;&amp;#x627E;&amp;#x5230;&lt;code&gt;mySQL&lt;/code&gt; &lt;code&gt;apache2&lt;/code&gt;&amp;#x628A;&amp;#x540E;&amp;#x9762;&amp;#x7684;[ ]&amp;#x5168;&amp;#x90E8;&amp;#x7F6E;&amp;#x7A7A;(&amp;#x901A;&amp;#x8FC7;&amp;#x7A7A;&amp;#x683C;&amp;#x952E;)&lt;br&gt;&lt;img src=&quot;/2016/05/23/service/src1.png&quot; alt=&quot;src&quot;&gt;&lt;br&gt;&lt;img src=&quot;/2016/05/23/service/src2.png&quot; alt=&quot;src&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;tomcat&lt;/code&gt;&amp;#x670D;&amp;#x52A1;&amp;#x5E76;&amp;#x6CA1;&amp;#x6709;&amp;#x51FA;&amp;#x73B0;&amp;#x5728;&amp;#x670D;&amp;#x52A1;&amp;#x5217;&amp;#x8868;&amp;#x91CC;&amp;#x9762;,&amp;#x800C;&amp;#x4E00;&amp;#x822C;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;&amp;#x90FD;&amp;#x662F;&amp;#x8FDB;&amp;#x5165;tomcat&amp;#x7684;bin&amp;#x6587;&amp;#x4EF6;&amp;#x5939;&amp;#x91CC;&amp;#x9762;&amp;#x5F00;&amp;#x542F;startup.sh,&amp;#x6240;&amp;#x4EE5;&amp;#x53EF;&amp;#x4EE5;&amp;#x628A;&amp;#x5B83;&amp;#x6DFB;&amp;#x52A0;&amp;#x5230;&amp;#x542F;&amp;#x52A8;&amp;#x5217;&amp;#x8868;&amp;#x91CC;&amp;#x9762;,&amp;#x65B9;&amp;#x6CD5;&amp;#x4E5F;&amp;#x5F88;&amp;#x7B80;&amp;#x5355;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;vim /etc/rc.local&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;#x5728;&amp;#x6700;&amp;#x540E;&amp;#x7684;&lt;code&gt;exit 0&lt;/code&gt;&amp;#x4E0A;&amp;#x9762;&amp;#x6DFB;&amp;#x52A0;startup.sh&amp;#x7684;&amp;#x5730;&amp;#x5740;&lt;br&gt;&lt;img src=&quot;/2016/05/23/service/startup.png&quot; alt=&quot;startup&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#x5B8C;&amp;#x6210;~~&lt;/p&gt;
+&lt;p&gt;&amp;#x73B0;&amp;#x5728;&amp;#x6765;&amp;#x8BD5;&amp;#x8BD5;&amp;#x91CD;&amp;#x542F;&amp;#x670D;&amp;#x52A1;&amp;#x5668;,&amp;#x770B;&amp;#x770B;&amp;#x662F;&amp;#x4E0D;&amp;#x662F;&amp;#x771F;&amp;#x7684;&amp;#x53EF;&amp;#x4EE5;&amp;#x5F00;&amp;#x673A;&amp;#x542F;&amp;#x52A8;&amp;#x8FD9;&amp;#x4E09;&amp;#x4E2A;&amp;#x670D;&amp;#x52A1;&amp;#x4E86;.&lt;br&gt;&amp;#x76F4;&amp;#x63A5;&amp;#x8F93;&amp;#x5165;&amp;#x670D;&amp;#x52A1;&amp;#x5668;IP&amp;#x770B;&amp;#x770B;&amp;#x4F1A;&amp;#x4E0D;&amp;#x4F1A;&amp;#x51FA;&amp;#x73B0;&amp;#x9ED8;&amp;#x8BA4;&amp;#x9875;&amp;#x9762;(apache2&amp;#x670D;&amp;#x52A1;):&lt;br&gt;&lt;img src=&quot;/2016/05/23/service/apache.png&quot; alt=&quot;apache&quot;&gt;&lt;br&gt;&amp;#x6D4B;&amp;#x8BD5;8080&amp;#x7AEF;&amp;#x53E3;(tomcat&amp;#x670D;&amp;#x52A1;):&lt;br&gt;&lt;img src=&quot;/2016/05/23/service/tomcat.png&quot; alt=&quot;tomcat&quot;&gt;&lt;br&gt;&amp;#x6D4B;&amp;#x8BD5;mySQL(&amp;#x6211;&amp;#x7528;&amp;#x4E86;&amp;#x4E00;&amp;#x4E2A;&amp;#x767B;&amp;#x5F55;&amp;#x7684;&amp;#x4F8B;&amp;#x5B50;&amp;#x6765;&amp;#x6D4B;&amp;#x8BD5;,&amp;#x65B9;&amp;#x6CD5;&amp;#x4E0D;&amp;#x4E00;,&amp;#x5982;&amp;#x679C;&amp;#x80FD;&amp;#x767B;&amp;#x5F55;&amp;#x6210;&amp;#x529F;,&amp;#x8BF4;&amp;#x660E;&amp;#x5DF2;&amp;#x7ECF;&amp;#x5F00;&amp;#x542F;mySQL&amp;#x670D;&amp;#x52A1;&amp;#x4E86;):&lt;br&gt;&lt;img src=&quot;/2016/05/23/service/mysql.png&quot; alt=&quot;mysql&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;#x6BCF;&amp;#x6B21;&amp;#x91CD;&amp;#x542F;&amp;#x670D;&amp;#x52A1;&amp;#x5668;&amp;#x90FD;&amp;#x8981;&amp;#x91CD;&amp;#x65B0;&amp;#x542F;&amp;#x52A8;&amp;#x4E09;&amp;#x4E2A;&amp;#x670D;&amp;#x52A1;:
+    
+    </summary>
+    
+    
+      <category term="Linux服务器" scheme="http://sherlockz.github.io/tags/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python正则表达式的部分特殊符号</title>
+    <link href="http://sherlockz.github.io/2016/05/19/python-re-symbol/"/>
+    <id>http://sherlockz.github.io/2016/05/19/python-re-symbol/</id>
+    <published>2016-05-19T11:44:20.000Z</published>
+    <updated>2016-05-26T01:30:59.000Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;code&gt;\w&lt;/code&gt; - &amp;#x5339;&amp;#x914D;&amp;#x5B57;&amp;#x6BCD;&amp;#x6216;&amp;#x6570;&amp;#x5B57;&amp;#x6216;&amp;#x4E0B;&amp;#x5212;&amp;#x7EBF;&amp;#x6216;&amp;#x6C49;&amp;#x5B57;&amp;#xFF08;3.x&amp;#x7248;&amp;#x672C;&amp;#x53EF;&amp;#x4EE5;&amp;#x5339;&amp;#x914D;&amp;#x6C49;&amp;#x5B57;&amp;#xFF0C;&amp;#x4F46;2.x&amp;#x7248;&amp;#x672C;&amp;#x4E0D;&amp;#x53EF;&amp;#x4EE5;&amp;#xFF09;&lt;br&gt;&lt;code&gt;\s&lt;/code&gt; - &amp;#x5339;&amp;#x914D;&amp;#x4EFB;&amp;#x610F;&amp;#x7684;&amp;#x7A7A;&amp;#x767D;&amp;#x7B26;&lt;br&gt;&lt;code&gt;\b&lt;/code&gt; - &amp;#x5728;&amp;#x6B63;&amp;#x5219;&amp;#x8868;&amp;#x8FBE;&amp;#x5F0F;&amp;#x4E2D;&amp;#x8868;&amp;#x793A;&amp;#x5355;&amp;#x8BCD;&amp;#x7684;&amp;#x5F00;&amp;#x5934;&amp;#x6216;&amp;#x7ED3;&amp;#x5C3E;, &amp;#x7A7A;&amp;#x683C;&amp;#x3001;&amp;#x6807;&amp;#x70B9;&amp;#x3001;&amp;#x6362;&amp;#x884C;&amp;#x90FD;&amp;#x7B97;&amp;#x662F;&amp;#x5355;&amp;#x8BCD;&amp;#x7684;&amp;#x5206;&amp;#x5272;. &amp;#x800C;&amp;#x201C;\b&amp;#x201D;&amp;#x81EA;&amp;#x8EAB;&amp;#x53C8;&amp;#x4E0D;&amp;#x4F1A;&amp;#x5339;&amp;#x914D;&amp;#x4EFB;&amp;#x4F55;&amp;#x5B57;&amp;#x7B26;, &amp;#x5B83;&amp;#x4EE3;&amp;#x8868;&amp;#x7684;&amp;#x53EA;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x4F4D;&amp;#x7F6E;.&lt;br&gt;&lt;code&gt;\d&lt;/code&gt; - &amp;#x8868;&amp;#x793A;&amp;#x4E00;&amp;#x4E2A;&amp;#x6570;&amp;#x5B57;&lt;br&gt;&lt;code&gt;^&lt;/code&gt; - &amp;#x5339;&amp;#x914D;&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#x7684;&amp;#x5F00;&amp;#x59CB;&lt;br&gt;&lt;code&gt;$&lt;/code&gt; - &amp;#x5339;&amp;#x914D;&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#x7684;&amp;#x7ED3;&amp;#x675F;&lt;br&gt;&lt;code&gt;[ ]&lt;/code&gt; - &amp;#x4F7F;&amp;#x7528;&amp;#x65B9;&amp;#x62EC;&amp;#x53F7;,&amp;#x5728;&amp;#x6B63;&amp;#x5219;&amp;#x8868;&amp;#x8FBE;&amp;#x5F0F;&amp;#x4E2D;, []&amp;#x8868;&amp;#x793A;&amp;#x6EE1;&amp;#x8DB3;&amp;#x62EC;&amp;#x53F7;&amp;#x4E2D;&amp;#x4EFB;&amp;#x4E00;&amp;#x5B57;&amp;#x7B26;. &amp;#x6BD4;&amp;#x5982;&amp;#x201C;[hi]&amp;#x201D;, &amp;#x5B83;&amp;#x5C31;&amp;#x4E0D;&amp;#x662F;&amp;#x5339;&amp;#x914D;&amp;#x201C;hi&amp;#x201D;&amp;#x4E86;, &amp;#x800C;&amp;#x662F;&amp;#x5339;&amp;#x914D;&amp;#x201C;h&amp;#x201D;&amp;#x6216;&amp;#x8005;&amp;#x201C;i&amp;#x201D;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;\S&lt;/code&gt;&amp;#x5176;&amp;#x5B9E;&amp;#x5C31;&amp;#x662F;&lt;code&gt;\s&lt;/code&gt;&amp;#x7684;&amp;#x53CD;&amp;#x4E49;&amp;#xFF0C;&amp;#x4EFB;&amp;#x610F;&amp;#x4E0D;&amp;#x662F;&amp;#x7A7A;&amp;#x767D;&amp;#x7B26;&amp;#x7684;&amp;#x5B57;&amp;#x7B26;&amp;#x3002;&amp;#x540C;&amp;#x7406;&amp;#xFF0C;&amp;#x8FD8;&amp;#x6709;&amp;#xFF1A;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;\W&lt;/code&gt; - &amp;#x5339;&amp;#x914D;&amp;#x4EFB;&amp;#x610F;&amp;#x4E0D;&amp;#x662F;&amp;#x5B57;&amp;#x6BCD;&amp;#xFF0C;&amp;#x6570;&amp;#x5B57;&amp;#xFF0C;&amp;#x4E0B;&amp;#x5212;&amp;#x7EBF;&amp;#xFF0C;&amp;#x6C49;&amp;#x5B57;&amp;#x7684;&amp;#x5B57;&amp;#x7B26;&lt;br&gt;&lt;code&gt;\D&lt;/code&gt; - &amp;#x5339;&amp;#x914D;&amp;#x4EFB;&amp;#x610F;&amp;#x975E;&amp;#x6570;&amp;#x5B57;&amp;#x7684;&amp;#x5B57;&amp;#x7B26;&lt;br&gt;&lt;code&gt;\B&lt;/code&gt; - &amp;#x5339;&amp;#x914D;&amp;#x4E0D;&amp;#x662F;&amp;#x5355;&amp;#x8BCD;&amp;#x5F00;&amp;#x5934;&amp;#x6216;&amp;#x7ED3;&amp;#x675F;&amp;#x7684;&amp;#x4F4D;&amp;#x7F6E;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;[a]&lt;/code&gt;&amp;#x7684;&amp;#x53CD;&amp;#x4E49;&amp;#x662F;&lt;code&gt;[^a]&lt;/code&gt;&amp;#xFF0C;&amp;#x8868;&amp;#x793A;&amp;#x9664;a&amp;#x4EE5;&amp;#x5916;&amp;#x7684;&amp;#x4EFB;&amp;#x610F;&amp;#x5B57;&amp;#x7B26;&amp;#x3002;&lt;code&gt;[^abcd]&lt;/code&gt;&amp;#x5C31;&amp;#x662F;&amp;#x9664;abcd&amp;#x4EE5;&amp;#x5916;&amp;#x7684;&amp;#x4EFB;&amp;#x610F;&amp;#x5B57;&amp;#x7B26;&amp;#x3002;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;*&lt;/code&gt;&amp;#x3001;&lt;code&gt;+&lt;/code&gt;&amp;#x3001;&lt;code&gt;{}&lt;/code&gt;&amp;#x7528;&amp;#x6765;&amp;#x8868;&amp;#x793A;&amp;#x5B57;&amp;#x7B26;&amp;#x7684;&amp;#x91CD;&amp;#x590D;&amp;#x3002;&amp;#x5176;&amp;#x4ED6;&amp;#x91CD;&amp;#x590D;&amp;#x7684;&amp;#x65B9;&amp;#x5F0F;&amp;#x8FD8;&amp;#x6709;&amp;#xFF1A;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;*&lt;/code&gt; - &amp;#x8868;&amp;#x793A;&amp;#x4EFB;&amp;#x610F;&amp;#x6570;&amp;#x91CF;&amp;#x8FDE;&amp;#x7EED;&amp;#x5B57;&amp;#x7B26;&amp;#xFF0C;&amp;#x8FD9;&amp;#x79CD;&amp;#x88AB;&amp;#x79F0;&amp;#x4E3A;&amp;#x901A;&amp;#x914D;&amp;#x7B26;&amp;#x3002;&lt;strong&gt;&amp;#x4F46;&amp;#x662F;&amp;#x5728;&amp;#x6B63;&amp;#x5219;&amp;#x8868;&amp;#x8FBE;&amp;#x5F0F;&amp;#x4E2D;,&amp;#x2019;*&amp;#x2019;&amp;#x53EA;&amp;#x8868;&amp;#x793A;&amp;#x6570;&amp;#x91CF;,&amp;#x4E0D;&amp;#x8868;&amp;#x793A;&amp;#x5B57;&amp;#x7B26;.&lt;/strong&gt;&lt;br&gt;&lt;code&gt;+&lt;/code&gt; - &amp;#x4E0E;&amp;#x2019;*&amp;#x2019;&amp;#x7C7B;&amp;#x4F3C;,&amp;#x8868;&amp;#x793A;1&amp;#x6216;&amp;#x66F4;&amp;#x591A;&amp;#x7684;&amp;#x6570;&amp;#x91CF;&lt;br&gt;&lt;code&gt;?&lt;/code&gt; - &amp;#x8868;&amp;#x793A;&amp;#x4EFB;&amp;#x610F;&amp;#x4E00;&amp;#x4E2A;&amp;#x5B57;&amp;#x7B26;, &amp;#x91CD;&amp;#x590D;&amp;#x96F6;&amp;#x6B21;&amp;#x6216;&amp;#x4E00;&amp;#x6B21;&lt;br&gt;&lt;code&gt;{}&lt;/code&gt; - &amp;#x4EE3;&amp;#x66FF;&amp;#x2019;+&amp;#x2019;,&amp;#x8868;&amp;#x793A;&amp;#x7279;&amp;#x5B9A;&amp;#x6570;&amp;#x91CF;,&amp;#x9650;&amp;#x5B9A;&amp;#x957F;&amp;#x5EA6;&lt;br&gt;    &lt;code&gt;{n,}&lt;/code&gt; - &amp;#x91CD;&amp;#x590D;n&amp;#x6B21;&amp;#x6216;&amp;#x66F4;&amp;#x591A;&amp;#x6B21;&lt;br&gt;    &lt;code&gt;{n,m}&lt;/code&gt; - &amp;#x91CD;&amp;#x590D;n&amp;#x5230;m&amp;#x6B21;&lt;/p&gt;
+&lt;p&gt;&amp;#x6B63;&amp;#x5219;&amp;#x8868;&amp;#x8FBE;&amp;#x5F0F;&amp;#x4E0D;&amp;#x53EA;&amp;#x662F;&amp;#x7528;&amp;#x6765;&amp;#x4ECE;&amp;#x4E00;&amp;#x5927;&amp;#x6BB5;&amp;#x6587;&amp;#x5B57;&amp;#x4E2D;&amp;#x6293;&amp;#x53D6;&amp;#x4FE1;&amp;#x606F;&amp;#xFF0C;&amp;#x5F88;&amp;#x591A;&amp;#x65F6;&amp;#x5019;&amp;#x4E5F;&amp;#x88AB;&amp;#x7528;&amp;#x6765;&amp;#x5224;&amp;#x65AD;&amp;#x8F93;&amp;#x5165;&amp;#x7684;&amp;#x6587;&amp;#x672C;&amp;#x662F;&amp;#x5426;&amp;#x7B26;&amp;#x5408;&amp;#x89C4;&amp;#x8303;&amp;#xFF0C;&amp;#x6216;&amp;#x8FDB;&amp;#x884C;&amp;#x5206;&amp;#x7C7B;&amp;#x3002;&amp;#x6765;&amp;#x70B9;&amp;#x4F8B;&amp;#x5B50;&amp;#x770B;&amp;#x770B;&amp;#xFF1A;&lt;br&gt;&lt;code&gt;^\w{4,12}$&lt;/code&gt;&lt;br&gt;&amp;#x8FD9;&amp;#x4E2A;&amp;#x8868;&amp;#x793A;&amp;#x4E00;&amp;#x6BB5;4&amp;#x5230;12&amp;#x4F4D;&amp;#x7684;&amp;#x5B57;&amp;#x7B26;&amp;#xFF0C;&amp;#x5305;&amp;#x62EC;&amp;#x5B57;&amp;#x6BCD;&amp;#x6216;&amp;#x6570;&amp;#x5B57;&amp;#x6216;&amp;#x4E0B;&amp;#x5212;&amp;#x7EBF;&amp;#x6216;&amp;#x6C49;&amp;#x5B57;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x7528;&amp;#x6765;&amp;#x4F5C;&amp;#x4E3A;&amp;#x7528;&amp;#x6237;&amp;#x6CE8;&amp;#x518C;&amp;#x65F6;&amp;#x68C0;&amp;#x6D4B;&amp;#x7528;&amp;#x6237;&amp;#x540D;&amp;#x7684;&amp;#x89C4;&amp;#x5219;&amp;#x3002;&amp;#xFF08;&amp;#x4F46;&amp;#x6C49;&amp;#x5B57;&amp;#x5728;python2.x&amp;#x91CC;&amp;#x9762;&amp;#x53EF;&amp;#x80FD;&amp;#x4F1A;&amp;#x6709;&amp;#x95EE;&amp;#x9898;&amp;#xFF09;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;\d{15,18}&lt;/code&gt;&lt;br&gt;&amp;#x8868;&amp;#x793A;15&amp;#x5230;18&amp;#x4F4D;&amp;#x7684;&amp;#x6570;&amp;#x5B57;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x7528;&amp;#x6765;&amp;#x68C0;&amp;#x6D4B;&amp;#x8EAB;&amp;#x4EFD;&amp;#x8BC1;&amp;#x53F7;&amp;#x7801;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;^1\d*x?&lt;/code&gt;&lt;br&gt;&amp;#x4EE5;1&amp;#x5F00;&amp;#x5934;&amp;#x7684;&amp;#x4E00;&amp;#x4E32;&amp;#x6570;&amp;#x5B57;&amp;#xFF0C;&amp;#x6570;&amp;#x5B57;&amp;#x7ED3;&amp;#x5C3E;&amp;#x6709;&amp;#x5B57;&amp;#x6BCD;x&amp;#xFF0C;&amp;#x4E5F;&amp;#x53EF;&amp;#x4EE5;&amp;#x6CA1;&amp;#x6709;&amp;#x3002;&amp;#x6709;&amp;#x7684;&amp;#x8BDD;&amp;#x5C31;&amp;#x5E26;&amp;#x4E0A;x&amp;#x3002;&lt;/p&gt;
+&lt;p&gt;&amp;#x53E6;&amp;#x5916;&amp;#x518D;&amp;#x8BF4;&amp;#x4E00;&amp;#x4E0B;&amp;#x4E4B;&amp;#x524D;&amp;#x63D0;&amp;#x5230;&amp;#x7684;&amp;#x8F6C;&amp;#x4E49;&amp;#x5B57;&amp;#x7B26;&lt;code&gt;\&lt;/code&gt;&amp;#x3002;&amp;#x5982;&amp;#x679C;&amp;#x6211;&amp;#x4EEC;&amp;#x786E;&amp;#x5B9E;&amp;#x8981;&amp;#x5339;&amp;#x914D;&lt;code&gt;.&lt;/code&gt;&amp;#x6216;&amp;#x8005;&lt;code&gt;*&lt;/code&gt;&amp;#x5B57;&amp;#x7B26;&amp;#x672C;&amp;#x8EAB;&amp;#xFF0C;&amp;#x800C;&amp;#x4E0D;&amp;#x662F;&amp;#x8981;&amp;#x5B83;&amp;#x4EEC;&amp;#x6240;&amp;#x4EE3;&amp;#x8868;&amp;#x7684;&amp;#x5143;&amp;#x5B57;&amp;#x7B26;&amp;#xFF0C;&amp;#x90A3;&amp;#x5C31;&amp;#x9700;&amp;#x8981;&amp;#x7528;&lt;code&gt;\.&lt;/code&gt;&amp;#x6216;&lt;code&gt;\*&lt;/code&gt;&amp;#x3002;&lt;code&gt;\&lt;/code&gt;&amp;#x672C;&amp;#x8EAB;&amp;#x4E5F;&amp;#x9700;&amp;#x8981;&amp;#x7528;&lt;code&gt;\\&lt;/code&gt;&amp;#x3002;&lt;br&gt;&amp;#x6BD4;&amp;#x5982;&lt;code&gt;&amp;quot;\d+\.\d+&amp;quot;&lt;/code&gt;&amp;#x53EF;&amp;#x4EE5;&amp;#x5339;&amp;#x914D;&amp;#x51FA;123.456&amp;#x8FD9;&amp;#x6837;&amp;#x7684;&amp;#x7ED3;&amp;#x679C;&amp;#x3002;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;\bs\S*?e\b&lt;/code&gt;&amp;#x4ECE;&amp;#x4E0B;&amp;#x9762;&amp;#x4E00;&amp;#x6BB5;&amp;#x6587;&amp;#x672C;&amp;#x4E2D;&amp;#xFF0C;&amp;#x5339;&amp;#x914D;&amp;#x51FA;&amp;#x6240;&amp;#x6709;s&amp;#x5F00;&amp;#x5934;&amp;#xFF0C;e&amp;#x7ED3;&amp;#x5C3E;&amp;#x7684;&amp;#x5355;&amp;#x8BCD;&amp;#x3002;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;site sea sue sweet see case sse ssee loses&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;r&lt;/code&gt;&amp;#xFF0C;&amp;#x662F;raw&amp;#x7684;&amp;#x610F;&amp;#x601D;&amp;#xFF0C;&amp;#x5B83;&amp;#x8868;&amp;#x793A;&amp;#x5BF9;&amp;#x5B57;&amp;#x7B26;&amp;#x4E32;&amp;#x4E0D;&amp;#x8FDB;&amp;#x884C;&amp;#x8F6C;&amp;#x4E49;&amp;#x3002;&amp;#x4E3A;&amp;#x4EC0;&amp;#x4E48;&amp;#x8981;&amp;#x52A0;&amp;#x8FD9;&amp;#x4E2A;&amp;#xFF1F;&amp;#x4F60;&amp;#x53EF;&amp;#x4EE5;&amp;#x8BD5;&amp;#x8BD5;print &lt;code&gt;&amp;quot;\bhi&amp;quot;&lt;/code&gt;&amp;#x548C;&lt;code&gt;r&amp;quot;\bhi&amp;quot;&lt;/code&gt;&amp;#x7684;&amp;#x533A;&amp;#x522B;&amp;#x3002;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;gt;&amp;gt;&amp;gt; print &amp;#x201C;\bhi&amp;#x201D;&lt;br&gt;hi&lt;br&gt;&amp;gt;&amp;gt;&amp;gt; print r&amp;#x201D;\bhi&amp;#x201D;&lt;br&gt;\bhi&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;code&gt;\w&lt;/code&gt; - &amp;#x5339;&amp;#x914D;&amp;#x5B57;&amp;#x6BCD;&amp;#x6216;&amp;#x6570;&amp;#x5B57;&amp;#x6216;&amp;#x4E0B;&amp;#x5212;&amp;#x7EBF;&amp;#x6216;&amp;#x6C49;&amp;#x5B57;&amp;#xFF08
+    
+    </summary>
+    
+    
+      <category term="python" scheme="http://sherlockz.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Good Night</title>
+    <link href="http://sherlockz.github.io/2016/04/22/Good-Night/"/>
+    <id>http://sherlockz.github.io/2016/04/22/Good-Night/</id>
+    <published>2016-04-21T16:57:35.000Z</published>
+    <updated>2016-04-21T17:02:57.000Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;img src=&quot;http://www.z4a.net/images/2016/04/22/2.md.jpg&quot; alt=&quot;my desktop&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://www.z4a.net/images/2016/04/22/2.md.jpg&quot; alt=&quot;my desktop&quot;&gt;&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+      <category term="随笔" scheme="http://sherlockz.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Guitar</title>
+    <link href="http://sherlockz.github.io/2016/04/21/Guitar/"/>
+    <id>http://sherlockz.github.io/2016/04/21/Guitar/</id>
+    <published>2016-04-21T09:27:14.000Z</published>
+    <updated>2016-04-21T17:05:44.000Z</updated>
+    
+    <content type="html">&lt;p&gt;&amp;#x5B66;&amp;#x4E00;&amp;#x95E8;&amp;#x4E50;&amp;#x5668;,&amp;#x5C31;&amp;#x50CF;&amp;#x4EA4;&amp;#x4E00;&amp;#x4E2A;&amp;#x5F88;&amp;#x77E5;&amp;#x5DF1;&amp;#x7684;&amp;#x670B;&amp;#x53CB;,&amp;#x4ED6;&amp;#x4E0D;&amp;#x4F1A;&amp;#x8BF4;&amp;#x8BDD;,&amp;#x4F46;&amp;#x662F;&amp;#x6C38;&amp;#x8FDC;&amp;#x80FD;&amp;#x8868;&amp;#x8FBE;&amp;#x4F60;&amp;#x5FC3;&amp;#x91CC;&amp;#x6240;&amp;#x60F3;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://www.z4a.net/images/2016/04/21/2.pic_hd.md.jpg&quot; alt=&quot;&amp;#x6211;&amp;#x7684;&amp;#x5409;&amp;#x4ED6;&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;#x5B66;&amp;#x4E00;&amp;#x95E8;&amp;#x4E50;&amp;#x5668;,&amp;#x5C31;&amp;#x50CF;&amp;#x4EA4;&amp;#x4E00;&amp;#x4E2A;&amp;#x5F88;&amp;#x77E5;&amp;#x5DF1;&amp;#x7684;&amp;#x670B;&amp;#x53CB;,&amp;#x4ED6
+    
+    </summary>
+    
+    
+      <category term="吉他" scheme="http://sherlockz.github.io/tags/%E5%90%89%E4%BB%96/"/>
+    
+      <category term="随笔" scheme="http://sherlockz.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>blog的初衷</title>
+    <link href="http://sherlockz.github.io/2016/04/21/my-new-post/"/>
+    <id>http://sherlockz.github.io/2016/04/21/my-new-post/</id>
+    <published>2016-04-21T06:18:47.000Z</published>
+    <updated>2016-04-21T17:05:51.000Z</updated>
+    
+    <content type="html">&lt;p&gt;&amp;#x4ECE;&amp;#x4ECA;&amp;#x5929;&amp;#x5F00;&amp;#x59CB;,&amp;#x8FD9;&amp;#x4E2A;blog&amp;#x4E3B;&amp;#x8981;&amp;#x8BB0;&amp;#x5F55;&amp;#x4E00;&amp;#x4E9B;&amp;#x751F;&amp;#x6D3B;&amp;#x611F;&amp;#x609F;&amp;#x968F;&amp;#x7B14;,iOS&amp;#x5F00;&amp;#x53D1;&amp;#x76F8;&amp;#x5173;,&amp;#x4EE5;&amp;#x53CA;&amp;#x6211;&amp;#x559C;&amp;#x7231;&amp;#x7684;&amp;#x5409;&amp;#x4ED6;&amp;#x5FC3;&amp;#x5F97;.&lt;/p&gt;
+&lt;p&gt;&amp;#x6211;&amp;#x662F;&amp;#x4E2A;&amp;#x9009;&amp;#x62E9;&amp;#x6027;&amp;#x5065;&amp;#x5FD8;&amp;#x7684;&amp;#x4EBA;,&amp;#x5BF9;&amp;#x4E8E;&amp;#x5DF2;&amp;#x7ECF;&amp;#x638C;&amp;#x63E1;&amp;#x7684;&amp;#x4E1C;&amp;#x897F;&amp;#x4F1A;&amp;#x9057;&amp;#x5FD8;&amp;#x5F97;&amp;#x5F88;&amp;#x5FEB;(&amp;#x53EF;&amp;#x80FD;&amp;#x4E5F;&amp;#x662F;&amp;#x53CD;&amp;#x6620;&amp;#x51FA;&amp;#x638C;&amp;#x63E1;&amp;#x5F97;&amp;#x4E0D;&amp;#x591F;&amp;#x6DF1;&amp;#x5427;&amp;#x54C8;&amp;#x54C8;),&amp;#x4F46;&amp;#x662F;&amp;#x5BF9;&amp;#x4E8E;&amp;#x8FD8;&amp;#x6CA1;&amp;#x638C;&amp;#x63E1;&amp;#x7684;&amp;#x4E1C;&amp;#x897F;&amp;#x4F1A;&amp;#x4E00;&amp;#x76F4;&amp;#x803F;&amp;#x803F;&amp;#x4E8E;&amp;#x6000;.&amp;#x4ECA;&amp;#x665A;&amp;#x4E00;&amp;#x4E2A;&amp;#x5E08;&amp;#x5F1F;&amp;#x6765;&amp;#x627E;&amp;#x6211;&amp;#x73A9;&amp;#x5409;&amp;#x4ED6;,&amp;#x7A81;&amp;#x7136;&amp;#x53D1;&amp;#x73B0;&amp;#x6700;&amp;#x8FD1;&amp;#x4E00;&amp;#x76F4;&amp;#x5728;&amp;#x5FD9;&amp;#x7740;&amp;#x627E;&amp;#x5B9E;&amp;#x4E60;,&amp;#x770B;&amp;#x5404;&amp;#x79CD;blog&amp;#x548C;&amp;#x6E90;&amp;#x7801;,&amp;#x7B97;&amp;#x6CD5;,&amp;#x4E4B;&amp;#x524D;&amp;#x81EA;&amp;#x5DF1;&amp;#x7F16;&amp;#x7684;&amp;#x66F2;&amp;#x5B50;&amp;#x7ADF;&amp;#x7136;&amp;#x5B8C;&amp;#x5168;&amp;#x60F3;&amp;#x4E0D;&amp;#x8D77;&amp;#x6765;&amp;#x600E;&amp;#x4E48;&amp;#x5F39;&amp;#x4E86;,&amp;#x4F46;&amp;#x552F;&amp;#x72EC;&amp;#x4E00;&amp;#x9996;&amp;#x8FD8;&amp;#x6CA1;&amp;#x7EC3;&amp;#x5B8C;&amp;#x7684;&amp;#x66F2;&amp;#x5B50;&amp;#x8FD8;&amp;#x8BB0;&amp;#x5FC6;&amp;#x72B9;&amp;#x65B0;.&amp;#x771F;&amp;#x662F;&amp;#x4E2A;&amp;#x5947;&amp;#x602A;&amp;#x7684;&amp;#x4EBA;.&lt;/p&gt;
+&lt;p&gt;&amp;#x6240;&amp;#x4EE5;,&amp;#x7ECF;&amp;#x5E38;&amp;#x4E3A;&amp;#x4E86;&amp;#x81EA;&amp;#x5DF1;&amp;#x6CA1;&amp;#x6709;&amp;#x4E00;&amp;#x4E2A;blog&amp;#x8BB0;&amp;#x5F55;&amp;#x4E0B;&amp;#x6765;&amp;#x5F88;&amp;#x540E;&amp;#x6094;.&amp;#x867D;&amp;#x7136;&amp;#x6709;&amp;#x7ECF;&amp;#x5E38;&amp;#x5199;&amp;#x5370;&amp;#x8C61;&amp;#x7B14;&amp;#x8BB0;&amp;#x7684;&amp;#x4E60;&amp;#x60EF;,&amp;#x4F46;&amp;#x662F;&amp;#x603B;&amp;#x611F;&amp;#x89C9;&amp;#x5DEE;&amp;#x90A3;&amp;#x4E48;&amp;#x4E00;&amp;#x70B9;&amp;#x70B9;,&amp;#x4E8E;&amp;#x662F;,&amp;#x82B1;&amp;#x4E86;&amp;#x4E00;&amp;#x5929;&amp;#x7684;&amp;#x65F6;&amp;#x95F4;&amp;#x53BB;&amp;#x5EFA;&amp;#x4E86;&amp;#x8FD9;&amp;#x4E2A;blog.&amp;#x77E5;&amp;#x8BC6;&amp;#x548C;&amp;#x7ECF;&amp;#x9A8C;&amp;#x662F;&amp;#x5B9D;&amp;#x8D35;&amp;#x7684;,&amp;#x4E8E;&amp;#x6211;&amp;#x81EA;&amp;#x5DF1;&amp;#x4E8E;&amp;#x4ED6;&amp;#x4EBA;&amp;#x90FD;&amp;#x4E00;&amp;#x6837;.&amp;#x5C06;&amp;#x8FD9;&amp;#x91CC;&amp;#x4F5C;&amp;#x4E3A;&amp;#x4E00;&amp;#x4E2A;&amp;#x65B0;&amp;#x7684;&amp;#x8D77;&amp;#x70B9;.&lt;/p&gt;
+&lt;p&gt;&amp;#x5173;&amp;#x4E8E;&lt;code&gt;&amp;#x751F;&amp;#x6D3B;&lt;/code&gt;,&amp;#x53EF;&amp;#x80FD;&amp;#x968F;&amp;#x65F6;&amp;#x6709;&amp;#x5F88;&amp;#x591A;&amp;#x611F;&amp;#x609F;,&amp;#x53EF;&amp;#x80FD;&amp;#x662F;&amp;#x53BB;&amp;#x4E2D;&amp;#x5FC3;&amp;#x6E56;&amp;#x5750;&amp;#x4E00;&amp;#x5750;&amp;#x4E4B;&amp;#x540E;,&amp;#x4E5F;&amp;#x53EF;&amp;#x80FD;&amp;#x662F;&amp;#x4E00;&amp;#x672C;&amp;#x4E66;&amp;#x770B;&amp;#x5B8C;&amp;#x4E4B;&amp;#x540E;.&amp;#x53EF;&amp;#x4EE5;&amp;#x7528;&amp;#x8BED;&amp;#x8A00;&amp;#x53BB;&amp;#x8868;&amp;#x8FBE;&amp;#x51FA;&amp;#x6765;,&amp;#x8FD9;&amp;#x662F;&amp;#x4E00;&amp;#x79CD;&amp;#x80FD;&amp;#x529B;.&lt;/p&gt;
+&lt;p&gt;&amp;#x5173;&amp;#x4E8E;&lt;code&gt;iOS&amp;#x5F00;&amp;#x53D1;&lt;/code&gt;,&amp;#x521A;&amp;#x521A;&amp;#x8131;&amp;#x79BB;&amp;#x5C0F;&amp;#x767D;&amp;#x7684;&amp;#x5C42;&amp;#x9762;,&amp;#x5BF9;&amp;#x7406;&amp;#x8BBA;&amp;#x4E86;&amp;#x89E3;&amp;#x8FD8;&amp;#x7B97;&amp;#x53EF;&amp;#x4EE5;,&amp;#x63A5;&amp;#x4E0B;&amp;#x6765;&amp;#x5C31;&amp;#x662F;&amp;#x8981;&amp;#x4ED8;&amp;#x8BF8;&amp;#x5B9E;&amp;#x8DF5;&amp;#x4E86;,&amp;#x63A5;&amp;#x4E0B;&amp;#x6765;&amp;#x8FD9;&amp;#x4E00;&amp;#x5E74;,&amp;#x6211;&amp;#x6700;&amp;#x611F;&amp;#x5174;&amp;#x8DA3;&amp;#x7684;&amp;#x5E94;&amp;#x8BE5;&amp;#x5C31;&amp;#x662F;&lt;code&gt;iOS&amp;#x9006;&amp;#x5411;&amp;#x5DE5;&amp;#x7A0B;&lt;/code&gt;&amp;#x548C;&lt;code&gt;Rect Native&lt;/code&gt; &amp;#x4E86;.&lt;/p&gt;
+&lt;p&gt;&amp;#x5173;&amp;#x4E8E;&lt;code&gt;&amp;#x5409;&amp;#x4ED6;&lt;/code&gt;,&amp;#x4ECE;&amp;#x6765;&amp;#x90FD;&amp;#x6709;&amp;#x4E00;&amp;#x79CD;&amp;#x7279;&amp;#x6B8A;&amp;#x7684;&amp;#x611F;&amp;#x60C5;,&amp;#x800C;&amp;#x8FD9;&amp;#x4E2A;blog&amp;#x4E8E;&amp;#x5409;&amp;#x4ED6;&amp;#x7684;&amp;#x4F5C;&amp;#x7528;&amp;#x5462;,&amp;#x6211;&amp;#x5E0C;&amp;#x671B;&amp;#x80FD;&amp;#x628A;&amp;#x81EA;&amp;#x5DF1;&amp;#x7684;&amp;#x7F16;&amp;#x66F2;&amp;#x5F55;&amp;#x6210;&amp;#x97F3;&amp;#x9891;&amp;#x6216;&amp;#x8005;&amp;#x89C6;&amp;#x9891;&amp;#x653E;&amp;#x5230;&amp;#x8FD9;&amp;#x91CC;,&amp;#x8BA9;&amp;#x66F4;&amp;#x591A;&amp;#x4EBA;&amp;#x770B;&amp;#x5230;.&amp;#x5F53;&amp;#x7136;&amp;#x8FD8;&amp;#x6709;&amp;#x4E00;&amp;#x4E2A;&amp;#x5F88;&amp;#x91CD;&amp;#x8981;&amp;#x7684;&amp;#x6210;&amp;#x5206;&amp;#x5C31;&amp;#x662F;&amp;#x4E50;&amp;#x7406;,&amp;#x4E5F;&amp;#x4F1A;&amp;#x603B;&amp;#x7ED3;&amp;#x8BB0;&amp;#x5F55;&amp;#x5728;&amp;#x8FD9;&amp;#x91CC;.&lt;/p&gt;
+&lt;p&gt;&amp;#x4EE5;&amp;#x4E0A;.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;#x4ECE;&amp;#x4ECA;&amp;#x5929;&amp;#x5F00;&amp;#x59CB;,&amp;#x8FD9;&amp;#x4E2A;blog&amp;#x4E3B;&amp;#x8981;&amp;#x8BB0;&amp;#x5F55;&amp;#x4E00;&amp;#x4E9B;&amp;#x751F;&amp;#x6D3B;&amp;#x611F;&amp;#x6
+    
+    </summary>
+    
+    
+      <category term="吉他" scheme="http://sherlockz.github.io/tags/%E5%90%89%E4%BB%96/"/>
+    
+      <category term="随笔" scheme="http://sherlockz.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+      <category term="Blog" scheme="http://sherlockz.github.io/tags/Blog/"/>
+    
+      <category term="意义" scheme="http://sherlockz.github.io/tags/%E6%84%8F%E4%B9%89/"/>
+    
+      <category term="iOS" scheme="http://sherlockz.github.io/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://sherlockz.github.io/2016/04/21/hello-world/"/>
+    <id>http://sherlockz.github.io/2016/04/21/hello-world/</id>
+    <published>2016-04-20T18:50:54.000Z</published>
+    <updated>2016-04-20T18:50:54.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&amp;quot;My New Post&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/server.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Server&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Generate-static-files&quot;&gt;&lt;a href=&quot;#Generate-static-files&quot; class=&quot;headerlink&quot; title=&quot;Generate static files&quot;&gt;&lt;/a&gt;Generate static files&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/generating.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Generating&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Deploy-to-remote-sites&quot;&gt;&lt;a href=&quot;#Deploy-to-remote-sites&quot; class=&quot;headerlink&quot; title=&quot;Deploy to remote sites&quot;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/deployment.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
