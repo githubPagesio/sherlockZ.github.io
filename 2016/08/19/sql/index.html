@@ -4,17 +4,27 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Tag: Linux服务器 | sherlock&#39;s Blog</title>
+  <title>常用SQL语句 | sherlock&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我叫张恒瑜，在校大三，热爱iOS开发，喜欢弹吉他…">
-<meta property="og:type" content="website">
-<meta property="og:title" content="sherlock's Blog">
-<meta property="og:url" content="http://sherlockz.github.io/tags/Linux服务器/index.html">
+  <meta name="description" content="SQL&amp;#x8BED;&amp;#x53E5;&amp;#x7684;&amp;#x79CD;&amp;#x7C7B;
+&amp;#x6570;&amp;#x636E;&amp;#x5B9A;&amp;#x4E49;&amp;#x8BED;&amp;#x53E5;&amp;#xFF08;DDL&amp;#xFF1A;Data Definition Language&amp;#xFF09;
+
+&amp;#x5305;&amp;#x62EC;create&amp;#x548C;drop&amp;#x7B49;&amp;#x64CD;&amp;#x4F">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用SQL语句">
+<meta property="og:url" content="http://sherlockz.github.io/2016/08/19/sql/index.html">
 <meta property="og:site_name" content="sherlock's Blog">
-<meta property="og:description" content="我叫张恒瑜，在校大三，热爱iOS开发，喜欢弹吉他…">
+<meta property="og:description" content="SQL&amp;#x8BED;&amp;#x53E5;&amp;#x7684;&amp;#x79CD;&amp;#x7C7B;
+&amp;#x6570;&amp;#x636E;&amp;#x5B9A;&amp;#x4E49;&amp;#x8BED;&amp;#x53E5;&amp;#xFF08;DDL&amp;#xFF1A;Data Definition Language&amp;#xFF09;
+
+&amp;#x5305;&amp;#x62EC;create&amp;#x548C;drop&amp;#x7B49;&amp;#x64CD;&amp;#x4F">
+<meta property="og:updated_time" content="2016-08-19T08:44:22.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="sherlock's Blog">
-<meta name="twitter:description" content="我叫张恒瑜，在校大三，热爱iOS开发，喜欢弹吉他…">
+<meta name="twitter:title" content="常用SQL语句">
+<meta name="twitter:description" content="SQL&amp;#x8BED;&amp;#x53E5;&amp;#x7684;&amp;#x79CD;&amp;#x7C7B;
+&amp;#x6570;&amp;#x636E;&amp;#x5B9A;&amp;#x4E49;&amp;#x8BED;&amp;#x53E5;&amp;#xFF08;DDL&amp;#xFF1A;Data Definition Language&amp;#xFF09;
+
+&amp;#x5305;&amp;#x62EC;create&amp;#x548C;drop&amp;#x7B49;&amp;#x64CD;&amp;#x4F">
   
   
     <link rel="icon" href="/favicon.png">
@@ -548,53 +558,255 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-sql" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/05/23/service/" class="archive-article-date">
-  	<time datetime="2016-05-23T07:40:19.000Z" itemprop="datePublished">May 23</time>
+    <div class="article-meta">
+      <a href="/2016/08/19/sql/" class="article-date">
+  	<time datetime="2016-08-19T08:32:21.000Z" itemprop="datePublished">2016-08-19</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/23/service/">mySQL.apache2.tomcat自动启动设置方法</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      常用SQL语句
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+
+ 
+ 
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux服务器/">Linux服务器</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/">SQL</a></li></ul>
 	</div>
 
-          
+        
 
-        </div>
         <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
+      </div>
+      
     
+    <div class="article-entry" itemprop="articleBody">
+      
+      <!-- Table of Contents -->
+      
+        <div id="toc" class="toc-article">
+          <strong class="toc-title">文章目录</strong>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL语句的种类"><span class="toc-number">1.</span> <span class="toc-text">SQL语句的种类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DDL语句"><span class="toc-number">2.</span> <span class="toc-text">DDL语句</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DML语句"><span class="toc-number">3.</span> <span class="toc-text">DML语句</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DQL语句"><span class="toc-number">4.</span> <span class="toc-text">DQL语句</span></a></li></ol>
+        </div>
+      
+        <h1 id="SQL&#x8BED;&#x53E5;&#x7684;&#x79CD;&#x7C7B;"><a href="#SQL&#x8BED;&#x53E5;&#x7684;&#x79CD;&#x7C7B;" class="headerlink" title="SQL&#x8BED;&#x53E5;&#x7684;&#x79CD;&#x7C7B;"></a>SQL&#x8BED;&#x53E5;&#x7684;&#x79CD;&#x7C7B;</h1><ul>
+<li><p>&#x6570;&#x636E;&#x5B9A;&#x4E49;&#x8BED;&#x53E5;&#xFF08;DDL&#xFF1A;Data Definition Language&#xFF09;</p>
+<ul>
+<li>&#x5305;&#x62EC;create&#x548C;drop&#x7B49;&#x64CD;&#x4F5C;&#xFF1B;</li>
+<li>&#x5728;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x521B;&#x5EFA;&#x65B0;&#x8868;&#x6216;&#x5220;&#x9664;&#x8868;&#xFF08;create table&#x6216; drop table&#xFF09;&#xFF1B;</li>
+</ul>
+</li>
+<li><p>&#x6570;&#x636E;&#x64CD;&#x4F5C;&#x8BED;&#x53E5;&#xFF08;DML&#xFF1A;Data Manipulation Language&#xFF09;</p>
+<ul>
+<li>&#x5305;&#x62EC;insert&#x3001;update&#x3001;delete&#x7B49;&#x64CD;&#x4F5C;</li>
+</ul>
+</li>
+<li><p>&#x6570;&#x636E;&#x67E5;&#x8BE2;&#x8BED;&#x53E5;&#xFF08;DQL&#xFF1A;Data Query Language&#xFF09;</p>
+<ul>
+<li>&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x67E5;&#x8BE2;&#x83B7;&#x5F97;&#x8868;&#x4E2D;&#x7684;&#x6570;&#x636E;</li>
+<li>&#x5173;&#x952E;&#x5B57;select&#x662F;DQL&#xFF08;&#x4E5F;&#x662F;&#x6240;&#x6709;SQL&#xFF09;&#x7528;&#x5F97;&#x6700;&#x591A;&#x7684;&#x64CD;&#x4F5C;</li>
+<li>&#x5176;&#x4ED6;DQL&#x5E38;&#x7528;&#x7684;&#x5173;&#x952E;&#x5B57;&#x6709;where&#xFF0C;order by&#xFF0C;group by&#x548C;having</li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+<h1 id="DDL&#x8BED;&#x53E5;"><a href="#DDL&#x8BED;&#x53E5;" class="headerlink" title="DDL&#x8BED;&#x53E5;"></a>DDL&#x8BED;&#x53E5;</h1><ul>
+<li><p>&#x5220;&#x9664;&#x8868;</p>
+<pre><code>DROP TABLE IF EXISTS &apos;&#x8868;&#x540D;&apos;;
+</code></pre></li>
+<li><p>&#x521B;&#x5EFA;&#x8868;</p>
+<pre><code>CREATE TABLE IF NOT EXISTS &apos;&#x8868;&#x540D;&apos; 
+( &apos;&#x5B57;&#x6BB5;&#x540D;&apos; &#x7C7B;&#x578B;(INTEGER, REAL, TEXT, BLOB) NOT NULL &#x4E0D;&#x5141;&#x8BB8;&#x4E3A;&#x7A7A; PRIMARY KEY &#x4E3B;&#x952E; AUTOINCREMENT &#x81EA;&#x589E;&#x957F;, &apos;&#x5B57;&#x6BB5;&#x540D;2&apos; &#x7C7B;&#x578B;, ... )
+</code></pre><ul>
+<li><p>&#x5177;&#x4F53;&#x4F7F;&#x7528;&#xFF1A;</p>
+<pre><code>CREATE TABLE IF NOT EXISTS &apos;t_student&apos; 
+( &quot;id&quot; INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, &quot;name&quot; TEXT, &quot;age&quot; INTEGER, &quot;height&quot; REAL)
+</code></pre><ul>
+<li>&#x8BED;&#x53E5;&#x8BF4;&#x660E;<ul>
+<li>CREATE TABLE:&#x521B;&#x5EFA;&#x4E00;&#x5F20;&#x8868;</li>
+<li>IF NOT EXISTS:&#x4E0D;&#x5B58;&#x5728;&#x5219;&#x521B;&#x5EFA;</li>
+<li>&#x2018;t_student&#x2019;:&#x8868;&#x7684;&#x540D;&#x79F0;</li>
+<li>NOT NULL:&#x4E0D;&#x5141;&#x8BB8;&#x4E3A;&#x7A7A;</li>
+<li>PRIMARY KEY:&#x4E3B;&#x952E;</li>
+<li>AUTOINCREMENT:&#x81EA;&#x52A8;&#x589E;&#x52A0;</li>
+<li>&#x2018;id&#x2019; INTEGER:&#x6709;&#x4E00;&#x4E2A;ID&#x5B57;&#x6BB5;,&#x7C7B;&#x578B;&#x662F;INTEGER</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="DML&#x8BED;&#x53E5;"><a href="#DML&#x8BED;&#x53E5;" class="headerlink" title="DML&#x8BED;&#x53E5;"></a>DML&#x8BED;&#x53E5;</h1><ul>
+<li><p>&#x63D2;&#x5165;&#x6570;&#x636E;</p>
+<pre><code>INSERT INTO &apos;t_student&apos; (name, age, height) VALUES (&apos;why&apos;, 18, 1.88);
+</code></pre><ul>
+<li>&#x8BED;&#x53E5;&#x8BF4;&#x660E;<ul>
+<li>INSERT INTO: &#x63D2;&#x5165;&#x6570;&#x636E;</li>
+<li>&#x2018;t_student&#x2019;: &#x5728;&#x54EA;&#x4E00;&#x4E2A;&#x8868;&#x4E2D;&#x63D2;&#x5165;&#x6570;&#x636E;</li>
+<li>(&#x6570;&#x636E;&#x7684;&#x5B57;&#x6BB5;): &#x7ED9;&#x54EA;&#x4E9B;&#x5B57;&#x6BB5;&#x63D2;&#x5165;&#x6570;&#x636E;</li>
+<li>VALUES (&#x2018;why&#x2019;, 18, 1.88): &#x63D2;&#x5165;&#x7684;&#x5177;&#x4F53;&#x503C;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>&#x66F4;&#x65B0;&#x6570;&#x636E;</p>
+<pre><code>UPDATE &apos;t_student&apos; SET &#x5B57;&#x6BB5; = &apos;&#x503C;&apos; WHERE &#x6761;&#x4EF6;&#x5224;&#x65AD;;
+</code></pre><ul>
+<li><p>&#x8BED;&#x53E5;&#x8BF4;&#x660E;</p>
+<ul>
+<li>UPDATE: &#x8DDF;&#x65B0;&#x6570;&#x636E;</li>
+<li>&#x2018;t_student&#x2019;: &#x5728;&#x54EA;&#x4E00;&#x4E2A;&#x8868;&#x4E2D;&#x66F4;&#x65B0;&#x6570;&#x636E;</li>
+<li>SET &#x5B57;&#x6BB5; = &#x2018;&#x503C;&#x2019;: &#x66F4;&#x65B0;&#x600E;&#x6837;&#x7684;&#x6570;&#x636E;</li>
+<li>WHERE &#x6761;&#x4EF6;&#x5224;&#x65AD;: &#x66F4;&#x65B0;&#x54EA;&#x4E9B;&#x6570;&#x636E;</li>
+</ul>
+</li>
+<li><p>&#x5177;&#x4F53;&#x4F7F;&#x7528;</p>
+<pre><code>UPDATE t_student SET name = &apos;me&apos; WHERE age = 14;
+UPDATE t_student SET name = &apos;liu&apos; WHERE age is 20;
+UPDATE t_student SET name = &apos;yy&apos; WHERE age &lt; 20;
+UPDATE t_student SET name = &apos;A&apos; WHERE age &lt; 100 and score &gt; 60;
+UPDATE t_student SET name = &apos;ly&apos;;
+</code></pre></li>
+</ul>
+</li>
+<li><p>&#x5220;&#x9664;&#x6570;&#x636E;</p>
+<pre><code>DELETE FROM t_student;
+DELETE FROM t_student WHERE age &lt; 30;
+</code></pre><ul>
+<li>&#x8BED;&#x6CD5;&#x8BF4;&#x660E;<ul>
+<li>DELETE FROM: &#x4ECE;&#x8868;&#x4E2D;&#x5220;&#x9664;&#x6570;&#x636E;</li>
+<li>t_student : &#x8868;&#x540D;</li>
+<li>&#x53EF;&#x4EE5;&#x8DDF;&#x6761;&#x4EF6;&#x4E5F;&#x53EF;&#x4EE5;&#x4E0D;&#x8DDF;:&#x4E0D;&#x8DDF;&#x8868;&#x793A;&#x5220;&#x9664;&#x6240;&#x6709;&#x7684;&#x6570;&#x636E;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="DQL&#x8BED;&#x53E5;"><a href="#DQL&#x8BED;&#x53E5;" class="headerlink" title="DQL&#x8BED;&#x53E5;"></a>DQL&#x8BED;&#x53E5;</h1><ul>
+<li><p>&#x67E5;&#x8BE2;&#x8BED;&#x53E5;</p>
+<ul>
+<li><p>&#x57FA;&#x672C;&#x67E5;&#x8BE2;(&#x67E5;&#x8BE2;&#x6574;&#x4E2A;&#x8868;&#x683C;)</p>
+<pre><code>SELECT * FROM t_student;
+</code></pre></li>
+<li><p>&#x67E5;&#x8BE2;&#x67D0;&#x4E9B;&#x5B57;&#x6BB5;&#xFF08;&#x67E5;&#x8BE2;name&#x548C;age&#x4E24;&#x4E2A;&#x5B57;&#x6BB5;&#xFF09;</p>
+<pre><code>SELECT name, age FROM t_student;
+</code></pre></li>
+<li><p>&#x901A;&#x8FC7;&#x6761;&#x4EF6;&#x5224;&#x65AD;&#x6765;&#x67E5;&#x8BE2;&#x5BF9;&#x5E94;&#x7684;&#x6570;&#x636E;(&#x5E74;&#x9F84;&#x5927;&#x4E8E;&#x7B49;&#x4E8E;18)</p>
+<pre><code>SELECT * FROM t_student WHERE age &gt;= 18;
+</code></pre></li>
+<li><p>&#x901A;&#x8FC7;&#x6761;&#x4EF6;&#x5224;&#x65AD;&#x6765;&#x67E5;&#x8BE2;&#x5BF9;&#x5E94;&#x7684;&#x6570;&#x636E;(&#x540D;&#x5B57;&#x4EE5;i&#x5F00;&#x5934;),&#x4F7F;&#x7528;like&#x5173;&#x952E;&#x5B57;(&#x6A21;&#x7CCA;&#x67E5;&#x8BE2;)</p>
+<pre><code>SELECT * FROM t_student WHERE name like &apos;%i%&apos;;
+</code></pre></li>
+<li><p>&#x8BA1;&#x7B97;&#x4E2A;&#x6570;</p>
+<ul>
+<li><p>&#x8BA1;&#x7B97;&#x4E00;&#x5171;&#x591A;&#x5C11;&#x5217;</p>
+<pre><code>SELECT count(*) FROM t_student;
+</code></pre></li>
+<li><p>&#x8BA1;&#x7B97;&#x67D0;&#x4E00;&#x4E2A;&#x5217;&#x4E2A;&#x6570;</p>
+<pre><code>SELECT count(age) FROM t_student;
+</code></pre></li>
+</ul>
+</li>
+<li><p>&#x6392;&#x5E8F;</p>
+<ul>
+<li><p>&#x5347;&#x5E8F; ASC (&#x9ED8;&#x8BA4;&#x662F;&#x5347;&#x5E8F;)</p>
+<pre><code>SELECT * FROM t_student ORDER BY age;
+</code></pre></li>
+<li><p>&#x964D;&#x5E8F; DESC</p>
+<pre><code>SELECT * FROM t_student ORDER BY age DESC;
+</code></pre></li>
+<li><p>&#x6309;&#x7167;&#x5E74;&#x9F84;&#x5347;&#x5E8F;&#x6392;&#x5E8F;,&#x5982;&#x679C;&#x5E74;&#x9F84;&#x76F8;&#x540C;,&#x6309;&#x7167;&#x540D;&#x5B57;&#x7684;&#x964D;&#x5E8F;&#x6392;&#x5217;</p>
+<pre><code>SELECT * FROM t_student ORDER BY age,name DESC;
+</code></pre></li>
+</ul>
+</li>
+<li><p>&#x8D77;&#x522B;&#x540D;</p>
+<ul>
+<li><p>&#x7ED9;&#x5217;&#x8D77;&#x522B;&#x540D;(as&#x53EF;&#x4EE5;&#x7701;&#x7565;)</p>
+<pre><code>SELECT name AS myName, age AS myAge FROM t_student;
+</code></pre></li>
+<li><p>&#x7ED9;&#x8868;&#x8D77;&#x522B;&#x540D;</p>
+<pre><code>SELECT s.name, s.age FROM t_student as s;
+</code></pre></li>
+</ul>
+</li>
+<li><p>limit</p>
+<pre><code>SELECT * FROM t_student LIMIT &#x6570;&#x5B57;1,&#x6570;&#x5B57;2;
+</code></pre><ul>
+<li><p>&#x8DF3;&#x8FC7;&#x524D;9&#x6761;&#x6570;&#x636E;&#xFF0C;&#x518D;&#x67E5;&#x8BE2;3&#x6761;&#x6570;&#x636E;</p>
+<pre><code>SELECT * FROM t_student LIMIT 9, 3;
+</code></pre></li>
+<li><p>&#x8DF3;&#x8FC7;0&#x6761;&#x6570;&#x636E;,&#x53D6;5&#x6761;&#x6570;&#x636E;</p>
+<pre><code>SELECT * FROM t_student LIMIT 5;
+</code></pre></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/08/15/HTTPCode/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Http状态码分析</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="sql" data-title="常用SQL语句" data-url="http://sherlockz.github.io/2016/08/19/sql/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"sherlockz"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 </div>
       <footer id="footer">
@@ -626,9 +838,9 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false
 	}
