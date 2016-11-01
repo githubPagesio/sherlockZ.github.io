@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sherlockz.github.io/"/>
-  <updated>2016-11-01T09:31:55.000Z</updated>
+  <updated>2016-11-01T09:45:46.000Z</updated>
   <id>http://sherlockz.github.io/</id>
   
   <author>
@@ -14,6 +14,41 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用iproxy通过USB将iPhone的端口映射到电脑</title>
+    <link href="http://sherlockz.github.io/2016/11/01/iproxy/"/>
+    <id>http://sherlockz.github.io/2016/11/01/iproxy/</id>
+    <published>2016-11-01T09:41:12.000Z</published>
+    <updated>2016-11-01T09:45:46.000Z</updated>
+    
+    <content type="html">&lt;p&gt;&amp;#x5728;&amp;#x7814;&amp;#x7A76;ATX&amp;#x7684;&amp;#x8FC7;&amp;#x7A0B;&amp;#x4E2D;,&amp;#x53D1;&amp;#x73B0;&amp;#x901A;&amp;#x8FC7;WIFI&amp;#x6765;&amp;#x8FDE;&amp;#x63A5;&amp;#x53D1;&amp;#x9001;&amp;#x6307;&amp;#x4EE4;,&amp;#x4F1A;&amp;#x6709;&amp;#x5EF6;&amp;#x8FDF;,&amp;#x54CD;&amp;#x5E94;&amp;#x4E0D;&amp;#x591F;&amp;#x8FC5;&amp;#x901F;.&lt;br&gt;&amp;#x6240;&amp;#x4EE5;&amp;#x5982;&amp;#x679C;&amp;#x53EF;&amp;#x4EE5;&amp;#x901A;&amp;#x8FC7;usb&amp;#x4EE3;&amp;#x66FF;&amp;#x8FDB;&amp;#x884C;&amp;#x8FDE;&amp;#x63A5;,&amp;#x6548;&amp;#x7387;&amp;#x4F1A;&amp;#x6709;&amp;#x5F88;&amp;#x5927;&amp;#x7684;&amp;#x63D0;&amp;#x9AD8;&lt;/p&gt;
+&lt;p&gt;iproxy&amp;#x662F;usbmuxd&amp;#x9644;&amp;#x5E26;&amp;#x7684;&amp;#x4E00;&amp;#x4E2A;&amp;#x5C0F;&amp;#x5DE5;&amp;#x5177;,&amp;#x5B83;&amp;#x7684;&amp;#x4F5C;&amp;#x7528;&amp;#x662F;&amp;#x5C06;&amp;#x8BBE;&amp;#x5907;&amp;#x7684;&amp;#x67D0;&amp;#x4E2A;&amp;#x7AEF;&amp;#x53E3;&amp;#x6620;&amp;#x5C04;&amp;#x5230;&amp;#x7535;&amp;#x8111;&amp;#x7684;&amp;#x67D0;&amp;#x4E2A;&amp;#x7AEF;&amp;#x53E3;&lt;br&gt;mac&amp;#x4E0B;&amp;#x53EF;&amp;#x4EE5;&amp;#x901A;&amp;#x8FC7;brew&amp;#x5B89;&amp;#x88C5;&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;brew install usbmuxd&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;img src=&quot;/2016/11/01/iproxy/iproxy.png&quot; alt=&quot;iproxy&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#x7528;&amp;#x6CD5;&amp;#x5F88;&amp;#x7B80;&amp;#x5355;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&amp;#x7B2C;&amp;#x4E00;&amp;#x4E2A;&amp;#x53C2;&amp;#x6570;&amp;#x662F;&amp;#x4F60;&amp;#x8981;&amp;#x6620;&amp;#x5C04;&amp;#x5230;&amp;#x7684;&amp;#x7535;&amp;#x8111;&amp;#x7AEF;&amp;#x53E3;&lt;/li&gt;
+&lt;li&gt;&amp;#x7B2C;&amp;#x4E8C;&amp;#x4E2A;&amp;#x662F;iPhone&amp;#x7684;&amp;#x7AEF;&amp;#x53E3;&lt;/li&gt;
+&lt;li&gt;UDID&amp;#x4E00;&amp;#x822C;&amp;#x4E0D;&amp;#x7528;&amp;#x586B;,&amp;#x4F1A;&amp;#x81EA;&amp;#x52A8;&amp;#x83B7;&amp;#x53D6;,&amp;#x4E0D;&amp;#x8FC7;&amp;#x591A;&amp;#x8BBE;&amp;#x5907;&amp;#x8FDE;&amp;#x63A5;&amp;#x65F6;,&amp;#x9700;&amp;#x8981;&amp;#x7528;&amp;#x4E8E;&amp;#x533A;&amp;#x5206;&amp;#x8BBE;&amp;#x5907;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;iproxy&amp;#x7684;&amp;#x4F5C;&amp;#x7528;&amp;#x5F88;&amp;#x4E30;&amp;#x5BCC;,&amp;#x4E00;&amp;#x822C;&amp;#x641E;&amp;#x8D8A;&amp;#x72F1;&amp;#x7684;&amp;#x5927;&amp;#x725B;,&amp;#x4F1A;&amp;#x7528;&amp;#x6765;&amp;#x6620;&amp;#x5C04;iPhone&amp;#x7684;22&amp;#x7AEF;&amp;#x53E3;(ssh&amp;#x7AEF;&amp;#x53E3;),&amp;#x6211;&amp;#x4F7F;&amp;#x7528;atx&amp;#x7684;&amp;#x8FC7;&amp;#x7A0B;&amp;#x4E2D;&amp;#x4F7F;&amp;#x7528;&amp;#x4E86;iPhone&amp;#x7684;8100&amp;#x7AEF;&amp;#x53E3;&amp;#x6240;&amp;#x4EE5;&amp;#x76F4;&amp;#x63A5;&amp;#x6307;&amp;#x4EE4;&amp;#x5982;&amp;#x4E0B;:&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;iproxy 2222 8100&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;#x76F8;&amp;#x5E94;&amp;#x7684;,&amp;#x4EE3;&amp;#x7801;&amp;#x6216;&amp;#x8005;&amp;#x811A;&amp;#x672C;&amp;#x91CC;&amp;#x9762;&amp;#x539F;&amp;#x672C;&amp;#x5199;&amp;#x8BBE;&amp;#x5907;IP&amp;#x7684;&amp;#x5730;&amp;#x65B9;&amp;#x5C31;&amp;#x8981;&amp;#x6539;&amp;#x6210;localhost:2222&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2016/11/01/iproxy/iproxy2.png&quot; alt=&quot;before&quot;&gt;&amp;#x2014;-&amp;gt;&lt;img src=&quot;/2016/11/01/iproxy/iproxy3.png&quot; alt=&quot;after&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#x8FD9;&amp;#x6837;&amp;#x4E5F;&amp;#x5C31;&amp;#x6CA1;&amp;#x6709;&amp;#x4E86;&amp;#x5F88;&amp;#x591A;&amp;#x624B;&amp;#x673A;&amp;#x5FC5;&amp;#x987B;&amp;#x8981;&amp;#x8DDF;&amp;#x7535;&amp;#x8111;&amp;#x5728;&amp;#x540C;&amp;#x4E00;&amp;#x7F51;&amp;#x6BB5;&amp;#x7684;&amp;#x5C34;&amp;#x5C2C;&amp;#x60C5;&amp;#x51B5;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;#x5728;&amp;#x7814;&amp;#x7A76;ATX&amp;#x7684;&amp;#x8FC7;&amp;#x7A0B;&amp;#x4E2D;,&amp;#x53D1;&amp;#x73B0;&amp;#x901A;&amp;#x8FC7;WIFI&amp;#x6765;&amp;#x8FDE;&amp;#x63A5;&amp;#x53D1;&amp;#x9001;&amp;
+    
+    </summary>
+    
+    
+      <category term="测试" scheme="http://sherlockz.github.io/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>ATX自动化测试框架-iOS</title>
@@ -1208,9 +1243,9 @@ xrange(start=0,stop,step)
     </summary>
     
     
-      <category term="随笔" scheme="http://sherlockz.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
-    
       <category term="吉他" scheme="http://sherlockz.github.io/tags/%E5%90%89%E4%BB%96/"/>
+    
+      <category term="随笔" scheme="http://sherlockz.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
@@ -1237,9 +1272,9 @@ xrange(start=0,stop,step)
     </summary>
     
     
-      <category term="随笔" scheme="http://sherlockz.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
-    
       <category term="吉他" scheme="http://sherlockz.github.io/tags/%E5%90%89%E4%BB%96/"/>
+    
+      <category term="随笔" scheme="http://sherlockz.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
       <category term="Blog" scheme="http://sherlockz.github.io/tags/Blog/"/>
     

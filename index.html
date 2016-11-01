@@ -294,7 +294,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Linux服务器/" style="font-size: 10px;">Linux服务器</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/pygame/" style="font-size: 10px;">pygame</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/三亚/" style="font-size: 10px;">三亚</a> <a href="/tags/吉他/" style="font-size: 15px;">吉他</a> <a href="/tags/大三的暑假/" style="font-size: 10px;">大三的暑假</a> <a href="/tags/意义/" style="font-size: 10px;">意义</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/游记/" style="font-size: 10px;">游记</a> <a href="/tags/自动化测试/" style="font-size: 10px;">自动化测试</a> <a href="/tags/随笔/" style="font-size: 20px;">随笔</a>
+						<a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Linux服务器/" style="font-size: 10px;">Linux服务器</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/pygame/" style="font-size: 10px;">pygame</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/三亚/" style="font-size: 10px;">三亚</a> <a href="/tags/吉他/" style="font-size: 15px;">吉他</a> <a href="/tags/大三的暑假/" style="font-size: 10px;">大三的暑假</a> <a href="/tags/意义/" style="font-size: 10px;">意义</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/游记/" style="font-size: 10px;">游记</a> <a href="/tags/自动化测试/" style="font-size: 10px;">自动化测试</a> <a href="/tags/随笔/" style="font-size: 20px;">随笔</a>
 					</div>
 				</section>
 				
@@ -551,6 +551,82 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-iproxy" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/01/iproxy/" class="article-date">
+  	<time datetime="2016-11-01T09:41:12.000Z" itemprop="datePublished">2016-11-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/01/iproxy/">使用iproxy通过USB将iPhone的端口映射到电脑</a>
+    </h1>
+  
+
+
+ 
+ 
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      <!-- Table of Contents -->
+      
+        <p>&#x5728;&#x7814;&#x7A76;ATX&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;,&#x53D1;&#x73B0;&#x901A;&#x8FC7;WIFI&#x6765;&#x8FDE;&#x63A5;&#x53D1;&#x9001;&#x6307;&#x4EE4;,&#x4F1A;&#x6709;&#x5EF6;&#x8FDF;,&#x54CD;&#x5E94;&#x4E0D;&#x591F;&#x8FC5;&#x901F;.<br>&#x6240;&#x4EE5;&#x5982;&#x679C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;usb&#x4EE3;&#x66FF;&#x8FDB;&#x884C;&#x8FDE;&#x63A5;,&#x6548;&#x7387;&#x4F1A;&#x6709;&#x5F88;&#x5927;&#x7684;&#x63D0;&#x9AD8;</p>
+<p>iproxy&#x662F;usbmuxd&#x9644;&#x5E26;&#x7684;&#x4E00;&#x4E2A;&#x5C0F;&#x5DE5;&#x5177;,&#x5B83;&#x7684;&#x4F5C;&#x7528;&#x662F;&#x5C06;&#x8BBE;&#x5907;&#x7684;&#x67D0;&#x4E2A;&#x7AEF;&#x53E3;&#x6620;&#x5C04;&#x5230;&#x7535;&#x8111;&#x7684;&#x67D0;&#x4E2A;&#x7AEF;&#x53E3;<br>mac&#x4E0B;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;brew&#x5B89;&#x88C5;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install usbmuxd</span><br></pre></td></tr></table></figure>
+<p><img src="/2016/11/01/iproxy/iproxy.png" alt="iproxy"></p>
+<p>&#x7528;&#x6CD5;&#x5F88;&#x7B80;&#x5355;:</p>
+<ol>
+<li>&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x4F60;&#x8981;&#x6620;&#x5C04;&#x5230;&#x7684;&#x7535;&#x8111;&#x7AEF;&#x53E3;</li>
+<li>&#x7B2C;&#x4E8C;&#x4E2A;&#x662F;iPhone&#x7684;&#x7AEF;&#x53E3;</li>
+<li>UDID&#x4E00;&#x822C;&#x4E0D;&#x7528;&#x586B;,&#x4F1A;&#x81EA;&#x52A8;&#x83B7;&#x53D6;,&#x4E0D;&#x8FC7;&#x591A;&#x8BBE;&#x5907;&#x8FDE;&#x63A5;&#x65F6;,&#x9700;&#x8981;&#x7528;&#x4E8E;&#x533A;&#x5206;&#x8BBE;&#x5907;</li>
+</ol>
+<p>iproxy&#x7684;&#x4F5C;&#x7528;&#x5F88;&#x4E30;&#x5BCC;,&#x4E00;&#x822C;&#x641E;&#x8D8A;&#x72F1;&#x7684;&#x5927;&#x725B;,&#x4F1A;&#x7528;&#x6765;&#x6620;&#x5C04;iPhone&#x7684;22&#x7AEF;&#x53E3;(ssh&#x7AEF;&#x53E3;),&#x6211;&#x4F7F;&#x7528;atx&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x4F7F;&#x7528;&#x4E86;iPhone&#x7684;8100&#x7AEF;&#x53E3;&#x6240;&#x4EE5;&#x76F4;&#x63A5;&#x6307;&#x4EE4;&#x5982;&#x4E0B;:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iproxy 2222 8100</span><br></pre></td></tr></table></figure>
+<p>&#x76F8;&#x5E94;&#x7684;,&#x4EE3;&#x7801;&#x6216;&#x8005;&#x811A;&#x672C;&#x91CC;&#x9762;&#x539F;&#x672C;&#x5199;&#x8BBE;&#x5907;IP&#x7684;&#x5730;&#x65B9;&#x5C31;&#x8981;&#x6539;&#x6210;localhost:2222</p>
+<p><img src="/2016/11/01/iproxy/iproxy2.png" alt="before">&#x2014;-&gt;<img src="/2016/11/01/iproxy/iproxy3.png" alt="after"></p>
+<p>&#x8FD9;&#x6837;&#x4E5F;&#x5C31;&#x6CA1;&#x6709;&#x4E86;&#x5F88;&#x591A;&#x624B;&#x673A;&#x5FC5;&#x987B;&#x8981;&#x8DDF;&#x7535;&#x8111;&#x5728;&#x540C;&#x4E00;&#x7F51;&#x6BB5;&#x7684;&#x5C34;&#x5C2C;&#x60C5;&#x51B5;</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/测试/">测试</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-atx" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -1140,74 +1216,6 @@
 
       
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-service" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/23/service/" class="article-date">
-  	<time datetime="2016-05-23T07:40:19.000Z" itemprop="datePublished">2016-05-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/23/service/">mySQL.apache2.tomcat自动启动设置方法</a>
-    </h1>
-  
-
-
- 
- 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&#x6BCF;&#x6B21;&#x91CD;&#x542F;&#x670D;&#x52A1;&#x5668;&#x90FD;&#x8981;&#x91CD;&#x65B0;&#x542F;&#x52A8;&#x4E09;&#x4E2A;&#x670D;&#x52A1;:<code>mySQL</code> <code>apache2</code> <code>tomcat</code></p>
-<p><code>mySQL</code>he <code>apache2</code>&#x8FD9;&#x4E24;&#x4E2A;&#x670D;&#x52A1;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x7528;sysv-rc-donf<br>&#x5148;&#x5B89;&#x88C5;:</p>
-<blockquote>
-<p>sudo apt-get install sysv-rc-conf</p>
-<p>sysv-rc-conf</p>
-</blockquote>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux服务器/">Linux服务器</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/05/23/service/#more">more >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>
