@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>不懂汇编,如何逆向(iOS) | sherlock&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="$ &amp;#x5199;&amp;#x7ED9;&amp;#x50CF;&amp;#x6211;&amp;#x4E00;&amp;#x6837;&amp;#x7684;&amp;#x5C0F;&amp;#x767D;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="不懂汇编,如何逆向(iOS)">
+<meta property="og:url" content="http://sherlockz.github.io/2017/10/22/ios-hook/index.html">
+<meta property="og:site_name" content="sherlock's Blog">
+<meta property="og:description" content="$ &amp;#x5199;&amp;#x7ED9;&amp;#x50CF;&amp;#x6211;&amp;#x4E00;&amp;#x6837;&amp;#x7684;&amp;#x5C0F;&amp;#x767D;">
+<meta property="og:image" content="http://sherlockz.github.io/2017/10/22/ios-hook/1508489189.gif">
+<meta property="og:updated_time" content="2017-10-22T04:14:14.618Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="不懂汇编,如何逆向(iOS)">
+<meta name="twitter:description" content="$ &amp;#x5199;&amp;#x7ED9;&amp;#x50CF;&amp;#x6211;&amp;#x4E00;&amp;#x6837;&amp;#x7684;&amp;#x5C0F;&amp;#x767D;">
+<meta name="twitter:image" content="http://sherlockz.github.io/2017/10/22/ios-hook/1508489189.gif">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay">
+<img src="/2016/07/23/sanya/thumb_IMG_7319_1024.jpg" style="width: 100%;height: 100%;">
+</div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/IMG_5048.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Sherlock&#39;s Blog</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">追随自己所热爱的</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+							<li><a href="/tags/iOS">iOS</a></li>
+				        
+							<li><a href="/tags/python">python</a></li>
+				        
+							<li><a href="/tags/游记">游记</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/sherlockZ" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/515538484/home?wvr=5" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:515538484@qq.com" title="mail">mail</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+
+						</div>
+						<div class="feed-link motion-element"  style="border-radius:20px; line-height:40px;text-align:center;margin:0 auto;width:120px;height:40px;background-color: rgb(56,183,234);">
+                  <a style="color: white;" href='javascript:(
+      												function go() {
+      													function c() {
+      														var e = document.createElement("link");
+      														e.setAttribute("type", "text/css");
+      														e.setAttribute("rel", "stylesheet");
+      														e.setAttribute("href", f);
+      														e.setAttribute("class", l);
+      														document.body.appendChild(e)    }
+      													function h() {
+      														var e = document.getElementsByClassName(l);
+      														for (var t = 0; t < e.length; t++) {
+      															document.body.removeChild(e[t])
+      															}
+      													}
+      													function p() {
+      														var e = document.createElement("div");
+      														e.setAttribute("class", a);
+      														document.body.appendChild(e);
+      														setTimeout(function() {
+      															document.body.removeChild(e)
+      														}, 100)
+      													}
+      													function d(e) {
+      														return {
+      															height : e.offsetHeight,
+      															width : e.offsetWidth
+      														}
+      													}
+      													function v(i) {
+      														var s = d(i);
+      														return s.height > e && s.height < n && s.width > t && s.width < r
+      													}
+      													function m(e) {
+      														var t = e;
+      														var n = 0;
+      														while (!!t) {
+      															n += t.offsetTop;
+      															t = t.offsetParent
+      														}
+      														return n
+      													}
+      													function g() {
+      														var e = document.documentElement;
+      														if (!!window.innerWidth) {
+      															return window.innerHeight
+      														} else if (e && !isNaN(e.clientHeight)) {
+      															return e.clientHeight
+      														}
+      														return 0
+      													}
+      													function y() {
+      														if (window.pageYOffset) {
+      															return window.pageYOffset
+      														}
+      														return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+      													}
+      													function E(e) {
+      														var t = m(e);
+      														return t >= w && t <= b + w
+      													}
+      													var songs = [ 
+                                                                                                        "http://7xs0af.com1.z0.glb.clouddn.com/High-Viva-La-Vida.mp3",
+                													              "http://7xs0af.com1.z0.glb.clouddn.com/High-Die-Young.mp3",
+      																  "http://7xs0af.com1.z0.glb.clouddn.com/High-I-Want-You-to-Know.mp3",
+      																  "http://7xs0af.com1.z0.glb.clouddn.com/High-Summer-Vibe.mp3",
+      																  "http://7xs0af.com1.z0.glb.clouddn.com/High-Wake.mp3"];
+      													function S() {
+      														var e = document.getElementById("audio_element_id");
+      														if(e != null){
+      															var index = parseInt(e.getAttribute("curSongIndex"));
+      															if(index > songs.length - 2) {
+      																index = 0;
+      															} else {
+      																index++;
+      															}
+      															e.setAttribute("curSongIndex", index);
+      															N();
+      														}
+      														e.src = i;
+      														e.play()
+      													}
+      													function x(e) {
+      														e.className += " " + s + " " + o
+      													}
+      													function T(e) {
+      														e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+      													}
+      													function N() {
+      														var e = document.getElementsByClassName(s);
+      														var t = new RegExp("\\b" + s + "\\b");
+      														for (var n = 0; n < e.length; ) {
+      															e[n].className = e[n].className.replace(t, "")
+      														}
+      													}
+      													function initAudioEle() {
+      														var e = document.getElementById("audio_element_id");
+      														if(e === null){
+      															e = document.createElement("audio");
+      															e.setAttribute("class", l);
+      															e.setAttribute("curSongIndex", 0);
+      															e.id = "audio_element_id";
+      															e.loop = false;
+      															e.bgcolor = 0;
+      															e.addEventListener("canplay", function() {
+      																setTimeout(function() {
+      																	x(k)
+      																}, 500);
+      																setTimeout(function() {
+      																	N();
+      																	p();
+      																	for (var e = 0; e < O.length; e++) {
+      																		T(O[e])
+      																	}
+      																}, 15500)
+      															}, true);
+      															e.addEventListener("ended", function() {
+      																N();
+      																h();
+      																go();
+      															}, true);
+      															e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+      															document.body.appendChild(e);
+      														}
+      													}
+      													initAudioEle();
+      													var e = 30;
+      													var t = 30;
+      													var n = 350;
+      													var r = 350;
+      													var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+      													var i = songs[curSongIndex];
+      													var s = "mw-harlem_shake_me";
+      													var o = "im_first";
+      													var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+      													var a = "mw-strobe_light";
+      													var f = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
+      													var l = "mw_added_css";
+                                var b = g();
+      													var w = y();
+      													var C = document.getElementsByTagName("*");
+      													var k = null;
+      													for (var L = 0; L < C.length; L++) {
+      														var A = C[L];
+      														if (v(A)) {
+      															if (E(A)) {
+      																k = A;
+      																break
+      															}
+      														}
+      													}
+      													if (A === null) {
+      														console.warn("Could not find a node of the right size. Please try a different page.");
+      														return
+      													}
+      													c();
+      													S();
+      													var O = [];
+      													for (var L = 0; L < C.length; L++) {
+      														var A = C[L];
+      														if (v(A)) {
+      															O.push(A)
+      														}
+      													}
+      												})()'>
+                    
+                    高能慎点
+                  </a>
+                </div>
+					</nav>
+
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Linux服务器/" style="font-size: 10px;">Linux服务器</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/Terminal/" style="font-size: 10px;">Terminal</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/iOS逆向/" style="font-size: 10px;">iOS逆向</a> <a href="/tags/ios逆向/" style="font-size: 10px;">ios逆向</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/pygame/" style="font-size: 10px;">pygame</a> <a href="/tags/python/" style="font-size: 16.67px;">python</a> <a href="/tags/三亚/" style="font-size: 10px;">三亚</a> <a href="/tags/吉他/" style="font-size: 13.33px;">吉他</a> <a href="/tags/大三的暑假/" style="font-size: 10px;">大三的暑假</a> <a href="/tags/意义/" style="font-size: 10px;">意义</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/游记/" style="font-size: 10px;">游记</a> <a href="/tags/自动化测试/" style="font-size: 10px;">自动化测试</a> <a href="/tags/随笔/" style="font-size: 20px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://sherlock.deercv.com/?preview=1">个人简历</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://wayjam.me">WayJamSo</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我叫张恒瑜，在校大四，热爱iOS开发，喜欢弹吉他…最近从事测试行业</div>
+				</section>
+				
+
+			</div>
+
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  	<img src="/img/years.jpg" style="width: 100%;height: 100%;">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Sherlock&#39;s Blog</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/IMG_5048.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Sherlock&#39;s Blog</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">追随自己所热爱的</p>
+			
+
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+					<li><a href="/tags/iOS">iOS</a></li>
+		        
+					<li><a href="/tags/python">python</a></li>
+		        
+					<li><a href="/tags/游记">游记</a></li>
+		        
+		        <div class="clearfix"></div>
+		        <div class="feed-link motion-element" style="border-radius:20px; line-height:40px;text-align:center;margin:0 auto;width:120px;height:40px;background-color: rgb(56,183,234);">
+                  <a style="color: white;" href='javascript:(
+      												function go() {
+      													function c() {
+      														var e = document.createElement("link");
+      														e.setAttribute("type", "text/css");
+      														e.setAttribute("rel", "stylesheet");
+      														e.setAttribute("href", f);
+      														e.setAttribute("class", l);
+      														document.body.appendChild(e)    }
+      													function h() {
+      														var e = document.getElementsByClassName(l);
+      														for (var t = 0; t < e.length; t++) {
+      															document.body.removeChild(e[t])
+      															}
+      													}
+      													function p() {
+      														var e = document.createElement("div");
+      														e.setAttribute("class", a);
+      														document.body.appendChild(e);
+      														setTimeout(function() {
+      															document.body.removeChild(e)
+      														}, 100)
+      													}
+      													function d(e) {
+      														return {
+      															height : e.offsetHeight,
+      															width : e.offsetWidth
+      														}
+      													}
+      													function v(i) {
+      														var s = d(i);
+      														return s.height > e && s.height < n && s.width > t && s.width < r
+      													}
+      													function m(e) {
+      														var t = e;
+      														var n = 0;
+      														while (!!t) {
+      															n += t.offsetTop;
+      															t = t.offsetParent
+      														}
+      														return n
+      													}
+      													function g() {
+      														var e = document.documentElement;
+      														if (!!window.innerWidth) {
+      															return window.innerHeight
+      														} else if (e && !isNaN(e.clientHeight)) {
+      															return e.clientHeight
+      														}
+      														return 0
+      													}
+      													function y() {
+      														if (window.pageYOffset) {
+      															return window.pageYOffset
+      														}
+      														return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+      													}
+      													function E(e) {
+      														var t = m(e);
+      														return t >= w && t <= b + w
+      													}
+      													var songs = [       "http://7xs0af.com1.z0.glb.clouddn.com/High-Viva-La-Vida.mp3", 			
+                                                                                                        "http://7xs0af.com1.z0.glb.clouddn.com/High-Die-Young.mp3",
+      																  "http://7xs0af.com1.z0.glb.clouddn.com/High-I-Want-You-to-Know.mp3",
+      																  "http://7xs0af.com1.z0.glb.clouddn.com/High-Summer-Vibe.mp3",
+      																  
+      																  "http://7xs0af.com1.z0.glb.clouddn.com/High-Wake.mp3"];
+      													function S() {
+      														var e = document.getElementById("audio_element_id");
+      														if(e != null){
+      															var index = parseInt(e.getAttribute("curSongIndex"));
+      															if(index > songs.length - 2) {
+      																index = 0;
+      															} else {
+      																index++;
+      															}
+      															e.setAttribute("curSongIndex", index);
+      															N();
+      														}
+      														e.src = i;
+      														e.play()
+      													}
+      													function x(e) {
+      														e.className += " " + s + " " + o
+      													}
+      													function T(e) {
+      														e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+      													}
+      													function N() {
+      														var e = document.getElementsByClassName(s);
+      														var t = new RegExp("\\b" + s + "\\b");
+      														for (var n = 0; n < e.length; ) {
+      															e[n].className = e[n].className.replace(t, "")
+      														}
+      													}
+      													function initAudioEle() {
+      														var e = document.getElementById("audio_element_id");
+      														if(e === null){
+      															e = document.createElement("audio");
+      															e.setAttribute("class", l);
+      															e.setAttribute("curSongIndex", 0);
+      															e.id = "audio_element_id";
+      															e.loop = false;
+      															e.bgcolor = 0;
+      															e.addEventListener("canplay", function() {
+      																setTimeout(function() {
+      																	x(k)
+      																}, 500);
+      																setTimeout(function() {
+      																	N();
+      																	p();
+      																	for (var e = 0; e < O.length; e++) {
+      																		T(O[e])
+      																	}
+      																}, 15500)
+      															}, true);
+      															e.addEventListener("ended", function() {
+      																N();
+      																h();
+      																go();
+      															}, true);
+      															e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+      															document.body.appendChild(e);
+      														}
+      													}
+      													initAudioEle();
+      													var e = 30;
+      													var t = 30;
+      													var n = 350;
+      													var r = 350;
+      													var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+      													var i = songs[curSongIndex];
+      													var s = "mw-harlem_shake_me";
+      													var o = "im_first";
+      													var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+      													var a = "mw-strobe_light";
+      													var f = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
+      													var l = "mw_added_css";
+                                var b = g();
+      													var w = y();
+      													var C = document.getElementsByTagName("*");
+      													var k = null;
+      													for (var L = 0; L < C.length; L++) {
+      														var A = C[L];
+      														if (v(A)) {
+      															if (E(A)) {
+      																k = A;
+      																break
+      															}
+      														}
+      													}
+      													if (A === null) {
+      														console.warn("Could not find a node of the right size. Please try a different page.");
+      														return
+      													}
+      													c();
+      													S();
+      													var O = [];
+      													for (var L = 0; L < C.length; L++) {
+      														var A = C[L];
+      														if (v(A)) {
+      															O.push(A)
+      														}
+      													}
+      												})()'>
+                    <i class="fa fa-music"></i> High一下 
+                  </a>
+                </div>
+				</ul>
+
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/sherlockZ" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/515538484/home?wvr=5" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:515538484@qq.com" title="mail">mail</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-ios-hook" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/10/22/ios-hook/" class="article-date">
+  	<time datetime="2017-10-22T04:10:38.000Z" itemprop="datePublished">2017-10-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      不懂汇编,如何逆向(iOS)
+    </h1>
+  
+
+
+ 
+ 
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ios逆向/">ios逆向</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      <!-- Table of Contents -->
+      
+        <p><strong> $ &#x5199;&#x7ED9;&#x50CF;&#x6211;&#x4E00;&#x6837;&#x7684;&#x5C0F;&#x767D;</strong></p>
+<a id="more"></a>
+<p>[TOC]</p>
+<h2 id="0x1-&#x9006;&#x5411;&#x4E00;&#x4E2A;APP&#x6709;&#x54EA;&#x4E9B;&#x6B65;&#x9AA4;-&#x4E0D;&#x8D8A;&#x72F1;"><a href="#0x1-&#x9006;&#x5411;&#x4E00;&#x4E2A;APP&#x6709;&#x54EA;&#x4E9B;&#x6B65;&#x9AA4;-&#x4E0D;&#x8D8A;&#x72F1;" class="headerlink" title="0x1 &#x9006;&#x5411;&#x4E00;&#x4E2A;APP&#x6709;&#x54EA;&#x4E9B;&#x6B65;&#x9AA4;(&#x4E0D;&#x8D8A;&#x72F1;)"></a>0x1 &#x9006;&#x5411;&#x4E00;&#x4E2A;APP&#x6709;&#x54EA;&#x4E9B;&#x6B65;&#x9AA4;(&#x4E0D;&#x8D8A;&#x72F1;)</h2><ol>
+<li>&#x7838;&#x58F3;</li>
+<li>dump&#x51FA;&#x5934;&#x6587;&#x4EF6;</li>
+<li>&#x5206;&#x6790;&#x529F;&#x80FD;&#x754C;&#x9762;</li>
+<li>hopper || iDA &#x5206;&#x6790;&#x4F2A;&#x4EE3;&#x7801;</li>
+<li>&#x5199;hook</li>
+<li>&#x6253;&#x5305;&#x52A8;&#x6001;&#x5E93;</li>
+<li>&#x6CE8;&#x5165;&#x52A8;&#x6001;&#x5E93;&#x5230;APP</li>
+<li>APP&#x91CD;&#x7B7E;&#x540D;</li>
+<li>&#x5B89;&#x88C5;&#x5230;&#x624B;&#x673A;&#x4E0A;</li>
+</ol>
+<h3 id="MonkeyDev"><a href="#MonkeyDev" class="headerlink" title="MonkeyDev"></a>MonkeyDev</h3><p><code>MonkeyDev</code>&#x662F;&#x4E00;&#x4E2A;xcode&#x63D2;&#x4EF6;, &#x6B64;&#x5904;&#x5148;&#x819C;&#x4E00;&#x4E0B;<code>@&#x5E86;&#x54E5;</code></p>
+<pre><code>&#x539F;&#x6709;iOSOpenDev&#x7684;&#x5347;&#x7EA7;&#xFF0C;&#x975E;&#x8D8A;&#x72F1;&#x63D2;&#x4EF6;&#x5F00;&#x53D1;&#x96C6;&#x6210;&#x795E;&#x5668;&#xFF01;
+
+- &#x53EF;&#x4EE5;&#x4F7F;&#x7528;Xcode&#x5F00;&#x53D1;CaptainHook Tweak&#x3001;Logos Tweak &#x548C; Command-line Tool&#xFF0C;&#x5728;&#x8D8A;&#x72F1;&#x673A;&#x5668;&#x5F00;&#x53D1;&#x63D2;&#x4EF6;&#xFF0C;&#x8FD9;&#x662F;&#x539F;&#x6765;iOSOpenDev&#x529F;&#x80FD;&#x7684;&#x8FC1;&#x79FB;&#x548C;&#x6539;&#x8FDB;&#x3002;
+- &#x53EA;&#x9700;&#x62D6;&#x5165;&#x4E00;&#x4E2A;&#x7838;&#x58F3;&#x5E94;&#x7528;&#xFF0C;&#x81EA;&#x52A8;&#x96C6;&#x6210;class-dump&#x3001;restore-symbol&#x3001;Reveal&#x3001;Cycript&#x548C;&#x6CE8;&#x5165;&#x7684;&#x52A8;&#x6001;&#x5E93;&#x5E76;&#x91CD;&#x7B7E;&#x540D;&#x5B89;&#x88C5;&#x5230;&#x975E;&#x8D8A;&#x72F1;&#x673A;&#x5668;&#x3002;
+- &#x652F;&#x6301;&#x8C03;&#x8BD5;&#x81EA;&#x5DF1;&#x7F16;&#x5199;&#x7684;&#x52A8;&#x6001;&#x5E93;&#x548C;&#x7B2C;&#x4E09;&#x65B9;App
+- &#x652F;&#x6301;&#x901A;&#x8FC7;CocoaPods&#x7B2C;&#x4E09;&#x65B9;&#x5E94;&#x7528;&#x96C6;&#x6210;SDK&#x4EE5;&#x53CA;&#x975E;&#x8D8A;&#x72F1;&#x63D2;&#x4EF6;&#xFF0C;&#x7B80;&#x5355;&#x6765;&#x8BF4;&#x5C31;&#x662F;&#x901A;&#x8FC7;CocoaPods&#x642D;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x975E;&#x8D8A;&#x72F1;&#x63D2;&#x4EF6;&#x5546;&#x5E97;&#x3002;
+</code></pre><p>&#x5E86;&#x54E5;&#x7684;github&#x5982;&#x662F;&#x8BF4;.</p>
+<p><code>MonkeyDev</code>&#x89E3;&#x51B3;&#x4E86;&#x4E0A;&#x9762;&#x8BF4;&#x5230;&#x7684;50%&#x7684;&#x6B65;&#x9AA4;, &#x518D;&#x5916;&#x52A0;&#x4E00;&#x4E2A;&#x52A8;&#x6001;&#x8C03;&#x8BD5;.</p>
+<p><a href="https://github.com/AloneMonkey/MonkeyDev" target="_blank" rel="external">https://github.com/AloneMonkey/MonkeyDev</a></p>
+<p><strong> PS:&#x95EE;&#x95EE;&#x9898;&#x4E4B;&#x524D;&#x5148;&#x719F;&#x8BFB;wiki</strong></p>
+<h2 id="0x2-&#x5269;&#x4E0B;&#x7684;&#x5DE5;&#x4F5C;"><a href="#0x2-&#x5269;&#x4E0B;&#x7684;&#x5DE5;&#x4F5C;" class="headerlink" title="0x2 &#x5269;&#x4E0B;&#x7684;&#x5DE5;&#x4F5C;"></a>0x2 &#x5269;&#x4E0B;&#x7684;&#x5DE5;&#x4F5C;</h2><h3 id="&#x7838;&#x58F3;"><a href="#&#x7838;&#x58F3;" class="headerlink" title="&#x7838;&#x58F3;"></a>&#x7838;&#x58F3;</h3><p>&#x5176;&#x5B9E;&#x8FD9;&#x4E2A;&#x662F;&#x975E;&#x5FC5;&#x8981;&#x9879;, &#x81EA;&#x5DF1;&#x624B;&#x52A8;&#x7838;&#x58F3;&#x9700;&#x8981;&#x5DF2;&#x8D8A;&#x72F1;&#x7684;&#x624B;&#x673A;. &#x60F3;&#x624B;&#x52A8;&#x7838;&#x58F3;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;.</p>
+<p><a href="http://www.jianshu.com/p/4cfd86600ced?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io" target="_blank" rel="external">iOS&#x9006;&#x5411;&#x5DE5;&#x7A0B;&#x4E4B;Clutch&#x7838;&#x58F3;</a></p>
+<p>&#x4E0D;&#x60F3;&#x81EA;&#x5DF1;&#x624B;&#x52A8;&#x7838;&#x58F3;&#x7684;&#x53EF;&#x4EE5;&#x53BB;&#x5404;&#x5927;&#x5E94;&#x7528;&#x5E73;&#x53F0;,&#x5982;PP&#x52A9;&#x624B;&#x7B49;.&#x4E0B;&#x8F7D;&#x8D8A;&#x72F1;&#x7248;&#x7684;&#x8F6F;&#x4EF6;,&#x8FD9;&#x4E9B;&#x90FD;&#x662F;&#x5DF2;&#x7ECF;&#x7838;&#x597D;&#x58F3;&#x7684;&#x4E86;.</p>
+<h3 id="&#x5206;&#x6790;&#x529F;&#x80FD;&#x754C;&#x9762;-&#x52A8;&#x6001;&#x5206;&#x6790;"><a href="#&#x5206;&#x6790;&#x529F;&#x80FD;&#x754C;&#x9762;-&#x52A8;&#x6001;&#x5206;&#x6790;" class="headerlink" title="&#x5206;&#x6790;&#x529F;&#x80FD;&#x754C;&#x9762;(&#x52A8;&#x6001;&#x5206;&#x6790;)"></a>&#x5206;&#x6790;&#x529F;&#x80FD;&#x754C;&#x9762;(&#x52A8;&#x6001;&#x5206;&#x6790;)</h3><p>&#x4E3B;&#x6D41;&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x6CD5;:</p>
+<ol>
+<li><a href="http://www.jianshu.com/p/621210ec3ff0" target="_blank" rel="external">Cycript</a></li>
+<li><a href="http://www.jianshu.com/p/f2970ef365fe" target="_blank" rel="external">Reveal</a></li>
+</ol>
+<p>&#x4F46;&#x662F;&#x4F7F;&#x7528;&#x4E86;<code>MonkeyDev</code>&#x4E4B;&#x540E;&#x591A;&#x4E86;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;. hook oc&#x7684;&#x6D88;&#x606F;&#x901A;&#x77E5;&#x51FD;&#x6570;,&#x5982;:<a href="https://github.com/qhd/ANYMethodLog" target="_blank" rel="external">ANYMethodLog</a>.</p>
+<p>&#x56E0;&#x4E3A;&#x6BCF;&#x4E2A;app&#x542F;&#x52A8;&#x7684;&#x65F6;&#x5019;&#x90FD;&#x4F1A;&#x8C03;&#x7528;appDelegate&#x91CC;&#x9762;&#x7684;<code>didFinishLaunchingWithOptions:</code>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;, &#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x6BCF;&#x4E2A;app&#x90FD;&#x4F1A;&#x6709;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;. &#x90A3;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;class-dump&#x51FA;&#x6765;&#x7684;&#x5934;&#x6587;&#x4EF6;&#x4E2D;&#x627E;&#x5230;&#x67D0;&#x4E2A;app&#x7684;<code>appDelegate</code>&#x6587;&#x4EF6;&#x540D;,&#x7136;&#x540E;hook&#x6389;<code>didFinishLaunchingWithOptions:</code>&#x628A;&#x6240;&#x6709;&#x57FA;&#x4E8E;UIViewController&#x6216;&#x8005;&#x5176;&#x4ED6;&#x7C7B;&#x6267;&#x884C;&#x7684;&#x65B9;&#x6CD5;&#x5728;&#x8FD0;&#x884C;&#x7684;&#x65F6;&#x5019;&#x5168;&#x90E8;&#x6253;&#x51FA;&#x6765;.&#x751A;&#x81F3;&#x8FDE;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x90FD;&#x53EF;&#x6253;&#x5370;&#x51FA;&#x6765;.</p>
+<h3 id="&#x5206;&#x6790;&#x4F2A;&#x4EE3;&#x7801;-&#x9759;&#x6001;&#x5206;&#x6790;"><a href="#&#x5206;&#x6790;&#x4F2A;&#x4EE3;&#x7801;-&#x9759;&#x6001;&#x5206;&#x6790;" class="headerlink" title="&#x5206;&#x6790;&#x4F2A;&#x4EE3;&#x7801;(&#x9759;&#x6001;&#x5206;&#x6790;)"></a>&#x5206;&#x6790;&#x4F2A;&#x4EE3;&#x7801;(&#x9759;&#x6001;&#x5206;&#x6790;)</h3><p>&#x4E0A;&#x9762;&#x4E00;&#x6B65;&#x5206;&#x6790;&#x529F;&#x80FD;&#x754C;&#x9762;&#x662F;&#x4E3A;&#x4E86;&#x5B9A;&#x4F4D;&#x5177;&#x4F53;&#x8981;hook&#x7684;&#x51FD;&#x6570;, &#x5F53;&#x5B9A;&#x4F4D;&#x51FA;&#x6765;&#x8981;hook&#x7684;&#x51FD;&#x6570;&#x4E4B;&#x540E;, &#x5C31;&#x8981;&#x53BB;&#x5206;&#x6790;&#x51FD;&#x6570;&#x7684;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x4E86;.</p>
+<p><a href="https://www.hopperapp.com/" target="_blank" rel="external">Hopper</a><br><a href="https://www.hex-rays.com/products/ida/index.shtml" target="_blank" rel="external">iDA</a></p>
+<p>&#x8FD9;&#x4E24;&#x4E2A;&#x90FD;&#x662F;&#x6536;&#x8D39;&#x7684;,&#x4F46;&#x90FD;&#x63D0;&#x4F9B;&#x4E86;demo&#x7248;,&#x53EA;&#x662F;&#x505A;&#x9759;&#x6001;&#x5206;&#x6790;&#x7684;&#x8BDD;&#x5DF2;&#x7ECF;&#x591F;&#x7528;&#x4E86;.</p>
+<p><a href="http://www.jianshu.com/p/176c5e1d06ae" target="_blank" rel="external">IDA + Hopper &#x9006;&#x5411;&#x5F00;&#x53D1;&#x8FD1;&#x671F;&#x5B66;&#x4E60;</a></p>
+<p>&#x6211;&#x4EEC;&#x5728;&#x8FD9;&#x4E00;&#x6B65;&#x7684;&#x76EE;&#x7684;&#x53EA;&#x662F;&#x4E3A;&#x4E86;&#x641E;&#x6E05;&#x695A;&#x51FD;&#x6570;&#x7684;&#x5B9E;&#x73B0;&#x548C;&#x51FD;&#x6570;&#x4E4B;&#x95F4;&#x7684;&#x8C03;&#x7528;&#x5173;&#x7CFB;, &#x6240;&#x4EE5;&#x5E76;&#x4E0D;&#x9700;&#x8981;&#x53BB;&#x76F4;&#x63A5;&#x4FEE;&#x6539;&#x6C47;&#x7F16;&#x6216;&#x8005;&#x4E8C;&#x8FDB;&#x5236;&#x4EE3;&#x7801;, &#x53EA;&#x662F;&#x53CD;&#x7F16;&#x8BD1;&#x51FA;&#x6765;&#x7684;&#x4F2A;&#x4EE3;&#x7801;&#x6709;&#x53EF;&#x80FD;&#x4E5F;&#x4F1A;&#x5E26;&#x6709;&#x4E00;&#x4E0B;&#x5BC4;&#x5B58;&#x5668;&#x6216;&#x8005;&#x5185;&#x5B58;&#x5730;&#x5740;&#x7B49;&#x4E00;&#x4E9B;&#x770B;&#x4E0D;&#x61C2;&#x7684;&#x4FE1;&#x606F;,&#x5B8C;&#x5168;&#x53EF;&#x4EE5;&#x628A;&#x8FD9;&#x4E9B;&#x5F53;&#x505A;&#x6210;&#x547D;&#x540D;&#x7B80;&#x5355;&#x7684;&#x53D8;&#x91CF;,&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x770B;&#x61C2;&#x5176;&#x4E2D;&#x7684;&#x903B;&#x8F91;&#x5C31;&#x597D;&#x4E86;. </p>
+<h3 id="&#x7F16;&#x5199;hook&#x4EE3;&#x7801;"><a href="#&#x7F16;&#x5199;hook&#x4EE3;&#x7801;" class="headerlink" title="&#x7F16;&#x5199;hook&#x4EE3;&#x7801;"></a>&#x7F16;&#x5199;hook&#x4EE3;&#x7801;</h3><p>OK, &#x73B0;&#x5728;&#x8981;hook &#x7684;&#x51FD;&#x6570;&#x5DF2;&#x7ECF;&#x627E;&#x5230;&#x4E86;,&#x51FD;&#x6570;&#x5177;&#x4F53;&#x7684;&#x5B9E;&#x73B0;&#x4E5F;&#x5DF2;&#x7ECF;&#x77E5;&#x9053;, &#x90A3;&#x4E0B;&#x4E00;&#x6B65;&#x5F53;&#x7136;&#x5C31;&#x662F;&#x7F16;&#x5199;&#x4EE3;&#x7801;&#x628A;&#x51FD;&#x6570;hook&#x6389;.</p>
+<h4 id="captainhook"><a href="#captainhook" class="headerlink" title="captainhook"></a>captainhook</h4><p>&#x5728;<code>MonkeyDev</code>&#x4E2D;&#x63D0;&#x4F9B;&#x4E86;<code>logos</code>&#x548C;<code>captainhook</code>&#x4E24;&#x79CD;&#x8BED;&#x6CD5;,&#x7528;&#x6765;&#x7F16;&#x5199;hook&#x4EE3;&#x7801;.&#x5982;&#x679C;&#x539F;&#x6765;&#x505A;&#x8FC7;&#x8D8A;&#x72F1;&#x5F00;&#x53D1;&#x7684;&#x5E94;&#x8BE5;&#x6BD4;&#x8F83;&#x559C;&#x6B22;&#x7528;<code>logos</code>,&#x7F51;&#x4E0A;&#x7684;&#x6559;&#x7A0B;&#x4E5F;&#x6BD4;&#x8F83;&#x591A;.&#x4F46;&#x662F;, &#x6211;&#x5B66;&#x4E60;&#x7684;&#x65F6;&#x5019;&#x9009;&#x62E9;&#x7528;<code>captainhook</code>(&#x4E24;&#x4E2A;&#x90FD;&#x597D;&#x7528;,&#x7EAF;&#x7CB9;&#x4E2A;&#x4EBA;&#x559C;&#x597D;).&#x8FD9;&#x91CC;&#x7B80;&#x5355;&#x8BF4;&#x4E00;&#x4E0B;&#x5199;&#x4EE3;&#x7801;&#x7684;&#x8FC7;&#x7A0B;:</p>
+<h5 id="1-&#x5982;&#x4F55;&#x8C03;&#x7528;&#x5DF2;&#x6709;&#x7684;&#x7C7B;&#x548C;&#x65B9;&#x6CD5;"><a href="#1-&#x5982;&#x4F55;&#x8C03;&#x7528;&#x5DF2;&#x6709;&#x7684;&#x7C7B;&#x548C;&#x65B9;&#x6CD5;" class="headerlink" title="1) &#x5982;&#x4F55;&#x8C03;&#x7528;&#x5DF2;&#x6709;&#x7684;&#x7C7B;&#x548C;&#x65B9;&#x6CD5;"></a>1) &#x5982;&#x4F55;&#x8C03;&#x7528;&#x5DF2;&#x6709;&#x7684;&#x7C7B;&#x548C;&#x65B9;&#x6CD5;</h5><p>&#x5982;&#x679C;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x5230;&#x7C7B;&#x7684;&#x5C5E;&#x6027;&#x6216;&#x7C7B;&#x65B9;&#x6CD5;,&#x6700;&#x597D;&#x81EA;&#x884C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5934;&#x6587;&#x4EF6;&#x628A;<code>@interface</code>&#x5199;&#x8FDB;&#x53BB;,&#x7136;&#x540E;import&#x8FD9;&#x4E2A;&#x5934;&#x6587;&#x4EF6;,&#x5199;hook&#x7684;&#x65F6;&#x5019;&#x5C31;&#x53EF;&#x4EE5;&#x627E;&#x5230;&#x76F8;&#x5E94;&#x7684;&#x5C5E;&#x6027;&#x4E86;,&#x4F46;&#x662F;&#x5982;&#x679C;&#x4F60;&#x60F3;&#x901A;&#x8FC7;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x7ED9;&#x7C7B;&#x6DFB;&#x52A0;&#x5C5E;&#x6027;&#x662F;&#x884C;&#x4E0D;&#x901A;&#x7684;,&#x6211;&#x731C;&#x6D4B;&#x662F;&#x56E0;&#x4E3A;&#x5728;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x7684;&#x8FC7;&#x7A0B;&#x5F53;&#x4E2D;,&#x5185;&#x5B58;&#x7684;&#x5206;&#x914D;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;,&#x60F3;&#x8981;&#x6DFB;&#x52A0;&#x5C5E;&#x6027;&#x503C;&#x8FDB;&#x53BB;&#x5C31;&#x9700;&#x8981;&#x5BF9;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x5185;&#x5B58;&#x8FDB;&#x884C;&#x6269;&#x5BB9;&#x6216;&#x8005;&#x91CD;&#x65B0;&#x5206;&#x914D;,&#x4F46;&#x662F;&#x901A;&#x8FC7;&#x5199;&#x5728;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x5934;&#x6587;&#x4EF6;&#x91CC;&#x9762;&#x5C5E;&#x6027;&#x503C;,&#x867D;&#x7136;&#x662F;&#x5728;&#x540C;&#x540D;&#x7684;&#x7C7B;&#x4E0B;&#x9762;,&#x4F46;&#x662F;&#x5E76;&#x4E0D;&#x4F1A;&#x6DFB;&#x52A0;&#x5728;&#x539F;&#x6765;&#x4EE3;&#x7801;&#x7533;&#x8BF7;&#x7684;&#x5185;&#x5B58;&#x5F53;&#x4E2D;,&#x6240;&#x4EE5;&#x5F53;&#x4F60;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x81EA;&#x5DF1;&#x6DFB;&#x52A0;&#x7684;&#x5C5E;&#x6027;&#x7684;&#x65F6;&#x5019;,&#x539F;&#x5BF9;&#x8C61;&#x662F;&#x627E;&#x4E0D;&#x5230;&#x8BBF;&#x95EE;&#x4E0D;&#x4E86;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x7684;,&#x7C7B;&#x4F3C;&#x4E8E;<code>Category</code>.</p>
+<p>&#x5982;&#x679C;&#x4E00;&#x5B9A;&#x8981;&#x6DFB;&#x52A0;&#x5C5E;&#x6027;,&#x5FC5;&#x987B;&#x5B9E;&#x73B0;&#x8BE5;&#x5C5E;&#x6027;&#x7684;<code>get</code>&#x548C;<code>set</code>&#x65B9;&#x6CD5;,&#x5728;&#x91CC;&#x9762;&#x8C03;&#x7528;runtime&#x7684;&#x5916;&#x8054;&#x65B9;&#x6CD5;<code>objc_getAssociatedObject</code>&#x4F7F;&#x5BF9;&#x8C61;&#x548C;&#x5C5E;&#x6027;&#x5EFA;&#x7ACB;&#x6620;&#x5C04;&#x5173;&#x7CFB;,&#x8FD9;&#x6837;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x5BF9;&#x8C61;&#x624D;&#x80FD;&#x627E;&#x5230;&#x4F60;&#x6DFB;&#x52A0;&#x7684;&#x5C5E;&#x6027;.&#x8BE6;&#x7EC6;&#x53C2;&#x8003;:<a href="http://blog.leichunfeng.com/blog/2015/06/26/objective-c-associated-objects-implementation-principle/" target="_blank" rel="external">Objective-C Associated Objects &#x7684;&#x5B9E;&#x73B0;&#x539F;&#x7406;</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@interface</span> CMessageWrap</span><br><span class="line"></span><br><span class="line"><span class="meta">@property</span>(nonatomic, strong) NSString* m_nsContent;        <span class="comment">//&#x53D1;&#x9001;&#x6D88;&#x606F;&#x7684;&#x5185;&#x5BB9;</span></span><br><span class="line"><span class="meta">@property</span>(nonatomic, strong) NSString* m_nsToUsr;          <span class="comment">//&#x53D1;&#x9001;&#x4EBA;</span></span><br><span class="line"><span class="meta">@property</span>(nonatomic, strong) NSString* m_nsFromUsr;        <span class="comment">//&#x63A5;&#x6536;&#x4EBA;</span></span><br><span class="line"><span class="meta">@property</span>(nonatomic, strong) NSMutableString *m_nsPushContent; </span><br><span class="line"></span><br><span class="line">+ (BOOL)isSenderFromMsgWrap:(CMessageWrap*) msgWrap;</span><br><span class="line"></span><br><span class="line">- (CMessageWrap*)initWithMsgType:(<span class="keyword">int</span>) type;</span><br><span class="line"></span><br><span class="line"><span class="meta">@end</span></span><br></pre></td></tr></table></figure>
+<h5 id="2-CHDeclareClass"><a href="#2-CHDeclareClass" class="headerlink" title="2) CHDeclareClass"></a>2) CHDeclareClass</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#define CHDeclareClass(name) \</span><br><span class="line">		@class name; \</span><br><span class="line">		static CHClassDeclaration_ name ## $;</span><br></pre></td></tr></table></figure>
+<p>&#x8FD9;&#x4E2A;&#x5B8F;&#x7528;&#x4E8E;&#x58F0;&#x660E;&#x4F60;&#x8981;hook&#x7684;&#x7C7B;.</p>
+<h5 id="3-CHOptimizedMethod"><a href="#3-CHOptimizedMethod" class="headerlink" title="3) CHOptimizedMethod"></a>3) CHOptimizedMethod</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#define CHOptimizedMethod1(optimization, return_type, class_type, name1, type1, arg1) \</span><br><span class="line">		CHMethod_ ## optimization ## _(return_type, class_type *, class_type, CHClass(class_type), CHSuperClass(class_type), name1 ## $, name1:, CHDeclareSig1_(return_type, type1), (self, _cmd, arg1), type1 arg1)</span><br></pre></td></tr></table></figure>
+<p><code>CHOptimizedMethod</code>&#x7F16;&#x5199;&#x4F60;&#x8981;hook&#x7684;&#x65B9;&#x6CD5;,&#x8FD9;&#x4E2A;&#x5B8F;&#x540E;&#x9762;&#x8DDF;&#x7740;&#x4E00;&#x4E2A;&#x6570;&#x5B57;,[0-9]&#x4EE3;&#x8868;&#x7740;&#x4F60;&#x8981;hook&#x7684;&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x4E2A;&#x6570;.</p>
+<h5 id="4-CHSuper"><a href="#4-CHSuper" class="headerlink" title="4) CHSuper"></a>4) CHSuper</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#define CHSuper1(class_type, name1, val1) \</span><br><span class="line">		CHSuper_(class_type, @selector(name1:), name1 ## $, val1)</span><br></pre></td></tr></table></figure>
+<p><code>CHSuper</code>&#x7528;&#x4E8E;&#x5728;<code>CHOptimizedMethod</code>&#x5185;&#x6267;&#x884C;&#x5B8C;&#x81EA;&#x5DF1;&#x7684;&#x4EE3;&#x7801;&#x4E4B;&#x540E;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x539F;&#x51FD;&#x6570;&#x7684;&#x4EE3;&#x7801;.</p>
+<h5 id="5-CHConstructor"><a href="#5-CHConstructor" class="headerlink" title="5) CHConstructor"></a>5) CHConstructor</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#define CHConstructor static __attribute__((constructor)) void CHConcat(CHConstructor, __LINE__)()</span><br></pre></td></tr></table></figure>
+<p>&#x5728;<code>__attribute__((constructor))</code>&#x540E;&#x7684;&#x5185;&#x5BB9;&#x80FD;&#x4FDD;&#x8BC1;&#x5728; dylib &#x52A0;&#x8F7D;&#x65F6;&#x8FD0;&#x884C;.</p>
+<h5 id="6-CHLoadLateClass"><a href="#6-CHLoadLateClass" class="headerlink" title="6) CHLoadLateClass"></a>6) CHLoadLateClass</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#define CHLoadLateClass(name) CHLoadClass_(&amp;name ## $, objc_getClass(#name))</span><br></pre></td></tr></table></figure>
+<p>&#x52A0;&#x8F7D;&#x9700;&#x8981;hook&#x7684;&#x7C7B;,&#x5199;&#x5728;<code>CHConstructor</code>&#x91CC;&#x9762;.</p>
+<h5 id="7-CHClassHook"><a href="#7-CHClassHook" class="headerlink" title="7) CHClassHook"></a>7) CHClassHook</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#define CHClassHook1(class, name1) CHHook_(class, name1 ## $)</span><br></pre></td></tr></table></figure>
+<p>&#x52A0;&#x8F7D;&#x9700;&#x8981;hook&#x7684;&#x65B9;&#x6CD5;,&#x5199;&#x5728;<code>CHConstructor</code>&#x91CC;&#x9762;.</p>
+<h5 id="8-CHDeclareMethod"><a href="#8-CHDeclareMethod" class="headerlink" title="8) CHDeclareMethod"></a>8) CHDeclareMethod</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#define CHDeclareMethod1(return_type, class_type, name1, type1, arg1) \</span><br><span class="line">	CHDeclareMethod_(return_type, class_type *, class_type, CHClass(class_type), CHSuperClass(class_type), name1 ## $, name1:, CHDeclareSig1_(return_type, type1), (self, _cmd, arg1), type1 arg1)</span><br></pre></td></tr></table></figure>
+<p>&#x58F0;&#x660E;&#x548C;&#x5B9E;&#x73B0;&#x81EA;&#x5DF1;&#x7684;&#x65B9;&#x6CD5;, &#x8981;&#x6CE8;&#x610F;&#x58F0;&#x660E;&#x8981;&#x5199;&#x5728;&#x8C03;&#x7528;&#x4E4B;&#x524D;.</p>
+<h5 id="9-Sample"><a href="#9-Sample" class="headerlink" title="9) Sample"></a>9) Sample</h5><p>&#x8FD9;&#x662F;&#x6211;hook&#x4E86;&#x5FAE;&#x4FE1;&#x804A;&#x5929;&#x9875;&#x9762;&#x51FA;&#x73B0;&#x548C;&#x6D88;&#x5931;&#x4E24;&#x4E2A;&#x4EE3;&#x7406;&#x65B9;&#x6CD5;&#x7684;&#x4F8B;&#x5B50;&#x2026;</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">//&#x804A;&#x5929;&#x57FA;&#x672C;&#x9875;&#x9762;</span><br><span class="line">CHDeclareClass(BaseMsgContentViewController)</span><br><span class="line"></span><br><span class="line">//&#x5B9E;&#x73B0;&#x81EA;&#x5DF1;&#x65B0;&#x52A0;&#x7684;&#x65B9;&#x6CD5;</span><br><span class="line">CHDeclareMethod1(void, MMUIViewController, backToMsgContentViewController, id, sender){</span><br><span class="line">    [sender removeFromSuperview];</span><br><span class="line">    UINavigationController *navi = [objc_getClass(&quot;CAppViewControllerManager&quot;) getCurrentNavigationController];</span><br><span class="line">    LKButton *btn = (LKButton *)sender;</span><br><span class="line">    [LKNewestMsgManager sharedInstance].didTouchBtnName = btn.username;</span><br><span class="line">    [[NSNotificationCenter defaultCenter] postNotificationName:@&quot;btnDidTouch&quot; object:nil];</span><br><span class="line">    MMServiceCenter* serviceCenter = [objc_getClass(&quot;MMServiceCenter&quot;) defaultCenter];</span><br><span class="line">    CContactMgr *contactMgr = [serviceCenter getService:[objc_getClass(&quot;CContactMgr&quot;) class]];</span><br><span class="line">    CContact *contact = [contactMgr getContactByName:btn.username];</span><br><span class="line"></span><br><span class="line">    MMMsgLogicManager *logicManager = [serviceCenter getService:[objc_getClass(&quot;MMMsgLogicManager&quot;) class]];</span><br><span class="line">    [logicManager PushOtherBaseMsgControllerByContact:contact navigationController:navi animated:YES];</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line">//hook viewDidAppear &#x65B9;&#x6CD5;</span><br><span class="line">CHOptimizedMethod1(self, void, BaseMsgContentViewController, viewDidAppear, BOOL, flag){</span><br><span class="line">    [LKNewestMsgManager sharedInstance].currentChat = [(BaseMsgContentViewController*)[[LKNewestMsgManager sharedInstance] getCurrentVC]getCurrentChatName];</span><br><span class="line"></span><br><span class="line">    NSLog(@&quot;%@&quot;, [LKNewestMsgManager sharedInstance].currentChat);</span><br><span class="line">    CHSuper1(BaseMsgContentViewController, viewDidAppear, flag);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">//hook viewWillDisappear &#x65B9;&#x6CD5;</span><br><span class="line">CHOptimizedMethod1(self, void, BaseMsgContentViewController, viewWillDisappear, BOOL, disappear){</span><br><span class="line">    [LKNewestMsgManager sharedInstance].currentChat = NULL;</span><br><span class="line">    CHSuper1(BaseMsgContentViewController, viewWillDisappear, disappear);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">//&#x6CE8;&#x518C;&#x9700;&#x8981;hook&#x7684;&#x7C7B;&#x548C;&#x65B9;&#x6CD5;</span><br><span class="line">CHConstructor{</span><br><span class="line">    CHLoadLateClass(BaseMsgContentViewController);</span><br><span class="line">    CHClassHook1(BaseMsgContentViewController, viewWillDisappear);</span><br><span class="line">    CHClassHook1(BaseMsgContentViewController, viewDidAppear);</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h2 id="0x3-&#x505A;&#x4E9B;&#x6709;&#x8DA3;&#x7684;&#x4E8B;&#x60C5;"><a href="#0x3-&#x505A;&#x4E9B;&#x6709;&#x8DA3;&#x7684;&#x4E8B;&#x60C5;" class="headerlink" title="0x3 &#x505A;&#x4E9B;&#x6709;&#x8DA3;&#x7684;&#x4E8B;&#x60C5;"></a>0x3 &#x505A;&#x4E9B;&#x6709;&#x8DA3;&#x7684;&#x4E8B;&#x60C5;</h2><p>&#x6211;&#x5E73;&#x5E38;&#x559C;&#x6B22;&#x5728;&#x5FAE;&#x4FE1;&#x516C;&#x4F17;&#x53F7;&#x770B;&#x4E9B;&#x6587;&#x7AE0;, &#x4F46;&#x662F;&#x8FD9;&#x65F6;&#x5019;&#x5982;&#x679C;&#x6709;&#x4EBA;&#x53D1;&#x6D88;&#x606F;&#x8FC7;&#x6765;, &#x624B;&#x673A;&#x9707;&#x4E86;&#x4E00;&#x4E0B;&#x2026;&#x2026;.&#x4F46;&#x662F;&#x4F60;&#x5E76;&#x4E0D;&#x77E5;&#x9053;&#x662F;&#x8C01;&#x53D1;&#x6765;&#x7684;&#x6D88;&#x606F;, &#x8FD9;&#x65F6;&#x5019;,&#x6309;&#x7167;&#x5FAE;&#x4FE1;&#x57F9;&#x517B;&#x7684;&#x7528;&#x6237;&#x4E60;&#x60EF;&#x2026;.&#x7F6E;&#x9876;&#x4FDD;&#x5B58;&#x6587;&#x7AE0;,&#x7136;&#x540E;&#x70B9;&#x51FB;n&#x4E2A;&#x8FD4;&#x56DE;&#x6309;&#x94AE;&#x7136;&#x540E;&#x70B9;&#x51FB;<code>close</code>&#x8FD4;&#x56DE;&#x6D88;&#x606F;&#x9875;&#x9762;&#x2026;..&#x56DE;&#x4E86;&#x6D88;&#x606F;&#x7136;&#x540E;&#x5728;&#x56DE;&#x53BB;&#x770B;&#x6587;&#x7AE0;&#x2026;..</p>
+<p>so,&#x8FD9;&#x5C31;&#x662F;&#x75DB;&#x70B9;&#x6240;&#x5728;,&#x4E0D;&#x80FD;&#x5FEB;&#x901F;&#x67E5;&#x770B;&#x56DE;&#x590D;&#x6D88;&#x606F;.</p>
+<p>&#x641E;&#x8D77;&#x6765;&#x2026;.</p>
+<h3 id="&#x529F;&#x80FD;&#x8BBE;&#x60F3;"><a href="#&#x529F;&#x80FD;&#x8BBE;&#x60F3;" class="headerlink" title="&#x529F;&#x80FD;&#x8BBE;&#x60F3;"></a>&#x529F;&#x80FD;&#x8BBE;&#x60F3;</h3><p>&#x5728;&#x4EFB;&#x610F;&#x9875;&#x9762;, &#x5F53;&#x63A5;&#x6536;&#x5230;&#x5F02;&#x6B65;&#x6D88;&#x606F;, &#x901A;&#x77E5;&#x5F53;&#x524D;&#x9875;&#x9762;&#x5F39;&#x51FA;&#x4E00;&#x4E2A;&#x6309;&#x94AE;&#x63D0;&#x793A;, &#x70B9;&#x51FB;&#x6309;&#x94AE; push &#x5BF9;&#x5E94;&#x804A;&#x5929;&#x9875;&#x9762;, pop &#x53EF;&#x8FD4;&#x56DE;&#x539F;&#x6765;&#x7684;&#x9875;&#x9762;. </p>
+<h3 id="&#x5B9A;&#x4F4D;&#x51FD;&#x6570;"><a href="#&#x5B9A;&#x4F4D;&#x51FD;&#x6570;" class="headerlink" title="&#x5B9A;&#x4F4D;&#x51FD;&#x6570;"></a>&#x5B9A;&#x4F4D;&#x51FD;&#x6570;</h3><p>&#x4E00;&#x5F00;&#x59CB;&#x53EA;&#x662F;&#x56E0;&#x4E3A;&#x770B;&#x6587;&#x7AE0;&#x7684;&#x75DB;&#x70B9;,&#x53EA;&#x60F3;hook webVC&#x9875;&#x9762;&#x5C31;&#x597D;&#x4E86;,&#x4F46;&#x662F;&#x540E;&#x6765;&#x7EC6;&#x60F3;,&#x5F53;&#x4F60;&#x5728;&#x5F04;&#x8BBE;&#x7F6E;&#x6216;&#x8005;&#x5E72;&#x5176;&#x4ED6;&#x4E8B;&#x60C5;&#x7684;&#x65F6;&#x5019;&#x5176;&#x5B9E;&#x4E5F;&#x6709;&#x540C;&#x6837;&#x7684;&#x95EE;&#x9898;,&#x5E72;&#x8106;&#x76F4;&#x63A5;&#x641E;&#x5E95;&#x5C42;<code>UIViewController</code>, &#x4F46;&#x662F;&#x5728;&#x5206;&#x6790;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;,&#x53D1;&#x73B0;&#x5FAE;&#x4FE1;&#x6709;&#x4E00;&#x4E2A;&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;&#x7684;<code>MMUIViewController</code>.&#x5982;&#x6B64;&#x751A;&#x597D;, &#x76F4;&#x63A5;&#x641E;&#x5B83;. </p>
+<p>&#x901A;&#x8FC7;&#x52A8;&#x6001;&#x5206;&#x6790;&#x7684;&#x65B9;&#x6CD5;&#x5FEB;&#x901F;&#x5B9A;&#x4F4D;&#x5230;&#x9700;&#x8981;hook&#x7684;&#x7C7B;:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">BaseMsgContentViewController <span class="comment">//&#x57FA;&#x672C;&#x804A;&#x5929;&#x9875;&#x9762;</span></span><br><span class="line">MMUIViewController <span class="comment">//VC&#x57FA;&#x7C7B;</span></span><br><span class="line">CMessageMgr <span class="comment">//&#x6D88;&#x606F;&#x63A5;&#x6536;&#x7C7B;</span></span><br></pre></td></tr></table></figure></p>
+<p>&#x5BF9;&#x4E8E;<code>BaseMsgContentViewController</code>&#x548C;<code>MMUIViewController</code>&#x6211;&#x4EEC;&#x76EE;&#x7684;&#x5F88;&#x660E;&#x786E;,&#x5C31;&#x662F;&#x76D1;&#x542C;&#x901A;&#x77E5;,&#x5F53;&#x6709;&#x6D88;&#x606F;&#x6765;&#x7684;&#x65F6;&#x5019;,&#x5F39;&#x51FA;&#x6309;&#x94AE;.</p>
+<p>&#x8FD9;&#x91CC;&#x53EF;&#x80FD;&#x6709;&#x7591;&#x95EE;,<code>BaseMsgContentViewController</code>&#x5E94;&#x8BE5;&#x4E5F;&#x662F;&#x7EE7;&#x627F;<code>MMUIViewController</code>&#x7684;,&#x4E3A;&#x4EC0;&#x4E48;&#x8FD8;&#x8981;&#x5355;&#x72EC;hook. &#x539F;&#x56E0;&#x5F88;&#x7B80;&#x5355;,&#x56E0;&#x4E3A;&#x4F60;&#x5728;&#x548C;&#x67D0;&#x4EBA;&#x7684;&#x804A;&#x5929;&#x9875;&#x9762;&#x5F53;&#x4E2D;,&#x5F53;&#x7136;&#x4E0D;&#x5E94;&#x8BE5;&#x5728;&#x5F39;&#x51FA;&#x8FD9;&#x4E2A;&#x4EBA;&#x7684;&#x6D88;&#x606F;&#x6309;&#x94AE;.</p>
+<p>&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x662F;&#x501F;&#x52A9;<code>class-dump</code>&#x548C;<code>Hopper</code>&#x53BB;&#x5B9A;&#x4F4D;&#x548C;&#x5206;&#x6790;&#x51FD;&#x6570;, &#x6BD4;&#x5982;,&#x6211;&#x8FD9;&#x91CC;&#x9700;&#x8981;&#x5206;&#x6790;&#x7684;&#x5C31;&#x662F;&#x70B9;&#x51FB;&#x6309;&#x94AE;&#x4E4B;&#x540E;,&#x5982;&#x4F55;&#x8DF3;&#x8F6C;&#x5230;&#x5BF9;&#x5E94;&#x7684;&#x804A;&#x5929;&#x9875;&#x9762;.</p>
+<h3 id="hook"><a href="#hook" class="headerlink" title="hook"></a>hook</h3><p>OK, &#x6240;&#x6709;&#x9700;&#x8981;&#x7528;&#x5230;&#x7684;&#x6D88;&#x606F;&#x90FD;&#x62FF;&#x5230;&#x4E86;, &#x5F00;&#x59CB;&#x5199;hook&#x4EE3;&#x7801;.</p>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E9B;&#x5173;&#x952E;&#x4EE3;&#x7801;,&#x5168;&#x90E8;&#x7684;&#x4EE3;&#x7801;&#x5728;github:<a href="https://github.com/sherlockZ/LKMessageSwitchPod" target="_blank" rel="external">LKMessageSwitchPod</a></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">// hook &#x6D88;&#x606F;&#x63A5;&#x6536;&#x7C7B;</span><br><span class="line">CHDeclareClass(CMessageMgr)</span><br><span class="line">CHOptimizedMethod2(self, void, CMessageMgr, AsyncOnAddMsg, NSMutableString*, msg, MsgWrap, CMessageWrap*, wrap){</span><br><span class="line"></span><br><span class="line">    if(![wrap.m_nsPushContent isEqual: @&quot;&quot;] &amp;&amp; wrap.m_nsPushContent != NULL){</span><br><span class="line">        [LKNewestMsgManager sharedInstance].username = msg;</span><br><span class="line">        [LKNewestMsgManager sharedInstance].content = wrap.m_nsPushContent;</span><br><span class="line">        [[NSNotificationCenter defaultCenter] postNotificationName:@&quot;LkWechatMessageNotification&quot; object:nil];</span><br><span class="line">    }</span><br><span class="line">    CHSuper2(CMessageMgr, AsyncOnAddMsg, msg, MsgWrap, wrap);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">CHDeclareMethod1(void, MMUIViewController, backToMsgContentViewController, id, sender){</span><br><span class="line">    [sender removeFromSuperview];</span><br><span class="line">    UINavigationController *navi = [objc_getClass(&quot;CAppViewControllerManager&quot;) getCurrentNavigationController];</span><br><span class="line"></span><br><span class="line">    LKButton *btn = (LKButton *)sender;</span><br><span class="line">    [LKNewestMsgManager sharedInstance].didTouchBtnName = btn.username;</span><br><span class="line">    [[NSNotificationCenter defaultCenter] postNotificationName:@&quot;btnDidTouch&quot; object:nil];</span><br><span class="line">    MMServiceCenter* serviceCenter = [objc_getClass(&quot;MMServiceCenter&quot;) defaultCenter];</span><br><span class="line">    CContactMgr *contactMgr = [serviceCenter getService:[objc_getClass(&quot;CContactMgr&quot;) class]];</span><br><span class="line">    CContact *contact = [contactMgr getContactByName:btn.username];</span><br><span class="line">    MMMsgLogicManager *logicManager = [serviceCenter getService:[objc_getClass(&quot;MMMsgLogicManager&quot;) class]];</span><br><span class="line">    [logicManager PushOtherBaseMsgControllerByContact:contact navigationController:navi animated:YES];</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">CHDeclareMethod0(void, MMUIViewController, messageCallBack){</span><br><span class="line">    NSLog(@&quot;&#x6536;&#x5230;&#x6D88;&#x606F;!!!&quot;);</span><br><span class="line"></span><br><span class="line">    NSString *currentChatName = [LKNewestMsgManager sharedInstance].currentChat;</span><br><span class="line">    if(self == [[LKNewestMsgManager sharedInstance]getCurrentVC] &amp;&amp; ![currentChatName isEqual: [LKNewestMsgManager sharedInstance].username]){</span><br><span class="line"></span><br><span class="line">        LKButton *btn = [LKButton buttonWithType:UIButtonTypeRoundedRect];</span><br><span class="line">        btn.frame = CGRectMake(self.view.frame.size.width-100-2, 74, 100, 40);</span><br><span class="line">        btn.backgroundColor = [[UIColor blackColor]colorWithAlphaComponent:0.8];</span><br><span class="line">        btn.tintColor = [UIColor whiteColor];</span><br><span class="line">        [btn setTitle:[LKNewestMsgManager sharedInstance].content forState:UIControlStateNormal];\</span><br><span class="line">        btn.username = [LKNewestMsgManager sharedInstance].username;</span><br><span class="line">        btn.clipsToBounds = YES;</span><br><span class="line">        btn.layer.cornerRadius = 10;</span><br><span class="line">        btn.contentEdgeInsets = UIEdgeInsetsMake(2, 2, 2, 2);</span><br><span class="line">        [btn addTarget:self action:@selector(backToMsgContentViewController:) forControlEvents:UIControlEventTouchUpInside];</span><br><span class="line">        [btn registerNotification];</span><br><span class="line">        btn.swipeGestureRecognizer = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleSwipes:)];</span><br><span class="line">        btn.swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;</span><br><span class="line">        btn.swipeGestureRecognizer.numberOfTouchesRequired = 1;</span><br><span class="line">        [btn addGestureRecognizer:btn.swipeGestureRecognizer];</span><br><span class="line"></span><br><span class="line">        [self.view addSubview:btn];</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h3 id="&#x6548;&#x679C;"><a href="#&#x6548;&#x679C;" class="headerlink" title="&#x6548;&#x679C;"></a>&#x6548;&#x679C;</h3><p><img src="/2017/10/22/ios-hook/1508489189.gif" alt="1508489189.gif"></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/08/27/party/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">闭上眼,你看到的更多</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="ios-hook" data-title="不懂汇编,如何逆向(iOS)" data-url="http://sherlockz.github.io/2017/10/22/ios-hook/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"sherlockz"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 Sherlock&#39;s Blog
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+博客总访问量<span id="busuanzi_value_site_pv"></span>次，你是第<span id="busuanzi_value_site_uv"></span>个访客，这篇文章被阅读<span id="busuanzi_value_page_pv"></span>次
+
+
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="//7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+<div id="totop" style="position:fixed;bottom:5px;right:10px;cursor: pointer;">
+<a title="返回顶部"><img src="/img/scrollup.png" width="30" height="30"/></a>
+</div>
+
+<script src="/js/totop.js">
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+  </div>
+</body>
+</html>
