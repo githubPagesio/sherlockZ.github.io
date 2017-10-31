@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>sherlock&#39;s Blog</title>
-  <subtitle>追随自己所热爱的</subtitle>
+  <title>Sherlock</title>
+  <subtitle>trace your love</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sherlockz.github.io/"/>
@@ -9,7 +9,7 @@
   <id>http://sherlockz.github.io/</id>
   
   <author>
-    <name>Sherlock&#39;s Blog</name>
+    <name>Locker</name>
     
   </author>
   
