@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://sherlockz.github.io/about/index.html</loc>
+    
+    <lastmod>2017-11-01T01:11:34.141Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sherlockz.github.io/categories/index.html</loc>
+    
+    <lastmod>2017-11-01T01:00:22.590Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://sherlockz.github.io/tags/index.html</loc>
+    
+    <lastmod>2017-11-01T00:59:10.419Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://sherlockz.github.io/2017/10/22/ios-hook/</loc>
     
     <lastmod>2017-10-22T04:22:31.262Z</lastmod>
