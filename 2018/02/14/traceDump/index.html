@@ -1,0 +1,836 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mala">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+  <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="half of iOSer, half of tester" />
+
+
+
+  <meta name="keywords" content="逆向," />
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Sherlock" type="application/atom+xml" />
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="&amp;#x80CC;&amp;#x666F;: RTMP SDK&amp;#x9700;&amp;#x8981;&amp;#x83B7;&amp;#x53D6;&amp;#x786C;&amp;#x7F16;&amp;#x786C;&amp;#x89E3;&amp;#x65F6;&amp;#x5019;&amp;#x7684;GPU&amp;#x6570;&amp;#x636E;,&amp;#x7B2C;&amp;#x4E00;&amp;#x65F6;&amp;#x95F4;&amp;#x60F3;&amp;#x8D77;&amp;#x4E86;TracePars">
+<meta property="og:type" content="article">
+<meta property="og:title" content="逆向从 Instruments 中获取 GPU 数据">
+<meta property="og:url" content="http://sherlockz.github.io/2018/02/14/traceDump/index.html">
+<meta property="og:site_name" content="Sherlock">
+<meta property="og:description" content="&amp;#x80CC;&amp;#x666F;: RTMP SDK&amp;#x9700;&amp;#x8981;&amp;#x83B7;&amp;#x53D6;&amp;#x786C;&amp;#x7F16;&amp;#x786C;&amp;#x89E3;&amp;#x65F6;&amp;#x5019;&amp;#x7684;GPU&amp;#x6570;&amp;#x636E;,&amp;#x7B2C;&amp;#x4E00;&amp;#x65F6;&amp;#x95F4;&amp;#x60F3;&amp;#x8D77;&amp;#x4E86;TracePars">
+<meta property="og:image" content="http://sherlockz.github.io/2018/02/14/traceDump/./traceDump/42a27c3d-000f-485b-bd92-5ee096bf8827.png">
+<meta property="og:image" content="http://sherlockz.github.io/2018/02/14/traceDump/be4c10be-44ac-4151-8c6e-ecacd18a55e1.png">
+<meta property="og:image" content="http://sherlockz.github.io/2018/02/14/traceDump/e6b8897e-7a6d-424d-b7ac-3ce315e83307.png">
+<meta property="og:image" content="http://sherlockz.github.io/2018/02/14/traceDump/2018-02-11-20-17-01.png">
+<meta property="og:image" content="http://sherlockz.github.io/2018/02/14/traceDump/2018-02-12-09-12-31.jpg">
+<meta property="og:image" content="http://sherlockz.github.io/2018/02/14/traceDump/2018-02-12-09-16-07.jpg">
+<meta property="og:image" content="http://sherlockz.github.io/2018/02/14/traceDump/2018-02-12-19-17-48.jpg">
+<meta property="og:image" content="http://sherlockz.github.io/2018/02/14/traceDump/2018-02-14-23-32-49.jpg">
+<meta property="og:updated_time" content="2018-02-14T15:34:41.018Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="逆向从 Instruments 中获取 GPU 数据">
+<meta name="twitter:description" content="&amp;#x80CC;&amp;#x666F;: RTMP SDK&amp;#x9700;&amp;#x8981;&amp;#x83B7;&amp;#x53D6;&amp;#x786C;&amp;#x7F16;&amp;#x786C;&amp;#x89E3;&amp;#x65F6;&amp;#x5019;&amp;#x7684;GPU&amp;#x6570;&amp;#x636E;,&amp;#x7B2C;&amp;#x4E00;&amp;#x65F6;&amp;#x95F4;&amp;#x60F3;&amp;#x8D77;&amp;#x4E86;TracePars">
+<meta name="twitter:image" content="http://sherlockz.github.io/2018/02/14/traceDump/./traceDump/42a27c3d-000f-485b-bd92-5ee096bf8827.png">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mala',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> 逆向从 Instruments 中获取 GPU 数据 | Sherlock </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">trace your love</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            About
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <form class="site-search-form">
+    <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+  </form>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'Ls6_vyuHEGACo3ng2hvy','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              逆向从 Instruments 中获取 GPU 数据
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          Posted on
+          <time itemprop="dateCreated" datetime="2018-02-14T23:12:36+08:00" content="2018-02-14">
+            2018-02-14
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2018/02/14/traceDump/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/02/14/traceDump/" itemprop="commentsCount"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p> &#x80CC;&#x666F;: RTMP SDK&#x9700;&#x8981;&#x83B7;&#x53D6;&#x786C;&#x7F16;&#x786C;&#x89E3;&#x65F6;&#x5019;&#x7684;GPU&#x6570;&#x636E;,&#x7B2C;&#x4E00;&#x65F6;&#x95F4;&#x60F3;&#x8D77;&#x4E86;<code>TraceParser</code>, &#x4F46;&#x662F;<code>TraceParser</code>&#x4E0D;&#x652F;&#x6301;<code>GPU Driver</code>&#x6A21;&#x677F;. &#x4E8E;&#x662F;&#x60F3;&#x7740;&#x80FD;&#x4E0D;&#x80FD;&#x6269;&#x5C55;<code>TraceParser</code>&#x6A21;&#x677F;. &#x53D1;&#x73B0;<code>main.m</code>&#x6587;&#x4EF6;&#x53EA;&#x6709;&#x5BE5;&#x5BE5;&#x51E0;&#x884C;&#x4EE3;&#x7801;,&#x5B8C;&#x5168;&#x4E0D;&#x77E5;&#x9053;&#x505A;&#x4E86;&#x4EC0;&#x4E48;, &#x4F46;&#x662F;google&#x548C;km&#x4E4B;&#x540E;&#x53D1;&#x73B0;&#x5E94;&#x8BE5;&#x662F;&#x91C7;&#x7528;&#x4E86;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x7684;&#x65B9;&#x5F0F;&#x6765;dump&#x51FA;&#x6570;&#x636E;. &#x7F3A;&#x70B9;&#x5F88;&#x660E;&#x663E;, &#x9700;&#x8981;&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;<code>NSCoding</code>,&#x8FD8;&#x9700;&#x8981;&#x5148;&#x5C06;.trace&#x6587;&#x4EF6;&#x89E3;&#x538B;&#x51FA;.run&#x6587;&#x4EF6;. &#x4E0D;&#x77E5;&#x9053;&#x7ED3;&#x6784;&#x65E0;&#x4ECE;&#x4E0B;&#x624B;.</p>
+<p>&#x5728; github &#x4E0A;&#x53D1;&#x73B0;&#x6709;&#x4E00;&#x79CD;&#x65B0;&#x7684;&#x601D;&#x8DEF;<a href="https://github.com/Qusic/TraceUtility?spm=a2c4e.11153940.blogcont398701.14.609e5861UgLC7e" target="_blank" rel="external">TraceUtility</a>, &#x901A;&#x8FC7;&#x8C03;&#x7528; Undocument API &#x53BB;&#x89E3;&#x6790; Trace &#x6587;&#x4EF6;.<br>&#x4E0B;&#x9762;&#x7ED3;&#x5408; Hopper &#x5206;&#x6790;<code>Instruments</code>&#x770B;&#x770B;. </p>
+<p><img src="/2018/02/14/traceDump/./traceDump/42a27c3d-000f-485b-bd92-5ee096bf8827.png" alt=""></p>
+<p>&#x5728;&#x9006;&#x5411;&#x8FC7;&#x7A0B;&#x4E2D;&#x53D1;&#x73B0;&#x6253;&#x5F00;&#x6587;&#x6863;&#x7528;&#x7684;&#x662F;<code>NSDocument</code>,<code>-showTemplateChooser:</code>&#x6A21;&#x677F;&#x9009;&#x62E9;&#x5668;. &#x8FD9;&#x610F;&#x5473;&#x7740;&#x4E00;&#x4E2A;trace&#x6587;&#x4EF6;&#x662F;&#x901A;&#x8FC7;<code>NSDocument</code>&#x52A0;&#x4E0A;&#x81EA;&#x5B9A;&#x4E49;&#x6587;&#x6863;&#x7C7B;&#x578B;(&#x6A21;&#x677F;)&#x6765;&#x50A8;&#x5B58;&#x7684;, &#x5F53;&#x7136;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x7C7B;&#x578B;&#x5E76;&#x4E0D;&#x4F1A;&#x5B58;&#x5728;&#x4E8E;<a href="http://www.w3school.com.cn/media/media_mimeref.asp" target="_blank" rel="external">MIME</a>&#x5F53;&#x4E2D;&#x7684;. </p>
+<p><img src="/2018/02/14/traceDump/be4c10be-44ac-4151-8c6e-ecacd18a55e1.png" alt=""><br>&#x5728;<code>-initialize:</code>&#x4E2D;&#x5BF9; Instruments &#x505A;&#x4E86;&#x521D;&#x59CB;&#x5316;, &#x5305;&#x62EC;&#x4E00;&#x4E9B;&#x94FE;&#x63A5; XCode &#x4E2D; ShareFramework &#x7684; Undocument &#x5E93;.</p>
+<p><img src="/2018/02/14/traceDump/e6b8897e-7a6d-424d-b7ac-3ce315e83307.png" alt=""><br>&#x5728;&#x521D;&#x59CB;&#x5316;&#x5B8C;&#x6210;&#x4E4B;&#x540E;,&#x8FD8;&#x6709;&#x5F88;&#x91CD;&#x8981;&#x7684;&#x4E00;&#x6B65; &#x2014;- &#x52A0;&#x8F7D;&#x63D2;&#x4EF6;(<code>PFTLoadPlugins()</code>), XCode 8&#x4E4B;&#x540E;, Instruments &#x7684;&#x63D2;&#x4EF6;&#x5C31;&#x4ECE;<code>Plugins</code>&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x79FB;&#x5230;&#x4E86;<code>Packages</code>&#x6587;&#x4EF6;&#x4E0B;&#x9762;, &#x5E76;&#x4E14;&#x7528;&#x4E86;&#x65B0;&#x7684;&#x6253;&#x5305;&#x65B9;&#x5F0F;,&#x4EE5;<code>.instrdst</code>&#x6269;&#x5C55;&#x540D;&#x7ED3;&#x5C3E;, &#x6253;&#x5F00;&#x4E4B;&#x540E;&#x53EF;&#x4EE5;&#x5B89;&#x88C5;&#x63D2;&#x4EF6;.&#x5982;&#x679C;&#x4E0D;&#x53BB;&#x5B89;&#x88C5;, &#x5728;&#x540E;&#x9762;&#x7F16;&#x7801;&#x9636;&#x6BB5;&#x53D1;&#x73B0;&#x662F;&#x4F1A;&#x629B;&#x9664;&#x5F02;&#x5E38;&#x63D0;&#x793A;&#x7684;. &#x76F8;&#x5BF9;&#x7684;, &#x5728;<code>-terminate:</code>&#x91CC;&#x9762;&#x6709;<code>PFTClosePlugins()</code>. &#x57FA;&#x4E8E;&#x4EE5;&#x4E0A;&#x6761;&#x4EF6;, &#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x901A;&#x8FC7;&#x8C03;&#x7528;&#x63A5;&#x53E3;&#x6765;&#x52A0;&#x8F7D;&#x6A21;&#x677F;, &#x5E76;&#x4E14;&#x53EA;&#x6709;&#x5728;&#x52A0;&#x8F7D;&#x4E86;&#x6B63;&#x786E;&#x52A0;&#x8F7D;&#x6A21;&#x677F;&#x63D2;&#x4EF6;&#x4E4B;&#x540E;&#x624D;&#x80FD;&#x8BFB;&#x5165; Trace &#x6587;&#x4EF6;. </p>
+<p><img src="/2018/02/14/traceDump/2018-02-11-20-17-01.png" alt=""></p>
+<p><img src="/2018/02/14/traceDump/2018-02-12-09-12-31.jpg" alt=""></p>
+<p>&#x5728;&#x52A0;&#x8F7D;&#x5B8C; trace &#x6587;&#x4EF6;&#x4E4B;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x5F00;&#x59CB;&#x62BD;&#x4E1D;&#x5265;&#x8327;&#x4E86;.</p>
+<p><img src="/2018/02/14/traceDump/2018-02-12-09-16-07.jpg" alt=""><br>&#x6839;&#x636E;&#x8FD9;&#x91CC;&#x7684;&#x8C03;&#x8BD5;&#x4FE1;&#x606F;, &#x53BB; dump &#x51FA;&#x6765;&#x7684; instruments &#x5934;&#x6587;&#x4EF6;&#x4E2D;&#x641C;&#x7D22;&#x51FA;&#x9700;&#x8981;&#x7684;&#x7C7B;, &#x653E;&#x5230;&#x81EA;&#x5DF1;&#x7684;&#x5934;&#x6587;&#x4EF6;&#x5F53;&#x4E2D;, &#x6210;&#x5458;&#x53D8;&#x91CF;&#x7684;&#x83B7;&#x53D6;&#x9700;&#x8981;&#x7528;&#x5230; runtime &#x7279;&#x6027;.&#x4EE5;&#x6211;&#x9700;&#x8981;&#x7684; GPU &#x6570;&#x636E;&#x6765;&#x8BF4;, &#x6700;&#x540E;&#x7684;&#x5C42;&#x7EA7;&#x5173;&#x7CFB;&#x5982;&#x4E0B;:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PFTDocuments &gt; XRTrace &gt; XRInstrument &gt; XRRun &gt; _data</span><br><span class="line">&#x6216;</span><br><span class="line">PFTDocuments &gt; XRTrace &gt; XRInstrument &gt;XRAnalysisCoreStandardController &gt; XRContextContainer</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2018/02/14/traceDump/2018-02-12-19-17-48.jpg" alt=""><br>&#x6700;&#x540E;&#x5728;&#x683C;&#x5F0F;&#x5316;&#x8F93;&#x51FA;&#x5C31;&#x597D;&#x4E86;. </p>
+<p><img src="/2018/02/14/traceDump/2018-02-14-23-32-49.jpg" alt=""> </p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/逆向/" rel="tag">#逆向</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/22/ios-hook/" rel="next">不懂汇编,如何逆向(iOS)</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div>
+      
+        <style type="text/css">
+
+    .donate_bar {
+        text-align: center;
+        margin-top : 5%;
+    }
+
+    .donate_bar.hidden {
+        display:none;
+    }
+/*
+    .donate_bar a.btn_donate {
+        display: inline-block;
+        width: 82px;
+        height: 82px;
+        margin-left:auto;
+        margin-right:auto;
+
+        background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+        _background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat; 
+
+        -webkit-transition: background 0s;
+        -moz-transition: background 0s;
+        -o-transition: background 0s;
+        -ms-transition: background 0s;
+        transition: background 0s;
+    }
+*/
+    .donate_bar a.btn_donate:hover { 
+        // background-position: 0px -82px;
+        color: #87daff;
+    }
+
+    .donate_bar .donate_txt {
+        display: block;
+        color: #9d9d9d;
+        font: 14px/2 "Microsoft Yahei";
+    }
+
+    .bold { 
+        font-weight: bold; 
+    }
+
+    .post-donate a {
+        border-bottom: 0px;
+    }
+
+    #donate_guide table {
+        border: none;
+    }
+
+    #donate_guide td {
+        border-bottom: none;
+        border-right: none;
+        // background: #333333;
+        valign: top;
+    }
+
+</style>
+
+
+
+    
+
+    <div class ="post-donate">
+        <div id="donate_board" class="donate_bar center">
+              <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏">赏</a>
+              <span id="donate_txt" class="donate_txt">
+                   
+                        仅仅是一个功能
+                   
+              </span>
+            <br>
+        </div>  
+  
+        <div id="donate_guide" class="donate_bar center hidden">
+            <!--
+            
+                <a href="/img/aliPay.JPG" title="支付宝打赏" class="fancybox" rel="article0" 
+                    style="float:left;margin-left:25%;margin-right:10px;">
+                    <img src="/img/aliPay.JPG" title="" height="164px" width="164px">
+                </a> 
+              
+
+            
+                <a href="/img/wechatPay.JPG" title="微信打赏" class="fancybox" rel="article0"
+                    style="margin-right:30%">
+                    <img src="/img/wechatPay.JPG" title="" height="164px" width="164px">
+                </a>
+            
+            -->
+            <table>
+                <tr>
+                    <td>
+                        
+                            <a href="/img/aliPay.JPG" title="支付宝打赏" class="fancybox" rel="article0" 
+                                style="float:left;margin-left:25%;margin-right:10px;">
+                                <img src="/img/aliPay.JPG" title="" height="164px" width="164px">
+                            </a> 
+                         
+                    </td>
+                    <td>
+                        
+                            <a href="/img/wechatPay.JPG" title="微信打赏" class="fancybox" rel="article0"
+                                style="margin-right:30%">
+                                <img src="/img/wechatPay.JPG" title="" height="164px" width="164px">
+                            </a>
+                        
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+        <script type="text/javascript">
+            document.getElementById('btn_donate').onclick = function() {
+                $('#donate_board').addClass('hidden');
+                // $('#donate_guide').removeClass('hidden');
+                $('#donate_guide').show(2000);
+            }
+
+        </script>
+    </div>
+
+    
+
+
+      
+    </div>
+
+    <div class="post-spread">
+      
+        <div class="bdsharebuttonbox">
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table Of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/img/IMG_5048.jpg" alt="Locker" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Locker</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">half of iOSer, half of tester</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">categories</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-name">tags</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/sherlockz" target="_blank">GitHub</a>
+              </span>
+            
+          
+        </div>
+
+        <div class="links-of-friendly motion-element">
+          
+            <p class="site-author-name">Links</p>
+            
+              <span class="links-of-author-item">
+              <a href="http://wayjam.me" target="_blank">WayJamSo</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="https://paulswith.github.io/" target="_blank">Dobby</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <p class="post-toc-empty">This post does not have a Table Of Contents</p>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp;  2016 - 
+  <span itemprop="copyrightYear">2018
+  </span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Locker
+  </span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme by <a class="theme-link" href="http://blog.idhyt.com">idhyt</a>.<a class="theme-link" href="https://github.com/idhyt/hexo-theme-next/tree/magiclamp">Mala</a>
+</div>
+
+<!-- busuanzi -->
+
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+    
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'sherlockz';
+      var disqus_identifier = '2018/02/14/traceDump/';
+      var disqus_title = '逆向从 Instruments 中获取 GPU 数据';
+      var disqus_url = 'http://sherlockz.github.io/2018/02/14/traceDump/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>
